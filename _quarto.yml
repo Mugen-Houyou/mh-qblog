@@ -9,11 +9,9 @@ website:
       - icon: github
         href: https://github.com/Mugen-Houyou
       - icon: twitter
-        href: #
+        href: about:blank
 format:
   html:
     theme: cosmo
     css: styles.css
-
-
 
