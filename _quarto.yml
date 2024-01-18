@@ -1,6 +1,7 @@
 project:
   type: website
-
+  output-dir: docs
+  
 website:
   title: "무한포옹 (無限抱擁)"
   navbar:
