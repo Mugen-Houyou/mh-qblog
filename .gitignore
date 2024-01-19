@@ -154,4 +154,10 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 
+# https://quarto.org/docs/publishing/github-pages.html
 /.quarto/
+/_site/
+
+### Obsidian ###
+# config dir
+.obsidian/
