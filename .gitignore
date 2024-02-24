@@ -158,6 +158,10 @@ $RECYCLE.BIN/
 /.quarto/
 /_site/
 
+# ignoring local variables
+# For example, `_environment.local`
+/_*.local
+
 ### Obsidian ###
 # config dir
 .obsidian/
