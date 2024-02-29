@@ -12,8 +12,11 @@ about:
       href: https://linkedin.com
     - icon: github
       text: Github
-      href: https://github.com
+      href: https://github.com/Mugen-Houyou
 
 ---
 
-About this blog
+# About this blog
+
+## About me
+Hi!

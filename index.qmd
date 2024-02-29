@@ -1,5 +1,5 @@
 ---
-title: "무한포옹 (無限抱擁)"
+title: "무한포옹 《無限抱擁》"
 subtitle: "Infinite Embrace"
 listing:
   contents: posts

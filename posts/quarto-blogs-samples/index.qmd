@@ -1,0 +1,18 @@
+---
+title: "Quarto 블로그 예시 몇 가지"
+author: "Mugen-Houyou"
+date: "2024-02-28"
+categories: [code, etc]
+image: "image.jpg"
+---
+
+
+[https://beamilz.com/](https://beamilz.com/)
+
+[https://minsuk-sung.github.io/](https://minsuk-sung.github.io/)
+
+[https://rchemistblog.com/blog/posts/2023-01-19-quarto-intro/](https://rchemistblog.com/blog/posts/2023-01-19-quarto-intro/)
+
+[https://www.crumplab.com/blog/post_887_8_25_22_quartoblog/](https://www.crumplab.com/blog/post_887_8_25_22_quartoblog/)
+
+이상입니다.  끝.
