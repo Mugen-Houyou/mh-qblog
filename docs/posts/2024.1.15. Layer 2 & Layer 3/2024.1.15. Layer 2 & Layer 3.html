@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tristan O’Malley">
-<meta name="dcterms.date" content="2023-01-15">
+<meta name="author" content="Mugen-Houyou">
+<meta name="dcterms.date" content="2024-01-15">
 
-<title>Home - Welcome To My Blog</title>
+<title>Home - 2024.1.15. Layer 2 &amp; Layer 3</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -115,9 +115,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
+      <h1 class="title">2024.1.15. Layer 2 &amp; Layer 3</h1>
+            <p class="subtitle lead">OSI 7계층 중 layer 2 및 layer 3에 대하여.</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
+                <div class="quarto-category">Networks</div>
               </div>
                   </div>
   </div>
@@ -128,14 +129,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Tristan O’Malley </p>
+               <p>Mugen-Houyou </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 15, 2023</p>
+        <p class="date">January 15, 2024</p>
       </div>
     </div>
     
@@ -146,7 +147,20 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#osi-7계층-모델에서-layer-2와-3" id="toc-osi-7계층-모델에서-layer-2와-3" class="nav-link active" data-scroll-target="#osi-7계층-모델에서-layer-2와-3">OSI 7계층 모델에서 Layer 2와 3</a>
+  <ul class="collapse">
+  <li><a href="#설명" id="toc-설명" class="nav-link" data-scroll-target="#설명">설명</a></li>
+  <li><a href="#collision-domain-및-broadcast-domain" id="toc-collision-domain-및-broadcast-domain" class="nav-link" data-scroll-target="#collision-domain-및-broadcast-domain">Collision Domain 및 Broadcast Domain</a></li>
+  <li><a href="#vlan" id="toc-vlan" class="nav-link" data-scroll-target="#vlan">VLAN</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -154,11 +168,45 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<p><em>노트 작성 일자: 2024년 1월 15일 (수) 22:49</em></p>
+<section id="osi-7계층-모델에서-layer-2와-3" class="level1">
+<h1>OSI 7계층 모델에서 Layer 2와 3</h1>
+<section id="설명" class="level2">
+<h2 class="anchored" data-anchor-id="설명">설명</h2>
+<ul>
+<li>Layer 2?
+<ul>
+<li>프레임을 이용.</li>
+<li>MAC 주소 기반으로 데이터 전송을 관리.</li>
+<li>스위치와 브리지 같은 장비가 이 계층에서 작동.</li>
+<li>오류 검출, 재전송, 흐름 제어 등의 기능을 담당.</li>
+</ul></li>
+<li>Layer 3?
+<ul>
+<li>데이터 패킷을 이용.</li>
+<li>IP 주소를 기반으로 다른 네트워크로 데이터를 전송.</li>
+<li>라우터 등 장비가 해당.</li>
+<li>경로 결정(routing), 주소 지정(addressing), 패킷 분할(segmentation) 등.</li>
+</ul></li>
+</ul>
+</section>
+<section id="collision-domain-및-broadcast-domain" class="level2">
+<h2 class="anchored" data-anchor-id="collision-domain-및-broadcast-domain">Collision Domain 및 Broadcast Domain</h2>
+<ul>
+<li>1개 세그먼트로 여러 데이터가 전송될 때 충돌 발생 ==&gt; Collision domain.</li>
+<li>브로드캐스트가 닿는 네트워크의 범위 ==&gt; Broadcast domain.</li>
+</ul>
+</section>
+<section id="vlan" class="level2">
+<h2 class="anchored" data-anchor-id="vlan">VLAN</h2>
+<ul>
+<li>가상 LAN.</li>
+<li>곧, N개의 broadcast domains = N개의 logical subnetworks.</li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
