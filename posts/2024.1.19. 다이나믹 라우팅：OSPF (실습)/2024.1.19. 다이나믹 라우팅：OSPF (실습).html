@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tristan O’Malley">
-<meta name="dcterms.date" content="2023-01-15">
+<meta name="author" content="Mugen-Houyou">
+<meta name="dcterms.date" content="2024-01-19">
 
-<title>Home - Welcome To My Blog</title>
+<title>Home - 2024.1.19. 다이나믹 라우팅：OSPF (실습)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -73,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -115,9 +149,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
+      <h1 class="title">2024.1.19. 다이나믹 라우팅：OSPF (실습)</h1>
+            <p class="subtitle lead">2024.1.19. 수업 후 미션.</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
+                <div class="quarto-category">Networks</div>
               </div>
                   </div>
   </div>
@@ -128,14 +163,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Tristan O’Malley </p>
+               <p>Mugen-Houyou </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 15, 2023</p>
+        <p class="date">January 19, 2024</p>
       </div>
     </div>
     
@@ -146,7 +181,26 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#라우팅을-ospf를-이용해-구현-및-비교" id="toc-라우팅을-ospf를-이용해-구현-및-비교" class="nav-link active" data-scroll-target="#라우팅을-ospf를-이용해-구현-및-비교">라우팅을 OSPF를 이용해 구현 및 비교</a>
+  <ul class="collapse">
+  <li><a href="#목표-토폴로지" id="toc-목표-토폴로지" class="nav-link" data-scroll-target="#목표-토폴로지">목표 토폴로지</a></li>
+  <li><a href="#gns-3에서-구현" id="toc-gns-3에서-구현" class="nav-link" data-scroll-target="#gns-3에서-구현">GNS 3에서 구현</a></li>
+  <li><a href="#부가-ospf-구성-시-neighbor-id-state-drotherbdrdr" id="toc-부가-ospf-구성-시-neighbor-id-state-drotherbdrdr" class="nav-link" data-scroll-target="#부가-ospf-구성-시-neighbor-id-state-drotherbdrdr">부가: OSPF 구성 시 Neighbor ID, State (Drother/BDR/DR)?</a></li>
+  </ul></li>
+  <li><a href="#번외-ipv6" id="toc-번외-ipv6" class="nav-link" data-scroll-target="#번외-ipv6">번외: IPv6</a>
+  <ul class="collapse">
+  <li><a href="#ipv6-관련-공부해야-할-것들" id="toc-ipv6-관련-공부해야-할-것들" class="nav-link" data-scroll-target="#ipv6-관련-공부해야-할-것들">IPv6 관련 공부해야 할 것들:</a></li>
+  <li><a href="#ipv6의-link-local-주소" id="toc-ipv6의-link-local-주소" class="nav-link" data-scroll-target="#ipv6의-link-local-주소">IPv6의 link local 주소</a></li>
+  <li><a href="#ipv6의-주소-할당" id="toc-ipv6의-주소-할당" class="nav-link" data-scroll-target="#ipv6의-주소-할당">IPv6의 주소 할당</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -154,11 +208,61 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<section id="라우팅을-ospf를-이용해-구현-및-비교" class="level1">
+<h1>라우팅을 OSPF를 이용해 구현 및 비교</h1>
+<section id="목표-토폴로지" class="level2">
+<h2 class="anchored" data-anchor-id="목표-토폴로지">목표 토폴로지</h2>
+</section>
+<section id="gns-3에서-구현" class="level2">
+<h2 class="anchored" data-anchor-id="gns-3에서-구현">GNS 3에서 구현</h2>
+</section>
+<section id="부가-ospf-구성-시-neighbor-id-state-drotherbdrdr" class="level2">
+<h2 class="anchored" data-anchor-id="부가-ospf-구성-시-neighbor-id-state-drotherbdrdr">부가: OSPF 구성 시 Neighbor ID, State (Drother/BDR/DR)?</h2>
+<p>아래는 <code>sh ip ospf nei</code> 실행 시 나오는 화면. <img src="Pasted image 20240119113833.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="번외-ipv6" class="level1">
+<h1>번외: IPv6</h1>
+<section id="ipv6-관련-공부해야-할-것들" class="level2">
+<h2 class="anchored" data-anchor-id="ipv6-관련-공부해야-할-것들">IPv6 관련 공부해야 할 것들:</h2>
+<ul>
+<li>ICMPv6: 단순히 핑뿐만 아니라 MAC 주소도 같이 갖고 온다 등</li>
+<li>주소 종류: Unicast, link-local</li>
+<li>주소 할당 방식</li>
+<li>[심화] IPv4 ==&gt; IPv6 migration 방법</li>
+</ul>
+</section>
+<section id="ipv6의-link-local-주소" class="level2">
+<h2 class="anchored" data-anchor-id="ipv6의-link-local-주소">IPv6의 link local 주소</h2>
+<p>구현된 토폴로지:</p>
+<p>R1에서:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conf</span> t</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">int</span> e0/0</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ipv6</span> address 2001:DB8:1111:2::1/64</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> shut</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>R2에서:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">conf</span> t</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">int</span> e0/0</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">ipv6</span> address 2001:DB8:1111:2::2/64</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">no</span> shut</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>FE80으로 시작함.</li>
+<li>기존의 IPv4는, <strong>단일 IP 주소를 사용하여 네트워크 통신을 수행</strong>. 이 때문에 운용 도중에 IPv4 주소를 바꿔버리면 통신이 그냥 끊어져버림.</li>
+<li>그러나 IPv6은 위 link local 주소 덕분에 <strong>장치 간의 로컬 네트워크 내에서 계속해서 통신할 수 있는 기본 수단을 제공</strong>하므로, 주소가 도중에 바뀌더라도 통신을 계속할 수 있음.</li>
+</ul>
+</section>
+<section id="ipv6의-주소-할당" class="level2">
+<h2 class="anchored" data-anchor-id="ipv6의-주소-할당">IPv6의 주소 할당</h2>
+<ol type="1">
+<li>Static</li>
+<li>DHCPv6</li>
+<li>EUI-64</li>
+<li>Stateless autoconfig</li>
+</ol>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

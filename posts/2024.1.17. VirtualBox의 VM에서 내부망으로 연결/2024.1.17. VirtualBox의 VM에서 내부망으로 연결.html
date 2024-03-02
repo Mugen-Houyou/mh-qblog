@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tristan O’Malley">
-<meta name="dcterms.date" content="2023-01-15">
+<meta name="author" content="Mugen-Houyou">
+<meta name="dcterms.date" content="2024-01-17">
 
-<title>Home - Welcome To My Blog</title>
+<title>Home - 2024.1.17. VirtualBox의 VM에서 내부망으로 연결</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -73,7 +107,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -115,9 +149,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
+      <h1 class="title">2024.1.17. VirtualBox의 VM에서 내부망으로 연결</h1>
+            <p class="subtitle lead">2024.1.17. 수업 후 미션.</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
+                <div class="quarto-category">Virtualization</div>
               </div>
                   </div>
   </div>
@@ -128,14 +163,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Tristan O’Malley </p>
+               <p>Mugen-Houyou </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 15, 2023</p>
+        <p class="date">January 17, 2024</p>
       </div>
     </div>
     
@@ -146,7 +181,16 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#virtualbox-네트워크-관리자" id="toc-virtualbox-네트워크-관리자" class="nav-link active" data-scroll-target="#virtualbox-네트워크-관리자">VirtualBox 네트워크 관리자</a></li>
+  <li><a href="#ubuntu-가상-머신" id="toc-ubuntu-가상-머신" class="nav-link" data-scroll-target="#ubuntu-가상-머신">Ubuntu 가상 머신</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -154,11 +198,55 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<p><em>노트 작성 일자: 2024년 1월 17일 (수) 11:25</em></p>
+<section id="virtualbox-네트워크-관리자" class="level2">
+<h2 class="anchored" data-anchor-id="virtualbox-네트워크-관리자">VirtualBox 네트워크 관리자</h2>
+<ul>
+<li>아래와 같이 구성: <img src="Pasted image 20240117093837.png" class="img-fluid"></li>
+</ul>
+</section>
+<section id="ubuntu-가상-머신" class="level2">
+<h2 class="anchored" data-anchor-id="ubuntu-가상-머신">Ubuntu 가상 머신</h2>
+<ul>
+<li>게스트 머신을 클릭 후 설정에서, 네트워크 탭을 선택하고, 어댑터 중 하나를 아래와 같이 구성: <img src="Pasted image 20240117094248.png" class="img-fluid"></li>
+<li>이러면 게스트 머신은 VirtualBox Host-Only Ethernet Adapter와 연결은 됨</li>
+<li>그러나 IP 주소 등은 유저가 직접 구성해야 함</li>
+<li>먼저, 게스트 머신이 VirtualBox Host-Only Ethernet Adapter와 연결된 NIC를 identify하기 위해 <code>ip addr</code>를 입력:
+<ul>
+<li>여기서는 <code>enp0s8</code> 인터페이스라고 가정하겠음</li>
+</ul></li>
+<li>그 다음, 우분투 22.04 기준으로, VM의 전원을 켜고 아래와 같이 입력:</li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> nano /etc/netplan/01-netcfg.yaml</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>해당 야믈 파일을 아래와 같이 구성 - 여기서는 <code>192.168.56.2</code>을 assign함:</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">network</span><span class="kw">:</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">version</span><span class="kw">:</span><span class="at"> </span><span class="dv">2</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">renderer</span><span class="kw">:</span><span class="at"> networkd</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">ethernets</span><span class="kw">:</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">enp0s8</span><span class="kw">:</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">dhcp4</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">addresses</span><span class="kw">:</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="kw">-</span><span class="at"> 192.168.56.2/24</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">gateway4</span><span class="kw">:</span><span class="at"> </span><span class="fl">192.168.56.1</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">nameservers</span><span class="kw">:</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">addresses</span><span class="kw">:</span><span class="at"> </span><span class="kw">[</span><span class="fl">9.9.9.9</span><span class="kw">,</span><span class="at"> </span><span class="fl">1.1.1.1</span><span class="kw">]</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>이후 <code>sudo netplan apply</code>로 해당 야믈 파일을 실제로 반영</li>
+<li>참고: <code>/etc/netplan/01-netcfg.yaml</code>는 무얼 하는 파일인가?
+<ul>
+<li>A configuration file to define the way your system connects to the network, used by Netplan, which is a utility for network configuration management in modern Ubuntu versions <strong><em>(starting from 17.10)</em></strong>.</li>
+<li>After editing this file, the command <code>sudo netplan apply</code> is used to apply the changes. Netplan reads the YAML file, generates the appropriate configuration for the underlying system (e.g., <code>systemd-networkd</code>), and applies it to the network interfaces.</li>
+<li><code>00</code>, <code>01</code>, <code>02</code>, … ==&gt; The <code>01</code> in <code>01-netcfg.yaml</code> implies priority or order of processing. Netplan processes files in lexicographic order. This means you can have multiple configuration files for different purposes, and they will be processed in order based on their filenames.</li>
+<li>It <strong><em>replaces</em></strong> older methods of network configuration, like editing <code>/etc/network/interfaces</code> in previous versions of Ubuntu.</li>
+<li>여기서 <code>gateway4</code>와 <code>nameservers</code>는 외부망 (인터넷)으로 연결하려면 필수.</li>
+</ul></li>
+<li>반영 후 <code>ip addr</code>를 통해 해당 IP 주소가 실제로 배정되었는지 확인: <img src="Pasted image 20240117114821.png" class="img-fluid"></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

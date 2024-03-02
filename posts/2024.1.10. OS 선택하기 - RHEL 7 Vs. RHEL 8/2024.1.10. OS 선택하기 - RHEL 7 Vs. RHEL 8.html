@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tristan O’Malley">
-<meta name="dcterms.date" content="2023-01-15">
+<meta name="author" content="Mugen-Houyou">
+<meta name="dcterms.date" content="2024-01-10">
 
-<title>Home - Welcome To My Blog</title>
+<title>Home - 2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -115,9 +115,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
+      <h1 class="title">2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8</h1>
+            <p class="subtitle lead">서버를 구성한다고 가정할 때, RHEL 7과 8을 비교해보자.</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
+                <div class="quarto-category">Linux</div>
               </div>
                   </div>
   </div>
@@ -128,14 +129,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Tristan O’Malley </p>
+               <p>Mugen-Houyou </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 15, 2023</p>
+        <p class="date">January 10, 2024</p>
       </div>
     </div>
     
@@ -146,7 +147,20 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#rhel-7-vs.-rhel-8" id="toc-rhel-7-vs.-rhel-8" class="nav-link active" data-scroll-target="#rhel-7-vs.-rhel-8">RHEL 7 Vs. RHEL 8</a>
+  <ul class="collapse">
+  <li><a href="#시스템" id="toc-시스템" class="nav-link" data-scroll-target="#시스템">시스템</a></li>
+  <li><a href="#관리-예시-eth0라는-인터페이스를-구성해보자" id="toc-관리-예시-eth0라는-인터페이스를-구성해보자" class="nav-link" data-scroll-target="#관리-예시-eth0라는-인터페이스를-구성해보자">관리 예시: <code>eth0</code>라는 인터페이스를 구성해보자</a></li>
+  <li><a href="#컨테이너화" id="toc-컨테이너화" class="nav-link" data-scroll-target="#컨테이너화">컨테이너화</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -154,11 +168,79 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<section id="rhel-7-vs.-rhel-8" class="level1">
+<h1>RHEL 7 Vs. RHEL 8</h1>
+<p><em>스터디 및 노트 작성 일자: 2024년 1월 10일 (수) 22:04</em></p>
+<section id="시스템" class="level2">
+<h2 class="anchored" data-anchor-id="시스템">시스템</h2>
+<ul>
+<li>RHEL 7, 8 모두 <code>Systemd</code>를 사용하여 부팅, 시스템 서비스를 관리.</li>
+<li>RHEL 8부터 Cockpit라는 웹 콘솔을 기본으로 포함
+<ul>
+<li>‘터미널 = 웹 콘솔’ 수준의 활용도 (터미널에서 수행된 작업이 웹 콘솔에도 즉시 반영)</li>
+<li>다만 RHEL 7에서도 따로 설치해서 이용하는 것이 가능.</li>
+</ul></li>
+<li>RHEL 8부터 Application Streams를 통한 모듈러 구조를 채택.
+<ul>
+<li>https://www.thegeekdiary.com/beginners-guide-to-managing-package-module-streams-in-centos-rhel-8/</li>
+<li>https://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/8/html/installing_managing_and_removing_user-space_components/introduction-to-modules_using-appstream#module-streams_introduction-to-modules</li>
+<li>https://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/8/html/installing_managing_and_removing_user-space_components/installing-a-module-stream_installing-rhel-8-content</li>
+<li>https://unix.stackexchange.com/questions/603905/what-is-the-difference-between-a-yum-group-and-a-yum-module-in-red-hat-enterpris ## 네트워크</li>
+</ul></li>
+<li>네트워크 관리 방법이 서로 다름.</li>
+<li>RHEL 7은 <code>network</code>라는 서비스를 사용, <code>network-scripts</code>라는 스크립트를 작성함.</li>
+<li>RHEL 8은 <code>NetworkManager</code>라는 서비스를 사용 ==&gt; <code>nmcli</code>를 통해 관리. 예시) 네트워크 명명 규칙:</li>
+<li>RHEL 7에서: <code>eth0</code> 등.</li>
+<li>RHEL 8은 ’예측 가능한 네트워크 명명 규칙’을 도입 ==&gt; 가령, <code>enpXXX</code> (예: <code>enp0s3</code>) 형식을 사용.</li>
+<li>https://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index#consistent-network-interface-device-naming_configuring-and-managing-networking</li>
+</ul>
+</section>
+<section id="관리-예시-eth0라는-인터페이스를-구성해보자" class="level2">
+<h2 class="anchored" data-anchor-id="관리-예시-eth0라는-인터페이스를-구성해보자">관리 예시: <code>eth0</code>라는 인터페이스를 구성해보자</h2>
+<ul>
+<li>RHEL 7의 <code>network-scripts</code> 스크립트로 관리하기:</li>
+</ul>
+<pre><code>DEVICE=eth0
+BOOTPROTO=static
+ONBOOT=yes
+IPADDR=192.168.1.100
+NETMASK=255.255.255.0
+GATEWAY=192.168.1.1
+DNS1=8.8.8.8
+DNS2=8.8.4.4</code></pre>
+<ul>
+<li>RHEL 8의 <code>NetworkManager</code>로 관리하기 (<code>nmcli</code>):</li>
+</ul>
+<pre><code>nmcli device status
+nmcli con mod eth0 ipv4.addresses 192.168.1.100/24
+nmcli con mod eth0 ipv4.gateway 192.168.1.1
+nmcli con mod eth0 ipv4.dns "8.8.8.8,8.8.4.4"
+nmcli con mod eth0 ipv4.method manual
+nmcli con mod eth0 connection.autoconnect yes
+nmcli con down eth0
+nmcli con up eth0</code></pre>
+</section>
+<section id="컨테이너화" class="level2">
+<h2 class="anchored" data-anchor-id="컨테이너화">컨테이너화</h2>
+<ul>
+<li>RHEL 7은 Docker 기반의 컨테이너화를 지원.</li>
+<li>RHEL 8은 Podman 등 기반의 컨테이너화를 지원. ## 스터디에서 RHEL 7 채택 이유</li>
+<li>금융권뿐만 아니라 대규모 시스템에서는 사후지원 종료 후에도 유지하는 경우가 많음.</li>
+<li>시스템의 안정성 및 기존 기술의 숙련. ## 다음 주 화요일까지?</li>
+<li>구글 트렌드, 스택오버플로 자료량, 깃허브 스타 등.</li>
+<li>화요일 ==&gt; 1시간 전체 PPT 발표, 수요일==&gt; 실습.</li>
+<li>화요일 주제: ESXi에 설치하기 위한 가상매모리, UEFI 등, 고려해야 할 요소?
+<ul>
+<li>시스템 요구사항: RHEL 7의 요구되는 하드웨어 사양?</li>
+<li>네트워크 설정: VMWare 환경에서 RHEL 7의 네트워크 구성?</li>
+<li>스토리지 관리: 사용할 스토리지 타입 및 구성 방법?</li>
+<li>가상화 특성 고려: RHEL 7을 VMWare ESXi에 설치할 때 가상화 특성 및 호환성?</li>
+</ul></li>
+</ul>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

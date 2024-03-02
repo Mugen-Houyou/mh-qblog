@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tristan O’Malley">
-<meta name="dcterms.date" content="2023-01-15">
+<meta name="author" content="Mugen-Houyou">
+<meta name="dcterms.date" content="2024-01-25">
 
-<title>Home - Welcome To My Blog</title>
+<title>Home - 2024.1.25. VMware 마이그레이션</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -115,9 +115,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
+      <h1 class="title">2024.1.25. VMware 마이그레이션</h1>
+            <p class="subtitle lead">VMware로의 마이그레이션에 대한 수업 노트.</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
+                <div class="quarto-category">Virtualization</div>
               </div>
                   </div>
   </div>
@@ -128,14 +129,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Tristan O’Malley </p>
+               <p>Mugen-Houyou </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 15, 2023</p>
+        <p class="date">January 25, 2024</p>
       </div>
     </div>
     
@@ -146,7 +147,23 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#vmware-마이그레이션" id="toc-vmware-마이그레이션" class="nav-link active" data-scroll-target="#vmware-마이그레이션">VMware 마이그레이션</a>
+  <ul class="collapse">
+  <li><a href="#cold-vs.-hot-migrations" id="toc-cold-vs.-hot-migrations" class="nav-link" data-scroll-target="#cold-vs.-hot-migrations">Cold vs.&nbsp;Hot Migrations</a>
+  <ul class="collapse">
+  <li><a href="#cold-migrations" id="toc-cold-migrations" class="nav-link" data-scroll-target="#cold-migrations">Cold Migrations?</a></li>
+  <li><a href="#hot-migrations" id="toc-hot-migrations" class="nav-link" data-scroll-target="#hot-migrations">Hot Migrations?</a></li>
+  <li><a href="#shared-storage" id="toc-shared-storage" class="nav-link" data-scroll-target="#shared-storage">Shared Storage</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -154,11 +171,29 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<p><em>미완성 노트</em></p>
+<section id="vmware-마이그레이션" class="level1">
+<h1>VMware 마이그레이션</h1>
+<section id="cold-vs.-hot-migrations" class="level2">
+<h2 class="anchored" data-anchor-id="cold-vs.-hot-migrations">Cold vs.&nbsp;Hot Migrations</h2>
+<section id="cold-migrations" class="level3">
+<h3 class="anchored" data-anchor-id="cold-migrations">Cold Migrations?</h3>
+<p>VM들의 전원을 종료하거나 suspend 후 마이그레이션하는 것. - Intel vs.&nbsp;AMD ==&gt; 명령어 세트가 달라지면 hot이 어려울 수 있음.</p>
+</section>
+<section id="hot-migrations" class="level3">
+<h3 class="anchored" data-anchor-id="hot-migrations">Hot Migrations?</h3>
+<p>VM들의 전원이 켜진 상태에서 disruptions나 downtime 없이 마이그레이션하는 것. - 전용 vMotion 네트워크를 구성하여, 마이그레이션 전에 데이터를 옮김. - 이때 vSwitch에서는 VMkernel port를 이용.</p>
+</section>
+<section id="shared-storage" class="level3">
+<h3 class="anchored" data-anchor-id="shared-storage">Shared Storage</h3>
+<ul>
+<li>양쪽 호스트가 다 연결되어 있고,</li>
+</ul>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

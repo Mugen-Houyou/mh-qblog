@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tristan O’Malley">
-<meta name="dcterms.date" content="2023-01-15">
+<meta name="author" content="Mugen-Houyou">
+<meta name="dcterms.date" content="2024-01-16">
 
-<title>Home - Welcome To My Blog</title>
+<title>Home - 2024.1.16. 네트워크 이중화</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -115,9 +115,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
+      <h1 class="title">2024.1.16. 네트워크 이중화</h1>
+            <p class="subtitle lead">네트워크를 이중화하여 장애 등에 대비하자.</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
+                <div class="quarto-category">Networks</div>
               </div>
                   </div>
   </div>
@@ -128,14 +129,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Tristan O’Malley </p>
+               <p>Mugen-Houyou </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 15, 2023</p>
+        <p class="date">January 16, 2024</p>
       </div>
     </div>
     
@@ -146,7 +147,17 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#폐구조" id="toc-폐구조" class="nav-link active" data-scroll-target="#폐구조">폐구조</a></li>
+  <li><a href="#stp-spanning-tree-protocol" id="toc-stp-spanning-tree-protocol" class="nav-link" data-scroll-target="#stp-spanning-tree-protocol">STP (Spanning Tree Protocol)</a></li>
+  <li><a href="#etherchannel" id="toc-etherchannel" class="nav-link" data-scroll-target="#etherchannel">EtherChannel</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -154,11 +165,62 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<p><em>노트 작성 일자: 2024년 1월 16일 (수) 09:06</em></p>
+<section id="폐구조" class="level2">
+<h2 class="anchored" data-anchor-id="폐구조">폐구조</h2>
+<p><img src="Pasted image 20240116093250.png" class="img-fluid"> <!-- ![](Pasted image 20240116093250.png){width="50%" fig-align="left"} --></p>
+</section>
+<section id="stp-spanning-tree-protocol" class="level2">
+<h2 class="anchored" data-anchor-id="stp-spanning-tree-protocol">STP (Spanning Tree Protocol)</h2>
+<p><img src="Pasted image 20240116093608.png" class="img-fluid"></p>
+<ul>
+<li>STP란?</li>
+<li>Suboptimal path 문제
+<ul>
+<li>원인: broadcast domain이 1개</li>
+<li>해결책: 라우터를 하나 둬서 네트워크를 분리하기.</li>
+</ul></li>
+</ul>
+</section>
+<section id="etherchannel" class="level2">
+<h2 class="anchored" data-anchor-id="etherchannel">EtherChannel</h2>
+<ul>
+<li>EtherChannel이란?</li>
+<li>이점:
+<ul>
+<li>대역폭이 링크만큼 늘어남.</li>
+<li>트래픽의 로드 밸런싱.</li>
+<li>링크 중 하나가 죽으면 트래픽이 나머지 살아있는 쪽으로 다 넘어감.</li>
+</ul></li>
+<li>주의점:
+<ul>
+<li>Gigabit Ethernet과 Fast Ethernet가 같이 묶일 수 없음.</li>
+<li>VLAN 구성이 아예 동일해야 함. 예시: 1,5,10이랑 1,10인 두 개의 포트는 묶일 수 없음.</li>
+<li>장비마다 스펙 참고해야 함 ==&gt; 어떤 장비는 최대 6개 선만 지원.</li>
+</ul></li>
+<li>Server-side에서는 teamming.</li>
+<li>EtherChannel의 프로토콜들:
+<ul>
+<li><p>LACP (Link Aggregation Control Protocol)</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="Pasted image 20240116094529.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<ul>
+<li>표준 프로토콜</li>
+<li>참고: 양쪽 스위치에 둘 다 적용해야 함.</li>
+<li>적용 전후 비교 (<code>sh spanning-tree</code>): <img src="Pasted image 20240116094910.png" class="img-fluid"></li>
+</ul></li>
+<li><p>PAgP (Port Aggregation Protocol)</p>
+<ul>
+<li>시스코 proprietary 프로토콜</li>
+</ul></li>
+</ul></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

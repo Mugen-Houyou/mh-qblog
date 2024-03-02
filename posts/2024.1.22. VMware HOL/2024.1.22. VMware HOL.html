@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tristan O’Malley">
-<meta name="dcterms.date" content="2023-01-15">
+<meta name="author" content="Mugen-Houyou">
+<meta name="dcterms.date" content="2024-01-22">
 
-<title>Home - Welcome To My Blog</title>
+<title>Home - 2024.1.22. VMware 개요 및 HOL</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -115,9 +115,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
+      <h1 class="title">2024.1.22. VMware 개요 및 HOL</h1>
+            <p class="subtitle lead">VMware에 대해서 알아보고, 이를 실습하기 위한 HOL에 접속해보자.</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
+                <div class="quarto-category">Virtualization</div>
               </div>
                   </div>
   </div>
@@ -128,14 +129,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Tristan O’Malley </p>
+               <p>Mugen-Houyou </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 15, 2023</p>
+        <p class="date">January 22, 2024</p>
       </div>
     </div>
     
@@ -146,7 +147,24 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#vmware-개요-및-hol-hands-on-lab" id="toc-vmware-개요-및-hol-hands-on-lab" class="nav-link active" data-scroll-target="#vmware-개요-및-hol-hands-on-lab">VMware 개요 및 HOL (Hands-on-Lab)</a>
+  <ul class="collapse">
+  <li><a href="#가상-머신" id="toc-가상-머신" class="nav-link" data-scroll-target="#가상-머신">가상 머신?</a></li>
+  <li><a href="#vmware-용어-몇-가지" id="toc-vmware-용어-몇-가지" class="nav-link" data-scroll-target="#vmware-용어-몇-가지">VMware 용어 몇 가지</a></li>
+  <li><a href="#vmware-주요-솔루션" id="toc-vmware-주요-솔루션" class="nav-link" data-scroll-target="#vmware-주요-솔루션">VMware 주요 솔루션</a></li>
+  <li><a href="#vmware-esxi" id="toc-vmware-esxi" class="nav-link" data-scroll-target="#vmware-esxi">VMware ESXi</a></li>
+  <li><a href="#vmware-vmotion" id="toc-vmware-vmotion" class="nav-link" data-scroll-target="#vmware-vmotion">VMware vMotion</a></li>
+  <li><a href="#vmware-vswitch" id="toc-vmware-vswitch" class="nav-link" data-scroll-target="#vmware-vswitch">VMware vSwitch</a></li>
+  <li><a href="#번외.-thin-client-vs.-thick-client" id="toc-번외.-thin-client-vs.-thick-client" class="nav-link" data-scroll-target="#번외.-thin-client-vs.-thick-client">번외. Thin Client Vs. Thick Client</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -154,11 +172,80 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<section id="vmware-개요-및-hol-hands-on-lab" class="level1">
+<h1>VMware 개요 및 HOL (Hands-on-Lab)</h1>
+<section id="가상-머신" class="level2">
+<h2 class="anchored" data-anchor-id="가상-머신">가상 머신?</h2>
+<ul>
+<li>물리적인 하드웨어의 논리적인 표현.</li>
+<li>단일 물리적 컴퓨터에서 여러 시스템들을 동시에 실행 가능.</li>
+<li>서버 가상화, 테스트 환경, 시스템 이전 및 보안 목적 등 다양한 용도로 사용됨.</li>
+</ul>
+</section>
+<section id="vmware-용어-몇-가지" class="level2">
+<h2 class="anchored" data-anchor-id="vmware-용어-몇-가지">VMware 용어 몇 가지</h2>
+<ul>
+<li><strong>Hypervisor</strong>: 하드웨어와 가상 머신 사이에서 작동하는 소프트웨어 또는 펌웨어 계층.</li>
+<li><strong>Datastore</strong>: 가상 머신 파일을 저장하는 물리적 저장소 리소스.</li>
+</ul>
+</section>
+<section id="vmware-주요-솔루션" class="level2">
+<h2 class="anchored" data-anchor-id="vmware-주요-솔루션">VMware 주요 솔루션</h2>
+<ul>
+<li><strong>Workstation</strong>: 개인 사용자를 위한 가상화 솔루션.</li>
+<li><strong>Fusion</strong>: 맥 사용자를 위한 가상화 솔루션.</li>
+<li><strong>vSphere</strong>: VMware의 클라우드 컴퓨팅 가상화 플랫폼.</li>
+<li><strong>vCenter Server</strong>: 중앙 집중식 관리 애플리케이션, 다수의 ESXi 호스트 및 가상 머신을 관리.</li>
+<li><strong>vSAN</strong>: 가상화된 스토리지 솔루션, 하드웨어 스토리지의 필요성을 줄임.</li>
+<li><strong>Horizon</strong>: 가상 데스크톱 인프라(VDI) 솔루션.</li>
+<li><strong>NSX</strong>: 네트워크 가상화 및 보안 플랫폼.</li>
+<li><strong>AirWatch</strong>: 엔터프라이즈 모빌리티 관리(EMM) 솔루션.</li>
+</ul>
+</section>
+<section id="vmware-esxi" class="level2">
+<h2 class="anchored" data-anchor-id="vmware-esxi">VMware ESXi</h2>
+<ul>
+<li>정의: VMware의 엔터프라이즈급, 베어 메탈 (bare metal) 하이퍼바이저.</li>
+<li>특징: 직접 서버 하드웨어에 설치되며, 가상화된 환경을 효율적으로 관리 및 분배. 높은 성능, 확장성, 보안성 제공.</li>
+</ul>
+</section>
+<section id="vmware-vmotion" class="level2">
+<h2 class="anchored" data-anchor-id="vmware-vmotion">VMware vMotion</h2>
+<ul>
+<li>정의: 가상 머신을 한 서버에서 다른 서버로 이동시키는 기능.</li>
+<li>특징: 가동 중인 가상 머신을 다운타임 없이 이전. 유지보수, 로드 밸런싱, 재해 복구 계획에 유용.</li>
+</ul>
+</section>
+<section id="vmware-vswitch" class="level2">
+<h2 class="anchored" data-anchor-id="vmware-vswitch">VMware vSwitch</h2>
+<ul>
+<li><strong>vSwitch</strong>란?
+<ul>
+<li>가상 스위치로, 가상 환경 내 네트워크 트래픽을 관리하는 소프트웨어 기반 스위치.</li>
+<li>네트워크 분리 및 격리, 보안 정책 구현, 트래픽 관리 및 모니터링 등.</li>
+</ul></li>
+<li>역할
+<ol type="1">
+<li>1개 host 내 VM들간 통신</li>
+<li>여러 hosts의 VM들간 통신</li>
+<li>스토리지 연결</li>
+<li>관리용</li>
+<li>vMotion ## Thin Provisioning Vs. Thick Provisioning 스토리지 관리와 관련된 개념.</li>
+</ol></li>
+<li><strong>Thin Provisioning</strong>: 물리적 스토리지 공간을 가상 머신에 실제 사용량만큼만 할당하는 방식. 자원의 효율적인 사용을 가능하게 함.
+<ul>
+<li>주의사항: 과도한 오버프로비저닝으로 저장소 공간 부족 발생 가능.</li>
+</ul></li>
+<li><strong>Thick Provisioning</strong>: 필요한 스토리지 공간을 미리 전체 할당하는 방식. 성능은 더 좋지만, 스토리지 공간의 낭비 가능성이 있음.</li>
+</ul>
+</section>
+<section id="번외.-thin-client-vs.-thick-client" class="level2">
+<h2 class="anchored" data-anchor-id="번외.-thin-client-vs.-thick-client">번외. Thin Client Vs. Thick Client</h2>
+<p>이건 클라이언트 컴퓨팅 모델과 관련이 있음. - <strong>Thin Client</strong>: 가볍고 기능이 제한된 클라이언트 컴퓨터. 중앙 서버에 의존적으로 작동하며, 주로 데이터 처리와 저장을 서버에서 수행. 저렴한 유지비 (클라이언트가), 중앙 집중식 관리, 보안성 강화. - <strong>Thick Client (Fat Client)</strong>: 모든 연산을 로컬에서 수행하는 전통적인 컴퓨터 모델. 오프라인 작업 가능, UX적으로 좋음.</p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

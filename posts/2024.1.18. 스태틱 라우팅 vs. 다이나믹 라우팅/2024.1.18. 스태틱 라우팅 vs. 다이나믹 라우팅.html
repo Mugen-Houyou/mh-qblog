@@ -6,10 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tristan O’Malley">
-<meta name="dcterms.date" content="2023-01-15">
+<meta name="author" content="Mugen-Houyou">
+<meta name="dcterms.date" content="2024-01-18">
 
-<title>Home - Welcome To My Blog</title>
+<title>Home - 2024.1.18. VirtualBox의 VM에서 내부망으로 연결</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +73,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -115,9 +115,10 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
+      <h1 class="title">2024.1.18. VirtualBox의 VM에서 내부망으로 연결</h1>
+            <p class="subtitle lead">2024.1.17. 수업 후 미션.</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">news</div>
+                <div class="quarto-category">Networks</div>
               </div>
                   </div>
   </div>
@@ -128,14 +129,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Tristan O’Malley </p>
+               <p>Mugen-Houyou </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 15, 2023</p>
+        <p class="date">January 18, 2024</p>
       </div>
     </div>
     
@@ -146,7 +147,20 @@ ul.task-list li input[type="checkbox"] {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#라우팅을-static과-ospf를-이용하여-구현-및-비교" id="toc-라우팅을-static과-ospf를-이용하여-구현-및-비교" class="nav-link active" data-scroll-target="#라우팅을-static과-ospf를-이용하여-구현-및-비교">라우팅을 Static과 OSPF를 이용하여 구현 및 비교</a>
+  <ul class="collapse">
+  <li><a href="#목표-토폴로지" id="toc-목표-토폴로지" class="nav-link" data-scroll-target="#목표-토폴로지">목표 토폴로지</a></li>
+  <li><a href="#gns-3에서-구현" id="toc-gns-3에서-구현" class="nav-link" data-scroll-target="#gns-3에서-구현">GNS 3에서 구현</a></li>
+  <li><a href="#부가-area를-나누는-이유-효과-성능상-이점" id="toc-부가-area를-나누는-이유-효과-성능상-이점" class="nav-link" data-scroll-target="#부가-area를-나누는-이유-효과-성능상-이점">부가: Area를 나누는 이유? 효과? 성능상 이점?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
@@ -154,11 +168,22 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<section id="라우팅을-static과-ospf를-이용하여-구현-및-비교" class="level1">
+<h1>라우팅을 Static과 OSPF를 이용하여 구현 및 비교</h1>
+<section id="목표-토폴로지" class="level2">
+<h2 class="anchored" data-anchor-id="목표-토폴로지">목표 토폴로지</h2>
+<p><img src="Pasted image 20240118141537.png" class="img-fluid"></p>
+</section>
+<section id="gns-3에서-구현" class="level2">
+<h2 class="anchored" data-anchor-id="gns-3에서-구현">GNS 3에서 구현</h2>
+<p><img src="Pasted image 20240118142248.png" class="img-fluid"></p>
+</section>
+<section id="부가-area를-나누는-이유-효과-성능상-이점" class="level2">
+<h2 class="anchored" data-anchor-id="부가-area를-나누는-이유-효과-성능상-이점">부가: Area를 나누는 이유? 효과? 성능상 이점?</h2>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

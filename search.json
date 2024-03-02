@@ -14,18 +14,53 @@
     "text": "Hi!"
   },
   {
+    "objectID": "posts/2024.1.15. Layer 2 & Layer 3/2024.1.15. Layer 2 & Layer 3.html",
+    "href": "posts/2024.1.15. Layer 2 & Layer 3/2024.1.15. Layer 2 & Layer 3.html",
+    "title": "2024.1.15. Layer 2 & Layer 3",
+    "section": "",
+    "text": "노트 작성 일자: 2024년 1월 15일 (수) 22:49"
+  },
+  {
+    "objectID": "posts/2024.1.15. Layer 2 & Layer 3/2024.1.15. Layer 2 & Layer 3.html#설명",
+    "href": "posts/2024.1.15. Layer 2 & Layer 3/2024.1.15. Layer 2 & Layer 3.html#설명",
+    "title": "2024.1.15. Layer 2 & Layer 3",
+    "section": "설명",
+    "text": "설명\n\nLayer 2?\n\n프레임을 이용.\nMAC 주소 기반으로 데이터 전송을 관리.\n스위치와 브리지 같은 장비가 이 계층에서 작동.\n오류 검출, 재전송, 흐름 제어 등의 기능을 담당.\n\nLayer 3?\n\n데이터 패킷을 이용.\nIP 주소를 기반으로 다른 네트워크로 데이터를 전송.\n라우터 등 장비가 해당.\n경로 결정(routing), 주소 지정(addressing), 패킷 분할(segmentation) 등."
+  },
+  {
+    "objectID": "posts/2024.1.15. Layer 2 & Layer 3/2024.1.15. Layer 2 & Layer 3.html#collision-domain-및-broadcast-domain",
+    "href": "posts/2024.1.15. Layer 2 & Layer 3/2024.1.15. Layer 2 & Layer 3.html#collision-domain-및-broadcast-domain",
+    "title": "2024.1.15. Layer 2 & Layer 3",
+    "section": "Collision Domain 및 Broadcast Domain",
+    "text": "Collision Domain 및 Broadcast Domain\n\n1개 세그먼트로 여러 데이터가 전송될 때 충돌 발생 ==&gt; Collision domain.\n브로드캐스트가 닿는 네트워크의 범위 ==&gt; Broadcast domain."
+  },
+  {
+    "objectID": "posts/2024.1.15. Layer 2 & Layer 3/2024.1.15. Layer 2 & Layer 3.html#vlan",
+    "href": "posts/2024.1.15. Layer 2 & Layer 3/2024.1.15. Layer 2 & Layer 3.html#vlan",
+    "title": "2024.1.15. Layer 2 & Layer 3",
+    "section": "VLAN",
+    "text": "VLAN\n\n가상 LAN.\n곧, N개의 broadcast domains = N개의 logical subnetworks."
+  },
+  {
+    "objectID": "posts/2024.1.25. VMware 마이그레이션/2024.1.25. VMware 마이그레이션.html",
+    "href": "posts/2024.1.25. VMware 마이그레이션/2024.1.25. VMware 마이그레이션.html",
+    "title": "2024.1.25. VMware 마이그레이션",
+    "section": "",
+    "text": "미완성 노트"
+  },
+  {
+    "objectID": "posts/2024.1.25. VMware 마이그레이션/2024.1.25. VMware 마이그레이션.html#cold-vs.-hot-migrations",
+    "href": "posts/2024.1.25. VMware 마이그레이션/2024.1.25. VMware 마이그레이션.html#cold-vs.-hot-migrations",
+    "title": "2024.1.25. VMware 마이그레이션",
+    "section": "Cold vs. Hot Migrations",
+    "text": "Cold vs. Hot Migrations\n\nCold Migrations?\nVM들의 전원을 종료하거나 suspend 후 마이그레이션하는 것. - Intel vs. AMD ==&gt; 명령어 세트가 달라지면 hot이 어려울 수 있음.\n\n\nHot Migrations?\nVM들의 전원이 켜진 상태에서 disruptions나 downtime 없이 마이그레이션하는 것. - 전용 vMotion 네트워크를 구성하여, 마이그레이션 전에 데이터를 옮김. - 이때 vSwitch에서는 VMkernel port를 이용.\n\n\nShared Storage\n\n양쪽 호스트가 다 연결되어 있고,"
+  },
+  {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
     "title": "Welcome To My Blog",
     "section": "",
     "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is not a post with executable code."
   },
   {
     "objectID": "posts/quarto-blogs-samples/index.html",
@@ -35,10 +70,255 @@
     "text": "https://beamilz.com/\nhttps://minsuk-sung.github.io/\nhttps://rchemistblog.com/blog/posts/2023-01-19-quarto-intro/\nhttps://www.crumplab.com/blog/post_887_8_25_22_quartoblog/\n이상입니다. 끝."
   },
   {
+    "objectID": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html",
+    "href": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html",
+    "title": "2024.1.19. 다이나믹 라우팅：OSPF (실습)",
+    "section": "",
+    "text": "아래는 sh ip ospf nei 실행 시 나오는 화면."
+  },
+  {
+    "objectID": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#부가-ospf-구성-시-neighbor-id-state-drotherbdrdr",
+    "href": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#부가-ospf-구성-시-neighbor-id-state-drotherbdrdr",
+    "title": "2024.1.19. 다이나믹 라우팅：OSPF (실습)",
+    "section": "",
+    "text": "아래는 sh ip ospf nei 실행 시 나오는 화면."
+  },
+  {
+    "objectID": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6-관련-공부해야-할-것들",
+    "href": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6-관련-공부해야-할-것들",
+    "title": "2024.1.19. 다이나믹 라우팅：OSPF (실습)",
+    "section": "IPv6 관련 공부해야 할 것들:",
+    "text": "IPv6 관련 공부해야 할 것들:\n\nICMPv6: 단순히 핑뿐만 아니라 MAC 주소도 같이 갖고 온다 등\n주소 종류: Unicast, link-local\n주소 할당 방식\n[심화] IPv4 ==&gt; IPv6 migration 방법"
+  },
+  {
+    "objectID": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6의-link-local-주소",
+    "href": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6의-link-local-주소",
+    "title": "2024.1.19. 다이나믹 라우팅：OSPF (실습)",
+    "section": "IPv6의 link local 주소",
+    "text": "IPv6의 link local 주소\n구현된 토폴로지:\nR1에서:\nconf t\nint e0/0\nipv6 address 2001:DB8:1111:2::1/64\nno shut\nR2에서:\nconf t\nint e0/0\nipv6 address 2001:DB8:1111:2::2/64\nno shut\n\nFE80으로 시작함.\n기존의 IPv4는, 단일 IP 주소를 사용하여 네트워크 통신을 수행. 이 때문에 운용 도중에 IPv4 주소를 바꿔버리면 통신이 그냥 끊어져버림.\n그러나 IPv6은 위 link local 주소 덕분에 장치 간의 로컬 네트워크 내에서 계속해서 통신할 수 있는 기본 수단을 제공하므로, 주소가 도중에 바뀌더라도 통신을 계속할 수 있음."
+  },
+  {
+    "objectID": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6의-주소-할당",
+    "href": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6의-주소-할당",
+    "title": "2024.1.19. 다이나믹 라우팅：OSPF (실습)",
+    "section": "IPv6의 주소 할당",
+    "text": "IPv6의 주소 할당\n\nStatic\nDHCPv6\nEUI-64\nStateless autoconfig"
+  },
+  {
+    "objectID": "posts/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8.html",
+    "href": "posts/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8.html",
+    "title": "2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8",
+    "section": "",
+    "text": "스터디 및 노트 작성 일자: 2024년 1월 10일 (수) 22:04\n\n\n\nRHEL 7, 8 모두 Systemd를 사용하여 부팅, 시스템 서비스를 관리.\nRHEL 8부터 Cockpit라는 웹 콘솔을 기본으로 포함\n\n‘터미널 = 웹 콘솔’ 수준의 활용도 (터미널에서 수행된 작업이 웹 콘솔에도 즉시 반영)\n다만 RHEL 7에서도 따로 설치해서 이용하는 것이 가능.\n\nRHEL 8부터 Application Streams를 통한 모듈러 구조를 채택.\n\nhttps://www.thegeekdiary.com/beginners-guide-to-managing-package-module-streams-in-centos-rhel-8/\nhttps://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/8/html/installing_managing_and_removing_user-space_components/introduction-to-modules_using-appstream#module-streams_introduction-to-modules\nhttps://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/8/html/installing_managing_and_removing_user-space_components/installing-a-module-stream_installing-rhel-8-content\nhttps://unix.stackexchange.com/questions/603905/what-is-the-difference-between-a-yum-group-and-a-yum-module-in-red-hat-enterpris ## 네트워크\n\n네트워크 관리 방법이 서로 다름.\nRHEL 7은 network라는 서비스를 사용, network-scripts라는 스크립트를 작성함.\nRHEL 8은 NetworkManager라는 서비스를 사용 ==&gt; nmcli를 통해 관리. 예시) 네트워크 명명 규칙:\nRHEL 7에서: eth0 등.\nRHEL 8은 ’예측 가능한 네트워크 명명 규칙’을 도입 ==&gt; 가령, enpXXX (예: enp0s3) 형식을 사용.\nhttps://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index#consistent-network-interface-device-naming_configuring-and-managing-networking\n\n\n\n\n\nRHEL 7의 network-scripts 스크립트로 관리하기:\n\nDEVICE=eth0\nBOOTPROTO=static\nONBOOT=yes\nIPADDR=192.168.1.100\nNETMASK=255.255.255.0\nGATEWAY=192.168.1.1\nDNS1=8.8.8.8\nDNS2=8.8.4.4\n\nRHEL 8의 NetworkManager로 관리하기 (nmcli):\n\nnmcli device status\nnmcli con mod eth0 ipv4.addresses 192.168.1.100/24\nnmcli con mod eth0 ipv4.gateway 192.168.1.1\nnmcli con mod eth0 ipv4.dns \"8.8.8.8,8.8.4.4\"\nnmcli con mod eth0 ipv4.method manual\nnmcli con mod eth0 connection.autoconnect yes\nnmcli con down eth0\nnmcli con up eth0\n\n\n\n\nRHEL 7은 Docker 기반의 컨테이너화를 지원.\nRHEL 8은 Podman 등 기반의 컨테이너화를 지원. ## 스터디에서 RHEL 7 채택 이유\n금융권뿐만 아니라 대규모 시스템에서는 사후지원 종료 후에도 유지하는 경우가 많음.\n시스템의 안정성 및 기존 기술의 숙련. ## 다음 주 화요일까지?\n구글 트렌드, 스택오버플로 자료량, 깃허브 스타 등.\n화요일 ==&gt; 1시간 전체 PPT 발표, 수요일==&gt; 실습.\n화요일 주제: ESXi에 설치하기 위한 가상매모리, UEFI 등, 고려해야 할 요소?\n\n시스템 요구사항: RHEL 7의 요구되는 하드웨어 사양?\n네트워크 설정: VMWare 환경에서 RHEL 7의 네트워크 구성?\n스토리지 관리: 사용할 스토리지 타입 및 구성 방법?\n가상화 특성 고려: RHEL 7을 VMWare ESXi에 설치할 때 가상화 특성 및 호환성?"
+  },
+  {
+    "objectID": "posts/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8.html#시스템",
+    "href": "posts/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8.html#시스템",
+    "title": "2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8",
+    "section": "",
+    "text": "RHEL 7, 8 모두 Systemd를 사용하여 부팅, 시스템 서비스를 관리.\nRHEL 8부터 Cockpit라는 웹 콘솔을 기본으로 포함\n\n‘터미널 = 웹 콘솔’ 수준의 활용도 (터미널에서 수행된 작업이 웹 콘솔에도 즉시 반영)\n다만 RHEL 7에서도 따로 설치해서 이용하는 것이 가능.\n\nRHEL 8부터 Application Streams를 통한 모듈러 구조를 채택.\n\nhttps://www.thegeekdiary.com/beginners-guide-to-managing-package-module-streams-in-centos-rhel-8/\nhttps://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/8/html/installing_managing_and_removing_user-space_components/introduction-to-modules_using-appstream#module-streams_introduction-to-modules\nhttps://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/8/html/installing_managing_and_removing_user-space_components/installing-a-module-stream_installing-rhel-8-content\nhttps://unix.stackexchange.com/questions/603905/what-is-the-difference-between-a-yum-group-and-a-yum-module-in-red-hat-enterpris ## 네트워크\n\n네트워크 관리 방법이 서로 다름.\nRHEL 7은 network라는 서비스를 사용, network-scripts라는 스크립트를 작성함.\nRHEL 8은 NetworkManager라는 서비스를 사용 ==&gt; nmcli를 통해 관리. 예시) 네트워크 명명 규칙:\nRHEL 7에서: eth0 등.\nRHEL 8은 ’예측 가능한 네트워크 명명 규칙’을 도입 ==&gt; 가령, enpXXX (예: enp0s3) 형식을 사용.\nhttps://access.redhat.com/documentation/ko-kr/red_hat_enterprise_linux/8/html-single/configuring_and_managing_networking/index#consistent-network-interface-device-naming_configuring-and-managing-networking"
+  },
+  {
+    "objectID": "posts/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8.html#관리-예시-eth0라는-인터페이스를-구성해보자",
+    "href": "posts/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8.html#관리-예시-eth0라는-인터페이스를-구성해보자",
+    "title": "2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8",
+    "section": "",
+    "text": "RHEL 7의 network-scripts 스크립트로 관리하기:\n\nDEVICE=eth0\nBOOTPROTO=static\nONBOOT=yes\nIPADDR=192.168.1.100\nNETMASK=255.255.255.0\nGATEWAY=192.168.1.1\nDNS1=8.8.8.8\nDNS2=8.8.4.4\n\nRHEL 8의 NetworkManager로 관리하기 (nmcli):\n\nnmcli device status\nnmcli con mod eth0 ipv4.addresses 192.168.1.100/24\nnmcli con mod eth0 ipv4.gateway 192.168.1.1\nnmcli con mod eth0 ipv4.dns \"8.8.8.8,8.8.4.4\"\nnmcli con mod eth0 ipv4.method manual\nnmcli con mod eth0 connection.autoconnect yes\nnmcli con down eth0\nnmcli con up eth0"
+  },
+  {
+    "objectID": "posts/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8.html#컨테이너화",
+    "href": "posts/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8.html#컨테이너화",
+    "title": "2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8",
+    "section": "",
+    "text": "RHEL 7은 Docker 기반의 컨테이너화를 지원.\nRHEL 8은 Podman 등 기반의 컨테이너화를 지원. ## 스터디에서 RHEL 7 채택 이유\n금융권뿐만 아니라 대규모 시스템에서는 사후지원 종료 후에도 유지하는 경우가 많음.\n시스템의 안정성 및 기존 기술의 숙련. ## 다음 주 화요일까지?\n구글 트렌드, 스택오버플로 자료량, 깃허브 스타 등.\n화요일 ==&gt; 1시간 전체 PPT 발표, 수요일==&gt; 실습.\n화요일 주제: ESXi에 설치하기 위한 가상매모리, UEFI 등, 고려해야 할 요소?\n\n시스템 요구사항: RHEL 7의 요구되는 하드웨어 사양?\n네트워크 설정: VMWare 환경에서 RHEL 7의 네트워크 구성?\n스토리지 관리: 사용할 스토리지 타입 및 구성 방법?\n가상화 특성 고려: RHEL 7을 VMWare ESXi에 설치할 때 가상화 특성 및 호환성?"
+  },
+  {
+    "objectID": "posts/post-with-code/index.html",
+    "href": "posts/post-with-code/index.html",
+    "title": "Post With Code",
+    "section": "",
+    "text": "This is not a post with executable code."
+  },
+  {
+    "objectID": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html",
+    "href": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html",
+    "title": "2024.1.12. 셸 스크립팅",
+    "section": "",
+    "text": "노트 작성 일자: 2024년 1월 12일 (수) 09:49"
+  },
+  {
+    "objectID": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#셸-스크립팅이란",
+    "href": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#셸-스크립팅이란",
+    "title": "2024.1.12. 셸 스크립팅",
+    "section": "셸 스크립팅이란?",
+    "text": "셸 스크립팅이란?\n\n커맨드 라인을 통해 운영 체제에 명령을 자동화하는 스크립트."
+  },
+  {
+    "objectID": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#셸-스크립트-언어의-종류",
+    "href": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#셸-스크립트-언어의-종류",
+    "title": "2024.1.12. 셸 스크립팅",
+    "section": "셸 스크립트 언어의 종류",
+    "text": "셸 스크립트 언어의 종류\n\nSh\n\nPOSIX 표준 쉘 스크립트.\n대부분의 UNIX 시스템에서 지원.\n\nBash\n\nGNU 프로젝트의 일부.\n향상된 기능을 제공하며 사용자 친화적.\n\nZsh\n\n사용자 인터페이스 및 기능 향상에 중점.\n\nPowerShell\n\n마이크로소프트 윈도우에 특화.\n객체 지향적 명령어 접근 방식."
+  },
+  {
+    "objectID": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#bash란",
+    "href": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#bash란",
+    "title": "2024.1.12. 셸 스크립팅",
+    "section": "Bash란?",
+    "text": "Bash란?\n\nBourne-again Shell.\nGNU 프로젝트의 일환으로 개발된 유닉스 셸.\n스크립트 작성 및 명령 실행에 널리 사용됨."
+  },
+  {
+    "objectID": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#왜-bash를-사용하는가",
+    "href": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#왜-bash를-사용하는가",
+    "title": "2024.1.12. 셸 스크립팅",
+    "section": "왜 Bash를 사용하는가?",
+    "text": "왜 Bash를 사용하는가?\n\n널리 사용되고, 강력하며, 사용자 친화적."
+  },
+  {
+    "objectID": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#bourne-shell-vs.-bourne-again-shell",
+    "href": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#bourne-shell-vs.-bourne-again-shell",
+    "title": "2024.1.12. 셸 스크립팅",
+    "section": "Bourne Shell vs. Bourne-again Shell?",
+    "text": "Bourne Shell vs. Bourne-again Shell?\n\nBash는 Bourne Shell의 확장 버전으로, 개선된 문법을 제공함."
+  },
+  {
+    "objectID": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#bash-사용법-및-문법",
+    "href": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html#bash-사용법-및-문법",
+    "title": "2024.1.12. 셸 스크립팅",
+    "section": "Bash 사용법 및 문법",
+    "text": "Bash 사용법 및 문법\n\n변수 지정 및 사용\n\n변수명=값 형식으로 지정.\n$변수명으로 사용.\n\nmy_var=\"Hello, World!\"\necho $my_var  # Outputs: Hello, World!\n\n\n사용자로부터 입력받기\n\nread 변수명 명령어 사용.\n\necho \"Enter your name: \"\nread name\necho \"Hello, $name!\"\n\n\n파라미터 받기 및 전달\n\n스크립트 내 $1, $2 등으로 접근.\n\n# Suppose this is in a script called greet.sh\necho \"Hello, $1!\"\n# When you run `bash greet.sh John`, it will output: Hello, John!\n\n\n산술 연산\n\nlet, expr, 또는 (( 연산 )) 사용.\n\nlet result=5+3\necho $result  # Outputs: 8\n\nresult=$(expr 5 + 3)\necho $result  # Outputs: 8\n\nresult=$((5 + 3))\necho $result  # Outputs: 8\n\n\nif 조건문\n\nif [ 조건 ]; then ... fi 구조 사용.\n\nnumber=10\nif [ $number -eq 10 ]; then\n    echo \"숫자의 값은: 10.\"\nelse\n    echo \"숫자의 값은 10이 아님.\"\nfi\n\n# 문자열 비교\nif [ \"$a\" == \"$b\" ]; then\n    echo \"a와 b는 같음.\"\nfi\n\n# 숫자 비교\nif [ $a -gt $b ]; then\n    echo \"a는 b보다 큽니다.\"\nelif [ $a -eq $b ]; then\n    echo \"a와 b는 같습니다.\"\nelse\n    echo \"a는 b보다 작습니다.\"\nfi\n\n# 파일 존재 여부 확인\nif [ -f \"$file\" ]; then\n    echo \"$file 파일 이미 존재함.\"\nfi\n\n## AND 및 OR 연산자\nif [ $a -gt 10 ] && [ $b -lt 5 ]; then\n    echo \"a는 10보다 크고 b는 5보다 작습니다.\"\nfi\n\nif [ $a -gt 10 ] || [ $b -lt 5 ]; then\n    echo \"a가 10보다 크거나 b가 5보다 작습니다.\"\nfi\n\nif [[ 조건 ]]; then ... fi 구조 ==&gt; sh에서는 지원하지 않고, bash부터 사용 가능.\n\nstr1=\"Hello\"\nstr2=\"World\"\n\n# [[]]에서는 변수 사용 시 \"\" 안 써도 됨.\nif [[ $str1 == $str2 ]]; then\n    echo \"String들이 같다.\"\nelse\n    echo \"String들이 다르다.\"\nfi\nfilename=\"example.txt\"\nif [[ $filename == *.txt ]]; then\n    echo \"$filename is a text file.\"\nelse\n    echo \"$filename is not a text file.\"\nfi\n\n# NOT 사용하기.\nstr=\"Hello\"\nif [[ ! $str == \"World\" ]]; then\n    echo \"$str is not World.\"\nfi\n\n\ncase문\ncase $var in\n    1) echo \"Number 1\";;\n    2) echo \"Number 2\";;\n    3) echo \"Number 3\";;\n    *) echo \"Other number\";;\nesac\n\n\n반복문\n\nfor, while, until 반복문 사용 가능.\n\n# Using for loop\nfor i in {1..5}\ndo\n   echo \"Welcome $i times\"\ndone\n\n# Using while loop\ncount=5\nwhile [ $count -gt 0 ]; do\n  echo \"Countdown: $count\"\n  let count=count-1\ndone\n\n\n배열\n\n배열명=(요소1 요소2 ...) 형식으로 선언.\n${배열명[인덱스]}로 접근.\nmyArray=( \"$@\" ) ==&gt; 파라미터들을 받아서 배열로 선언.\n\n# 가령, $ ./arraypractice.sh \"탐험\" 사모예드 \"개마고원\" \"적설량 100cm\" \"개발자\"\n# 위와 같이 입력받아서, \"탐험\"부터 \"개발자\"를 파싱 및 배열로 선언,\n# sort 후 각 배열의 문자열을 \\n으로 끊어 출력함.\nmyArray=( \"$@\" )\nprintf \"%s\\n\" \"${myArray[@]}\" | sort"
+  },
+  {
+    "objectID": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html",
+    "href": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html",
+    "title": "2024.1.17. VirtualBox의 VM에서 내부망으로 연결",
+    "section": "",
+    "text": "노트 작성 일자: 2024년 1월 17일 (수) 11:25"
+  },
+  {
+    "objectID": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html#virtualbox-네트워크-관리자",
+    "href": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html#virtualbox-네트워크-관리자",
+    "title": "2024.1.17. VirtualBox의 VM에서 내부망으로 연결",
+    "section": "VirtualBox 네트워크 관리자",
+    "text": "VirtualBox 네트워크 관리자\n\n아래와 같이 구성:"
+  },
+  {
+    "objectID": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html#ubuntu-가상-머신",
+    "href": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html#ubuntu-가상-머신",
+    "title": "2024.1.17. VirtualBox의 VM에서 내부망으로 연결",
+    "section": "Ubuntu 가상 머신",
+    "text": "Ubuntu 가상 머신\n\n게스트 머신을 클릭 후 설정에서, 네트워크 탭을 선택하고, 어댑터 중 하나를 아래와 같이 구성: \n이러면 게스트 머신은 VirtualBox Host-Only Ethernet Adapter와 연결은 됨\n그러나 IP 주소 등은 유저가 직접 구성해야 함\n먼저, 게스트 머신이 VirtualBox Host-Only Ethernet Adapter와 연결된 NIC를 identify하기 위해 ip addr를 입력:\n\n여기서는 enp0s8 인터페이스라고 가정하겠음\n\n그 다음, 우분투 22.04 기준으로, VM의 전원을 켜고 아래와 같이 입력:\n\nsudo nano /etc/netplan/01-netcfg.yaml\n\n해당 야믈 파일을 아래와 같이 구성 - 여기서는 192.168.56.2을 assign함:\n\nnetwork:\n  version: 2\n  renderer: networkd\n  ethernets:\n    enp0s8:\n      dhcp4: no\n      addresses:\n        - 192.168.56.2/24\n      gateway4: 192.168.56.1\n      nameservers:\n        addresses: [9.9.9.9, 1.1.1.1]\n\n이후 sudo netplan apply로 해당 야믈 파일을 실제로 반영\n참고: /etc/netplan/01-netcfg.yaml는 무얼 하는 파일인가?\n\nA configuration file to define the way your system connects to the network, used by Netplan, which is a utility for network configuration management in modern Ubuntu versions (starting from 17.10).\nAfter editing this file, the command sudo netplan apply is used to apply the changes. Netplan reads the YAML file, generates the appropriate configuration for the underlying system (e.g., systemd-networkd), and applies it to the network interfaces.\n00, 01, 02, … ==&gt; The 01 in 01-netcfg.yaml implies priority or order of processing. Netplan processes files in lexicographic order. This means you can have multiple configuration files for different purposes, and they will be processed in order based on their filenames.\nIt replaces older methods of network configuration, like editing /etc/network/interfaces in previous versions of Ubuntu.\n여기서 gateway4와 nameservers는 외부망 (인터넷)으로 연결하려면 필수.\n\n반영 후 ip addr를 통해 해당 IP 주소가 실제로 배정되었는지 확인:"
+  },
+  {
+    "objectID": "posts/2024.1.16. VLAN 및 Static Routing 미션/2024.1.16. VLAN 및 Static Routing 미션.html",
+    "href": "posts/2024.1.16. VLAN 및 Static Routing 미션/2024.1.16. VLAN 및 Static Routing 미션.html",
+    "title": "2024.1.16. VLAN 및 Static Routing 미션",
+    "section": "",
+    "text": "노트 작성 일자: 2024년 1월 16일 (수) 15:58"
+  },
+  {
+    "objectID": "posts/2024.1.16. VLAN 및 Static Routing 미션/2024.1.16. VLAN 및 Static Routing 미션.html#구현-후-topology",
+    "href": "posts/2024.1.16. VLAN 및 Static Routing 미션/2024.1.16. VLAN 및 Static Routing 미션.html#구현-후-topology",
+    "title": "2024.1.16. VLAN 및 Static Routing 미션",
+    "section": "구현 후 Topology",
+    "text": "구현 후 Topology"
+  },
+  {
+    "objectID": "posts/2024.1.16. 네트워크 이중화/2024.1.16. 네트워크 이중화.html",
+    "href": "posts/2024.1.16. 네트워크 이중화/2024.1.16. 네트워크 이중화.html",
+    "title": "2024.1.16. 네트워크 이중화",
+    "section": "",
+    "text": "노트 작성 일자: 2024년 1월 16일 (수) 09:06"
+  },
+  {
+    "objectID": "posts/2024.1.16. 네트워크 이중화/2024.1.16. 네트워크 이중화.html#폐구조",
+    "href": "posts/2024.1.16. 네트워크 이중화/2024.1.16. 네트워크 이중화.html#폐구조",
+    "title": "2024.1.16. 네트워크 이중화",
+    "section": "폐구조",
+    "text": "폐구조"
+  },
+  {
+    "objectID": "posts/2024.1.16. 네트워크 이중화/2024.1.16. 네트워크 이중화.html#stp-spanning-tree-protocol",
+    "href": "posts/2024.1.16. 네트워크 이중화/2024.1.16. 네트워크 이중화.html#stp-spanning-tree-protocol",
+    "title": "2024.1.16. 네트워크 이중화",
+    "section": "STP (Spanning Tree Protocol)",
+    "text": "STP (Spanning Tree Protocol)\n\n\nSTP란?\nSuboptimal path 문제\n\n원인: broadcast domain이 1개\n해결책: 라우터를 하나 둬서 네트워크를 분리하기."
+  },
+  {
+    "objectID": "posts/2024.1.16. 네트워크 이중화/2024.1.16. 네트워크 이중화.html#etherchannel",
+    "href": "posts/2024.1.16. 네트워크 이중화/2024.1.16. 네트워크 이중화.html#etherchannel",
+    "title": "2024.1.16. 네트워크 이중화",
+    "section": "EtherChannel",
+    "text": "EtherChannel\n\nEtherChannel이란?\n이점:\n\n대역폭이 링크만큼 늘어남.\n트래픽의 로드 밸런싱.\n링크 중 하나가 죽으면 트래픽이 나머지 살아있는 쪽으로 다 넘어감.\n\n주의점:\n\nGigabit Ethernet과 Fast Ethernet가 같이 묶일 수 없음.\nVLAN 구성이 아예 동일해야 함. 예시: 1,5,10이랑 1,10인 두 개의 포트는 묶일 수 없음.\n장비마다 스펙 참고해야 함 ==&gt; 어떤 장비는 최대 6개 선만 지원.\n\nServer-side에서는 teamming.\nEtherChannel의 프로토콜들:\n\nLACP (Link Aggregation Control Protocol)\n\n\n\n\n\n\n표준 프로토콜\n참고: 양쪽 스위치에 둘 다 적용해야 함.\n적용 전후 비교 (sh spanning-tree): \n\nPAgP (Port Aggregation Protocol)\n\n시스코 proprietary 프로토콜"
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "물리적인 하드웨어의 논리적인 표현.\n단일 물리적 컴퓨터에서 여러 시스템들을 동시에 실행 가능.\n서버 가상화, 테스트 환경, 시스템 이전 및 보안 목적 등 다양한 용도로 사용됨.\n\n\n\n\n\nHypervisor: 하드웨어와 가상 머신 사이에서 작동하는 소프트웨어 또는 펌웨어 계층.\nDatastore: 가상 머신 파일을 저장하는 물리적 저장소 리소스.\n\n\n\n\n\nWorkstation: 개인 사용자를 위한 가상화 솔루션.\nFusion: 맥 사용자를 위한 가상화 솔루션.\nvSphere: VMware의 클라우드 컴퓨팅 가상화 플랫폼.\nvCenter Server: 중앙 집중식 관리 애플리케이션, 다수의 ESXi 호스트 및 가상 머신을 관리.\nvSAN: 가상화된 스토리지 솔루션, 하드웨어 스토리지의 필요성을 줄임.\nHorizon: 가상 데스크톱 인프라(VDI) 솔루션.\nNSX: 네트워크 가상화 및 보안 플랫폼.\nAirWatch: 엔터프라이즈 모빌리티 관리(EMM) 솔루션.\n\n\n\n\n\n정의: VMware의 엔터프라이즈급, 베어 메탈 (bare metal) 하이퍼바이저.\n특징: 직접 서버 하드웨어에 설치되며, 가상화된 환경을 효율적으로 관리 및 분배. 높은 성능, 확장성, 보안성 제공.\n\n\n\n\n\n정의: 가상 머신을 한 서버에서 다른 서버로 이동시키는 기능.\n특징: 가동 중인 가상 머신을 다운타임 없이 이전. 유지보수, 로드 밸런싱, 재해 복구 계획에 유용.\n\n\n\n\n\nvSwitch란?\n\n가상 스위치로, 가상 환경 내 네트워크 트래픽을 관리하는 소프트웨어 기반 스위치.\n네트워크 분리 및 격리, 보안 정책 구현, 트래픽 관리 및 모니터링 등.\n\n역할\n\n1개 host 내 VM들간 통신\n여러 hosts의 VM들간 통신\n스토리지 연결\n관리용\nvMotion ## Thin Provisioning Vs. Thick Provisioning 스토리지 관리와 관련된 개념.\n\nThin Provisioning: 물리적 스토리지 공간을 가상 머신에 실제 사용량만큼만 할당하는 방식. 자원의 효율적인 사용을 가능하게 함.\n\n주의사항: 과도한 오버프로비저닝으로 저장소 공간 부족 발생 가능.\n\nThick Provisioning: 필요한 스토리지 공간을 미리 전체 할당하는 방식. 성능은 더 좋지만, 스토리지 공간의 낭비 가능성이 있음.\n\n\n\n\n이건 클라이언트 컴퓨팅 모델과 관련이 있음. - Thin Client: 가볍고 기능이 제한된 클라이언트 컴퓨터. 중앙 서버에 의존적으로 작동하며, 주로 데이터 처리와 저장을 서버에서 수행. 저렴한 유지비 (클라이언트가), 중앙 집중식 관리, 보안성 강화. - Thick Client (Fat Client): 모든 연산을 로컬에서 수행하는 전통적인 컴퓨터 모델. 오프라인 작업 가능, UX적으로 좋음."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#가상-머신",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#가상-머신",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "물리적인 하드웨어의 논리적인 표현.\n단일 물리적 컴퓨터에서 여러 시스템들을 동시에 실행 가능.\n서버 가상화, 테스트 환경, 시스템 이전 및 보안 목적 등 다양한 용도로 사용됨."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-용어-몇-가지",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-용어-몇-가지",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "Hypervisor: 하드웨어와 가상 머신 사이에서 작동하는 소프트웨어 또는 펌웨어 계층.\nDatastore: 가상 머신 파일을 저장하는 물리적 저장소 리소스."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-주요-솔루션",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-주요-솔루션",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "Workstation: 개인 사용자를 위한 가상화 솔루션.\nFusion: 맥 사용자를 위한 가상화 솔루션.\nvSphere: VMware의 클라우드 컴퓨팅 가상화 플랫폼.\nvCenter Server: 중앙 집중식 관리 애플리케이션, 다수의 ESXi 호스트 및 가상 머신을 관리.\nvSAN: 가상화된 스토리지 솔루션, 하드웨어 스토리지의 필요성을 줄임.\nHorizon: 가상 데스크톱 인프라(VDI) 솔루션.\nNSX: 네트워크 가상화 및 보안 플랫폼.\nAirWatch: 엔터프라이즈 모빌리티 관리(EMM) 솔루션."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-esxi",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-esxi",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "정의: VMware의 엔터프라이즈급, 베어 메탈 (bare metal) 하이퍼바이저.\n특징: 직접 서버 하드웨어에 설치되며, 가상화된 환경을 효율적으로 관리 및 분배. 높은 성능, 확장성, 보안성 제공."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-vmotion",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-vmotion",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "정의: 가상 머신을 한 서버에서 다른 서버로 이동시키는 기능.\n특징: 가동 중인 가상 머신을 다운타임 없이 이전. 유지보수, 로드 밸런싱, 재해 복구 계획에 유용."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-vswitch",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-vswitch",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "vSwitch란?\n\n가상 스위치로, 가상 환경 내 네트워크 트래픽을 관리하는 소프트웨어 기반 스위치.\n네트워크 분리 및 격리, 보안 정책 구현, 트래픽 관리 및 모니터링 등.\n\n역할\n\n1개 host 내 VM들간 통신\n여러 hosts의 VM들간 통신\n스토리지 연결\n관리용\nvMotion ## Thin Provisioning Vs. Thick Provisioning 스토리지 관리와 관련된 개념.\n\nThin Provisioning: 물리적 스토리지 공간을 가상 머신에 실제 사용량만큼만 할당하는 방식. 자원의 효율적인 사용을 가능하게 함.\n\n주의사항: 과도한 오버프로비저닝으로 저장소 공간 부족 발생 가능.\n\nThick Provisioning: 필요한 스토리지 공간을 미리 전체 할당하는 방식. 성능은 더 좋지만, 스토리지 공간의 낭비 가능성이 있음."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#번외.-thin-client-vs.-thick-client",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#번외.-thin-client-vs.-thick-client",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "이건 클라이언트 컴퓨팅 모델과 관련이 있음. - Thin Client: 가볍고 기능이 제한된 클라이언트 컴퓨터. 중앙 서버에 의존적으로 작동하며, 주로 데이터 처리와 저장을 서버에서 수행. 저렴한 유지비 (클라이언트가), 중앙 집중식 관리, 보안성 강화. - Thick Client (Fat Client): 모든 연산을 로컬에서 수행하는 전통적인 컴퓨터 모델. 오프라인 작업 가능, UX적으로 좋음."
+  },
+  {
+    "objectID": "posts/2024.1.16. Cisco 스위치 및 라우터 공장초기화/2024.1.16. Cisco 스위치 및 라우터 공장초기화.html",
+    "href": "posts/2024.1.16. Cisco 스위치 및 라우터 공장초기화/2024.1.16. Cisco 스위치 및 라우터 공장초기화.html",
+    "title": "2024.1.16. Cisco 스위치 및 라우터 공장초기화",
+    "section": "",
+    "text": "Cisco 스위치 및 라우터 공장초기화하기\n주의: 스위치와 라우터의 공장초기화 방법이 서로 다름.\n\nSwitch\n\nen\nerase nvram:\ndelete flash:vlan.dat\nreload\n\nRouter\n\nen\nerase nvram:\nreload"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "무한포옹 《無限抱擁》",
     "section": "",
-    "text": "Quarto 블로그 예시 몇 가지\n\n\n\n\n\n\ncode\n\n\netc\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 15, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Quarto 블로그 예시 몇 가지\n\n\n\n\n\n\ncode\n\n\netc\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.25. VMware 마이그레이션\n\n\nVMware로의 마이그레이션에 대한 수업 노트.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 25, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.22. VMware 개요 및 HOL\n\n\nVMware에 대해서 알아보고, 이를 실습하기 위한 HOL에 접속해보자.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 22, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.19. 다이나믹 라우팅：OSPF (실습)\n\n\n2024.1.19. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 19, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.18. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.17. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 17, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. VLAN 및 Static Routing 미션\n\n\n2024.1.16. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. 네트워크 이중화\n\n\n네트워크를 이중화하여 장애 등에 대비하자.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. Cisco 스위치 및 라우터 공장초기화\n\n\n스위치나 라우터의 공장초기화가 필요할 때도 있다.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.15. Layer 2 & Layer 3\n\n\nOSI 7계층 중 layer 2 및 layer 3에 대하여.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 15, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.12. 셸 스크립팅\n\n\nLinux를 배울 때 필수적인 셸 스크립팅.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 12, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8\n\n\n서버를 구성한다고 가정할 때, RHEL 7과 8을 비교해보자.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 10, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 18, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 15, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   }
 ]
