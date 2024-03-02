@@ -39,7 +39,7 @@
     "href": "index.html",
     "title": "무한포옹 《無限抱擁》",
     "section": "",
-    "text": "Quarto 블로그 예시 몇 가지\n\n\n\n\n\n\ncode\n\n\netc\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. 네트워크 이중화\n\n\n네트워크를 이중화하여 장애 등에 대비하자.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.15. Layer 2 & Layer 3\n\n\nOSI 7계층 중 layer 2 및 layer 3에 대하여.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 15, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.12. 셸 스크립팅\n\n\nLinux를 배울 때 필수적인 셸 스크립팅.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 12, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8\n\n\n서버를 구성한다고 가정할 때, RHEL 7과 8을 비교해보자.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 10, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 18, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 15, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Quarto 블로그 예시 몇 가지\n\n\n\n\n\n\ncode\n\n\netc\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.25. VMware 마이그레이션\n\n\nVMware로의 마이그레이션에 대한 수업 노트.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 25, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.22. VMware 개요 및 HOL\n\n\nVMware에 대해서 알아보고, 이를 실습하기 위한 HOL에 접속해보자.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 22, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.19. 다이나믹 라우팅：OSPF (실습)\n\n\n2024.1.19. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 19, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.18. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.17. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 17, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. VLAN 및 Static Routing 미션\n\n\n2024.1.16. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. 네트워크 이중화\n\n\n네트워크를 이중화하여 장애 등에 대비하자.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. Cisco 스위치 및 라우터 공장초기화\n\n\n스위치나 라우터의 공장초기화가 필요할 때도 있다.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.15. Layer 2 & Layer 3\n\n\nOSI 7계층 중 layer 2 및 layer 3에 대하여.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 15, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.12. 셸 스크립팅\n\n\nLinux를 배울 때 필수적인 셸 스크립팅.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 12, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8\n\n\n서버를 구성한다고 가정할 때, RHEL 7과 8을 비교해보자.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 10, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 18, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 15, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2024.1.16. 네트워크 이중화/2024.1.16. 네트워크 이중화.html",
@@ -236,5 +236,152 @@
     "title": "2024.1.15. Layer 2 & Layer 3",
     "section": "설명",
     "text": "설명\n\nLayer 2?\n\n프레임을 이용.\nMAC 주소 기반으로 데이터 전송을 관리.\n스위치와 브리지 같은 장비가 이 계층에서 작동.\n오류 검출, 재전송, 흐름 제어 등의 기능을 담당.\n\nLayer 3?\n\n데이터 패킷을 이용.\nIP 주소를 기반으로 다른 네트워크로 데이터를 전송.\n라우터 등 장비가 해당.\n경로 결정(routing), 주소 지정(addressing), 패킷 분할(segmentation) 등."
+  },
+  {
+    "objectID": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html",
+    "href": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html",
+    "title": "2024.1.17. VirtualBox의 VM에서 내부망으로 연결",
+    "section": "",
+    "text": "노트 작성 일자: 2024년 1월 17일 (수) 11:25"
+  },
+  {
+    "objectID": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html#virtualbox-네트워크-관리자",
+    "href": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html#virtualbox-네트워크-관리자",
+    "title": "2024.1.17. VirtualBox의 VM에서 내부망으로 연결",
+    "section": "VirtualBox 네트워크 관리자",
+    "text": "VirtualBox 네트워크 관리자\n\n아래와 같이 구성:"
+  },
+  {
+    "objectID": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html#ubuntu-가상-머신",
+    "href": "posts/2024.1.17. VirtualBox의 VM에서 내부망으로 연결/2024.1.17. VirtualBox의 VM에서 내부망으로 연결.html#ubuntu-가상-머신",
+    "title": "2024.1.17. VirtualBox의 VM에서 내부망으로 연결",
+    "section": "Ubuntu 가상 머신",
+    "text": "Ubuntu 가상 머신\n\n게스트 머신을 클릭 후 설정에서, 네트워크 탭을 선택하고, 어댑터 중 하나를 아래와 같이 구성: \n이러면 게스트 머신은 VirtualBox Host-Only Ethernet Adapter와 연결은 됨\n그러나 IP 주소 등은 유저가 직접 구성해야 함\n먼저, 게스트 머신이 VirtualBox Host-Only Ethernet Adapter와 연결된 NIC를 identify하기 위해 ip addr를 입력:\n\n여기서는 enp0s8 인터페이스라고 가정하겠음\n\n그 다음, 우분투 22.04 기준으로, VM의 전원을 켜고 아래와 같이 입력:\n\nsudo nano /etc/netplan/01-netcfg.yaml\n\n해당 야믈 파일을 아래와 같이 구성 - 여기서는 192.168.56.2을 assign함:\n\nnetwork:\n  version: 2\n  renderer: networkd\n  ethernets:\n    enp0s8:\n      dhcp4: no\n      addresses:\n        - 192.168.56.2/24\n      gateway4: 192.168.56.1\n      nameservers:\n        addresses: [9.9.9.9, 1.1.1.1]\n\n이후 sudo netplan apply로 해당 야믈 파일을 실제로 반영\n참고: /etc/netplan/01-netcfg.yaml는 무얼 하는 파일인가?\n\nA configuration file to define the way your system connects to the network, used by Netplan, which is a utility for network configuration management in modern Ubuntu versions (starting from 17.10).\nAfter editing this file, the command sudo netplan apply is used to apply the changes. Netplan reads the YAML file, generates the appropriate configuration for the underlying system (e.g., systemd-networkd), and applies it to the network interfaces.\n00, 01, 02, … ==&gt; The 01 in 01-netcfg.yaml implies priority or order of processing. Netplan processes files in lexicographic order. This means you can have multiple configuration files for different purposes, and they will be processed in order based on their filenames.\nIt replaces older methods of network configuration, like editing /etc/network/interfaces in previous versions of Ubuntu.\n여기서 gateway4와 nameservers는 외부망 (인터넷)으로 연결하려면 필수.\n\n반영 후 ip addr를 통해 해당 IP 주소가 실제로 배정되었는지 확인:"
+  },
+  {
+    "objectID": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html",
+    "href": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html",
+    "title": "2024.1.19. 다이나믹 라우팅：OSPF (실습)",
+    "section": "",
+    "text": "아래는 sh ip ospf nei 실행 시 나오는 화면."
+  },
+  {
+    "objectID": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#부가-ospf-구성-시-neighbor-id-state-drotherbdrdr",
+    "href": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#부가-ospf-구성-시-neighbor-id-state-drotherbdrdr",
+    "title": "2024.1.19. 다이나믹 라우팅：OSPF (실습)",
+    "section": "",
+    "text": "아래는 sh ip ospf nei 실행 시 나오는 화면."
+  },
+  {
+    "objectID": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6-관련-공부해야-할-것들",
+    "href": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6-관련-공부해야-할-것들",
+    "title": "2024.1.19. 다이나믹 라우팅：OSPF (실습)",
+    "section": "IPv6 관련 공부해야 할 것들:",
+    "text": "IPv6 관련 공부해야 할 것들:\n\nICMPv6: 단순히 핑뿐만 아니라 MAC 주소도 같이 갖고 온다 등\n주소 종류: Unicast, link-local\n주소 할당 방식\n[심화] IPv4 ==&gt; IPv6 migration 방법"
+  },
+  {
+    "objectID": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6의-link-local-주소",
+    "href": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6의-link-local-주소",
+    "title": "2024.1.19. 다이나믹 라우팅：OSPF (실습)",
+    "section": "IPv6의 link local 주소",
+    "text": "IPv6의 link local 주소\n구현된 토폴로지:\nR1에서:\nconf t\nint e0/0\nipv6 address 2001:DB8:1111:2::1/64\nno shut\nR2에서:\nconf t\nint e0/0\nipv6 address 2001:DB8:1111:2::2/64\nno shut\n\nFE80으로 시작함.\n기존의 IPv4는, 단일 IP 주소를 사용하여 네트워크 통신을 수행. 이 때문에 운용 도중에 IPv4 주소를 바꿔버리면 통신이 그냥 끊어져버림.\n그러나 IPv6은 위 link local 주소 덕분에 장치 간의 로컬 네트워크 내에서 계속해서 통신할 수 있는 기본 수단을 제공하므로, 주소가 도중에 바뀌더라도 통신을 계속할 수 있음."
+  },
+  {
+    "objectID": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6의-주소-할당",
+    "href": "posts/2024.1.19. 다이나믹 라우팅：OSPF (실습)/2024.1.19. 다이나믹 라우팅：OSPF (실습).html#ipv6의-주소-할당",
+    "title": "2024.1.19. 다이나믹 라우팅：OSPF (실습)",
+    "section": "IPv6의 주소 할당",
+    "text": "IPv6의 주소 할당\n\nStatic\nDHCPv6\nEUI-64\nStateless autoconfig"
+  },
+  {
+    "objectID": "posts/2024.1.16. VLAN 및 Static Routing 미션/2024.1.16. VLAN 및 Static Routing 미션.html#구현-후-topology",
+    "href": "posts/2024.1.16. VLAN 및 Static Routing 미션/2024.1.16. VLAN 및 Static Routing 미션.html#구현-후-topology",
+    "title": "2024.1.16. VLAN 및 Static Routing 미션",
+    "section": "구현 후 Topology",
+    "text": "구현 후 Topology"
+  },
+  {
+    "objectID": "posts/2024.1.16. Cisco 스위치 및 라우터 공장초기화/2024.1.16. Cisco 스위치 및 라우터 공장초기화.html",
+    "href": "posts/2024.1.16. Cisco 스위치 및 라우터 공장초기화/2024.1.16. Cisco 스위치 및 라우터 공장초기화.html",
+    "title": "2024.1.16. Cisco 스위치 및 라우터 공장초기화",
+    "section": "",
+    "text": "Cisco 스위치 및 라우터 공장초기화하기\n주의: 스위치와 라우터의 공장초기화 방법이 서로 다름.\n\nSwitch\n\nen\nerase nvram:\ndelete flash:vlan.dat\nreload\n\nRouter\n\nen\nerase nvram:\nreload"
+  },
+  {
+    "objectID": "posts/2024.1.16. VLAN 및 Static Routing 미션/2024.1.16. VLAN 및 Static Routing 미션.html",
+    "href": "posts/2024.1.16. VLAN 및 Static Routing 미션/2024.1.16. VLAN 및 Static Routing 미션.html",
+    "title": "2024.1.16. VLAN 및 Static Routing 미션",
+    "section": "",
+    "text": "노트 작성 일자: 2024년 1월 16일 (수) 15:58"
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "물리적인 하드웨어의 논리적인 표현.\n단일 물리적 컴퓨터에서 여러 시스템들을 동시에 실행 가능.\n서버 가상화, 테스트 환경, 시스템 이전 및 보안 목적 등 다양한 용도로 사용됨.\n\n\n\n\n\nHypervisor: 하드웨어와 가상 머신 사이에서 작동하는 소프트웨어 또는 펌웨어 계층.\nDatastore: 가상 머신 파일을 저장하는 물리적 저장소 리소스.\n\n\n\n\n\nWorkstation: 개인 사용자를 위한 가상화 솔루션.\nFusion: 맥 사용자를 위한 가상화 솔루션.\nvSphere: VMware의 클라우드 컴퓨팅 가상화 플랫폼.\nvCenter Server: 중앙 집중식 관리 애플리케이션, 다수의 ESXi 호스트 및 가상 머신을 관리.\nvSAN: 가상화된 스토리지 솔루션, 하드웨어 스토리지의 필요성을 줄임.\nHorizon: 가상 데스크톱 인프라(VDI) 솔루션.\nNSX: 네트워크 가상화 및 보안 플랫폼.\nAirWatch: 엔터프라이즈 모빌리티 관리(EMM) 솔루션.\n\n\n\n\n\n정의: VMware의 엔터프라이즈급, 베어 메탈 (bare metal) 하이퍼바이저.\n특징: 직접 서버 하드웨어에 설치되며, 가상화된 환경을 효율적으로 관리 및 분배. 높은 성능, 확장성, 보안성 제공.\n\n\n\n\n\n정의: 가상 머신을 한 서버에서 다른 서버로 이동시키는 기능.\n특징: 가동 중인 가상 머신을 다운타임 없이 이전. 유지보수, 로드 밸런싱, 재해 복구 계획에 유용.\n\n\n\n\n\nvSwitch란?\n\n가상 스위치로, 가상 환경 내 네트워크 트래픽을 관리하는 소프트웨어 기반 스위치.\n네트워크 분리 및 격리, 보안 정책 구현, 트래픽 관리 및 모니터링 등.\n\n역할\n\n1개 host 내 VM들간 통신\n여러 hosts의 VM들간 통신\n스토리지 연결\n관리용\nvMotion ## Thin Provisioning Vs. Thick Provisioning 스토리지 관리와 관련된 개념.\n\nThin Provisioning: 물리적 스토리지 공간을 가상 머신에 실제 사용량만큼만 할당하는 방식. 자원의 효율적인 사용을 가능하게 함.\n\n주의사항: 과도한 오버프로비저닝으로 저장소 공간 부족 발생 가능.\n\nThick Provisioning: 필요한 스토리지 공간을 미리 전체 할당하는 방식. 성능은 더 좋지만, 스토리지 공간의 낭비 가능성이 있음.\n\n\n\n\n이건 클라이언트 컴퓨팅 모델과 관련이 있음. - Thin Client: 가볍고 기능이 제한된 클라이언트 컴퓨터. 중앙 서버에 의존적으로 작동하며, 주로 데이터 처리와 저장을 서버에서 수행. 저렴한 유지비 (클라이언트가), 중앙 집중식 관리, 보안성 강화. - Thick Client (Fat Client): 모든 연산을 로컬에서 수행하는 전통적인 컴퓨터 모델. 오프라인 작업 가능, UX적으로 좋음."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#가상-머신",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#가상-머신",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "물리적인 하드웨어의 논리적인 표현.\n단일 물리적 컴퓨터에서 여러 시스템들을 동시에 실행 가능.\n서버 가상화, 테스트 환경, 시스템 이전 및 보안 목적 등 다양한 용도로 사용됨."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-용어-몇-가지",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-용어-몇-가지",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "Hypervisor: 하드웨어와 가상 머신 사이에서 작동하는 소프트웨어 또는 펌웨어 계층.\nDatastore: 가상 머신 파일을 저장하는 물리적 저장소 리소스."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-주요-솔루션",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-주요-솔루션",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "Workstation: 개인 사용자를 위한 가상화 솔루션.\nFusion: 맥 사용자를 위한 가상화 솔루션.\nvSphere: VMware의 클라우드 컴퓨팅 가상화 플랫폼.\nvCenter Server: 중앙 집중식 관리 애플리케이션, 다수의 ESXi 호스트 및 가상 머신을 관리.\nvSAN: 가상화된 스토리지 솔루션, 하드웨어 스토리지의 필요성을 줄임.\nHorizon: 가상 데스크톱 인프라(VDI) 솔루션.\nNSX: 네트워크 가상화 및 보안 플랫폼.\nAirWatch: 엔터프라이즈 모빌리티 관리(EMM) 솔루션."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-esxi",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-esxi",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "정의: VMware의 엔터프라이즈급, 베어 메탈 (bare metal) 하이퍼바이저.\n특징: 직접 서버 하드웨어에 설치되며, 가상화된 환경을 효율적으로 관리 및 분배. 높은 성능, 확장성, 보안성 제공."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-vmotion",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-vmotion",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "정의: 가상 머신을 한 서버에서 다른 서버로 이동시키는 기능.\n특징: 가동 중인 가상 머신을 다운타임 없이 이전. 유지보수, 로드 밸런싱, 재해 복구 계획에 유용."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-vswitch",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#vmware-vswitch",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "vSwitch란?\n\n가상 스위치로, 가상 환경 내 네트워크 트래픽을 관리하는 소프트웨어 기반 스위치.\n네트워크 분리 및 격리, 보안 정책 구현, 트래픽 관리 및 모니터링 등.\n\n역할\n\n1개 host 내 VM들간 통신\n여러 hosts의 VM들간 통신\n스토리지 연결\n관리용\nvMotion ## Thin Provisioning Vs. Thick Provisioning 스토리지 관리와 관련된 개념.\n\nThin Provisioning: 물리적 스토리지 공간을 가상 머신에 실제 사용량만큼만 할당하는 방식. 자원의 효율적인 사용을 가능하게 함.\n\n주의사항: 과도한 오버프로비저닝으로 저장소 공간 부족 발생 가능.\n\nThick Provisioning: 필요한 스토리지 공간을 미리 전체 할당하는 방식. 성능은 더 좋지만, 스토리지 공간의 낭비 가능성이 있음."
+  },
+  {
+    "objectID": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#번외.-thin-client-vs.-thick-client",
+    "href": "posts/2024.1.22. VMware HOL/2024.1.22. VMware HOL.html#번외.-thin-client-vs.-thick-client",
+    "title": "2024.1.22. VMware 개요 및 HOL",
+    "section": "",
+    "text": "이건 클라이언트 컴퓨팅 모델과 관련이 있음. - Thin Client: 가볍고 기능이 제한된 클라이언트 컴퓨터. 중앙 서버에 의존적으로 작동하며, 주로 데이터 처리와 저장을 서버에서 수행. 저렴한 유지비 (클라이언트가), 중앙 집중식 관리, 보안성 강화. - Thick Client (Fat Client): 모든 연산을 로컬에서 수행하는 전통적인 컴퓨터 모델. 오프라인 작업 가능, UX적으로 좋음."
+  },
+  {
+    "objectID": "posts/2024.1.25. VMware 마이그레이션/2024.1.25. VMware 마이그레이션.html",
+    "href": "posts/2024.1.25. VMware 마이그레이션/2024.1.25. VMware 마이그레이션.html",
+    "title": "2024.1.25. VMware 마이그레이션",
+    "section": "",
+    "text": "미완성 노트"
+  },
+  {
+    "objectID": "posts/2024.1.25. VMware 마이그레이션/2024.1.25. VMware 마이그레이션.html#cold-vs.-hot-migrations",
+    "href": "posts/2024.1.25. VMware 마이그레이션/2024.1.25. VMware 마이그레이션.html#cold-vs.-hot-migrations",
+    "title": "2024.1.25. VMware 마이그레이션",
+    "section": "Cold vs. Hot Migrations",
+    "text": "Cold vs. Hot Migrations\n\nCold Migrations?\nVM들의 전원을 종료하거나 suspend 후 마이그레이션하는 것. - Intel vs. AMD ==&gt; 명령어 세트가 달라지면 hot이 어려울 수 있음.\n\n\nHot Migrations?\nVM들의 전원이 켜진 상태에서 disruptions나 downtime 없이 마이그레이션하는 것. - 전용 vMotion 네트워크를 구성하여, 마이그레이션 전에 데이터를 옮김. - 이때 vSwitch에서는 VMkernel port를 이용.\n\n\nShared Storage\n\n양쪽 호스트가 다 연결되어 있고,"
   }
 ]

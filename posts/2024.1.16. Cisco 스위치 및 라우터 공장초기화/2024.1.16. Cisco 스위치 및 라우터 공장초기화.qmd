@@ -1,0 +1,29 @@
+---
+title: "2024.1.16. Cisco 스위치 및 라우터 공장초기화"
+subtitle: "스위치나 라우터의 공장초기화가 필요할 때도 있다."
+author: "Mugen-Houyou"
+date: "2024-01-16"
+categories: ["Networks"]
+image: "Ethernet Loops2.gif"
+toc: true
+draft: false
+---
+
+# Cisco 스위치 및 라우터 공장초기화하기
+
+*주의: 스위치와 라우터의 공장초기화 방법이 서로 다름.*
+
+1. Switch
+```bash
+en
+erase nvram:
+delete flash:vlan.dat
+reload
+```
+
+2. Router
+```bash
+en
+erase nvram:
+reload
+```

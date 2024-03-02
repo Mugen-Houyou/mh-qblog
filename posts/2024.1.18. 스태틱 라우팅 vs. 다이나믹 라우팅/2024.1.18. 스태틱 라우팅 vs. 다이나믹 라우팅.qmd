@@ -1,0 +1,21 @@
+---
+title: "2024.1.18. VirtualBox의 VM에서 내부망으로 연결"
+subtitle: "2024.1.17. 수업 후 미션."
+author: "Mugen-Houyou"
+date: "2024-01-18"
+categories: ["Networks"]
+image: "Pasted image 20240118141537.png"
+toc: true
+draft: false
+---
+
+# 라우팅을 Static과 OSPF를 이용하여 구현 및 비교
+
+## 목표 토폴로지
+![](Pasted image 20240118141537.png)
+
+## GNS 3에서 구현
+![](Pasted image 20240118142248.png)
+
+
+## 부가: Area를 나누는 이유? 효과? 성능상 이점?
