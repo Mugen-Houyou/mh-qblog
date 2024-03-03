@@ -1,5 +1,5 @@
 ---
-title: "2024.1.25. VMware 마이그레이션"
+title: "VMware 마이그레이션"
 subtitle: "VMware로의 마이그레이션에 대한 수업 노트."
 author: "Mugen-Houyou"
 date: "2024-01-25"

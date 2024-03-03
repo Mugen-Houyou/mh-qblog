@@ -1,5 +1,5 @@
 ---
-title: "2024.1.22. VMware 개요 및 HOL"
+title: "VMware 개요 및 HOL"
 subtitle: "VMware에 대해서 알아보고, 이를 실습하기 위한 HOL에 접속해보자."
 author: "Mugen-Houyou"
 date: "2024-01-22"

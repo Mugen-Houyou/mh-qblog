@@ -1,12 +1,10 @@
 ---
-title: "Welcome To My Blog"
-author: "Tristan O'Malley"
+title: "안녕하세요. 무한포옹 《無限抱擁》입니다."
+author: "Mugen-Houyou"
 date: "2023-01-15"
 categories: [news]
 ---
 
-This is the first post in a Quarto blog. Welcome!
+Quarto 블로그 플랫폼을 기반으로 제작한, 무한포옹의 새로운 블로그입니다. 환영합니다!
 
 ![](thumbnail.jpg)
-
-Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
