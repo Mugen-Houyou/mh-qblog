@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mugen-Houyou">
-<meta name="dcterms.date" content="2024-01-25">
+<meta name="dcterms.date" content="2024-02-20">
 
-<title>Home - VMware 마이그레이션</title>
+<title>Home - Jenkins 및 Pipeline으로 GitHub 연동</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,10 +115,11 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">VMware 마이그레이션</h1>
-            <p class="subtitle lead">VMware로의 마이그레이션에 대한 수업 노트.</p>
+      <h1 class="title">Jenkins 및 Pipeline으로 GitHub 연동</h1>
+            <p class="subtitle lead">Jenkins 개념 및 실습.</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Virtualization</div>
+                <div class="quarto-category">CI_CD</div>
+                <div class="quarto-category">Jenkins</div>
               </div>
                   </div>
   </div>
@@ -136,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 25, 2024</p>
+        <p class="date">February 20, 2024</p>
       </div>
     </div>
     
@@ -152,14 +153,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vmware-마이그레이션" id="toc-vmware-마이그레이션" class="nav-link active" data-scroll-target="#vmware-마이그레이션">VMware 마이그레이션</a>
+  <li><a href="#jenkins-및-pipeline으로-github-연동" id="toc-jenkins-및-pipeline으로-github-연동" class="nav-link active" data-scroll-target="#jenkins-및-pipeline으로-github-연동">Jenkins 및 Pipeline으로 GitHub 연동</a>
   <ul class="collapse">
-  <li><a href="#cold-vs.-hot-migrations" id="toc-cold-vs.-hot-migrations" class="nav-link" data-scroll-target="#cold-vs.-hot-migrations">Cold vs.&nbsp;Hot Migrations</a>
-  <ul class="collapse">
-  <li><a href="#cold-migrations" id="toc-cold-migrations" class="nav-link" data-scroll-target="#cold-migrations">Cold Migrations?</a></li>
-  <li><a href="#hot-migrations" id="toc-hot-migrations" class="nav-link" data-scroll-target="#hot-migrations">Hot Migrations?</a></li>
-  <li><a href="#shared-storage" id="toc-shared-storage" class="nav-link" data-scroll-target="#shared-storage">Shared Storage</a></li>
-  </ul></li>
+  <li><a href="#금일-과제" id="toc-금일-과제" class="nav-link" data-scroll-target="#금일-과제">금일 과제</a></li>
+  <li><a href="#예시-코드" id="toc-예시-코드" class="nav-link" data-scroll-target="#예시-코드">예시 코드</a></li>
+  <li><a href="#학습" id="toc-학습" class="nav-link" data-scroll-target="#학습">학습</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -171,27 +169,89 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><em>미완성 노트</em></p>
-<section id="vmware-마이그레이션" class="level1">
-<h1>VMware 마이그레이션</h1>
-<section id="cold-vs.-hot-migrations" class="level2">
-<h2 class="anchored" data-anchor-id="cold-vs.-hot-migrations">Cold vs.&nbsp;Hot Migrations</h2>
-<section id="cold-migrations" class="level3">
-<h3 class="anchored" data-anchor-id="cold-migrations">Cold Migrations?</h3>
-<p>VM들의 전원을 종료하거나 suspend 후 마이그레이션하는 것. - Intel vs.&nbsp;AMD ==&gt; 명령어 세트가 달라지면 hot이 어려울 수 있음.</p>
-</section>
-<section id="hot-migrations" class="level3">
-<h3 class="anchored" data-anchor-id="hot-migrations">Hot Migrations?</h3>
-<p>VM들의 전원이 켜진 상태에서 disruptions나 downtime 없이 마이그레이션하는 것. - 전용 vMotion 네트워크를 구성하여, 마이그레이션 전에 데이터를 옮김. - 이때 vSwitch에서는 VMkernel port를 이용.</p>
-</section>
-<section id="shared-storage" class="level3">
-<h3 class="anchored" data-anchor-id="shared-storage">Shared Storage</h3>
+<section id="jenkins-및-pipeline으로-github-연동" class="level1">
+<h1>Jenkins 및 Pipeline으로 GitHub 연동</h1>
 <ul>
-<li>양쪽 호스트가 다 연결되어 있고,</li>
+<li><strong>🏷️Tags</strong> : #02-2024 #CI_CD #CI_CD/Jenkins</li>
+</ul>
+<section id="금일-과제" class="level2">
+<h2 class="anchored" data-anchor-id="금일-과제">금일 과제</h2>
+<ol type="1">
+<li>GitHub에 fisa240220_2 레포지터리 생성</li>
+<li>Spring로 간단하게 step07_citest 프로젝트 생성
+<ul>
+<li>GET 요청 처리 메서드 하나만 구현</li>
+</ul></li>
+<li>Jenkins에 새 item 개발
+<ul>
+<li>item명: step04review</li>
+<li>방법:
+<ul>
+<li>Jenkins 구동 ==&gt; Dashboard ==&gt; Enter an item name에 step04review ==&gt; pipeline 선택</li>
+<li>==&gt; General의 Description 항목에 대충 설명 입력</li>
+<li>==&gt; Pipeline script 선택 ==&gt; GitHub + Maven 선택</li>
+<li>==&gt; Pipeline Syntax 클릭</li>
+<li><pre><code>  ==&gt; Repo. URL 입력, Branch 선택, Credentials 구성, </code></pre></li>
+<li><pre><code>  ==&gt; Generate Pipeline Script 클릭 ==&gt; 내용 복사</code></pre></li>
+<li>==&gt; 위 내용 복사해서 steps에 붙여넣기</li>
+<li>==&gt; Maven 항목 주석 처리, JUnit 테스트 관련 항목 주석 처리</li>
+<li>==&gt; 상황에 밎추어 작성, 완성 후 Save 클릭</li>
+<li>==&gt; 이후 빌드, 결과 확인</li>
+<li>==&gt; <code>git ls-tree HEAD</code>로 git에 저장된 권한 확인</li>
+<li>==&gt; <code>git update-index --add --chmod=o-x gradlew</code>로 x 권한 부여</li>
+</ul></li>
+</ul></li>
+<li>이를 통해 step03처럼 ls -al 시 아래와 같이 나와야 함: <code>-rwxr-xr-x 1 jenkins jenkins 2776 Feb 20 05:12 gradlew.bat</code>
+<ul>
+<li>참고: gradlew 파일이 윈도우에서 생성 시에는 읽기만 가능한 권한으로 생성</li>
+</ul></li>
+</ol>
+</section>
+<section id="예시-코드" class="level2">
+<h2 class="anchored" data-anchor-id="예시-코드">예시 코드</h2>
+<ul>
+<li>Pipeline 예시 코드:</li>
+</ul>
+<pre><code>pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                git branch:'master',
+                credentialsId: '&lt;EXAMPLE_CREDENTIALS_ID&gt;', 
+                url: 'https://github.com/Mugen-Houyou/fisa240220_2.git'
+            }
+
+            post {
+                // If Maven was able to run the tests, even if some of the test
+                // failed, record the test results and archive the jar file.
+                success {
+                    // junit '**/target/surefire-reports/TEST-*.xml'
+                    // archiveArtifacts 'target/*.jar'
+                    echo "success!"
+                }
+            }
+        }
+        stage('list view') {
+            steps {
+                echo 'now showing contents'
+                sh '''whoami'''
+                sh '''pwd'''
+                sh '''ls -al'''
+                echo 'finished showing contents'
+            }
+        }
+    }
+}</code></pre>
+</section>
+<section id="학습" class="level2">
+<h2 class="anchored" data-anchor-id="학습">학습</h2>
+<ul>
+<li>git bash, jenkins item 생성, GH 활용, gradle 주의사항.</li>
 </ul>
 
 
-</section>
 </section>
 </section>
 

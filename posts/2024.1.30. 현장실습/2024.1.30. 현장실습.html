@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mugen-Houyou">
-<meta name="dcterms.date" content="2024-01-25">
+<meta name="dcterms.date" content="2024-01-30">
 
-<title>Home - VMware 마이그레이션</title>
+<title>Home - 2024.1.30. 현장실습</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,10 +115,11 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">VMware 마이그레이션</h1>
-            <p class="subtitle lead">VMware로의 마이그레이션에 대한 수업 노트.</p>
+      <h1 class="title">2024.1.30. 현장실습</h1>
+            <p class="subtitle lead">우리FISA 현장실습 대한 노트.</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Virtualization</div>
+                <div class="quarto-category">현장</div>
+                <div class="quarto-category">특강</div>
               </div>
                   </div>
   </div>
@@ -136,7 +137,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 25, 2024</p>
+        <p class="date">January 30, 2024</p>
       </div>
     </div>
     
@@ -152,14 +153,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vmware-마이그레이션" id="toc-vmware-마이그레이션" class="nav-link active" data-scroll-target="#vmware-마이그레이션">VMware 마이그레이션</a>
+  <li><a href="#현장실습" id="toc-현장실습" class="nav-link active" data-scroll-target="#현장실습">2024.1.30. 현장실습</a>
   <ul class="collapse">
-  <li><a href="#cold-vs.-hot-migrations" id="toc-cold-vs.-hot-migrations" class="nav-link" data-scroll-target="#cold-vs.-hot-migrations">Cold vs.&nbsp;Hot Migrations</a>
+  <li><a href="#특강-1-마이데이터-0910-1000" id="toc-특강-1-마이데이터-0910-1000" class="nav-link" data-scroll-target="#특강-1-마이데이터-0910-1000">특강 1: 마이데이터 (09:10-10:00)</a>
   <ul class="collapse">
-  <li><a href="#cold-migrations" id="toc-cold-migrations" class="nav-link" data-scroll-target="#cold-migrations">Cold Migrations?</a></li>
-  <li><a href="#hot-migrations" id="toc-hot-migrations" class="nav-link" data-scroll-target="#hot-migrations">Hot Migrations?</a></li>
-  <li><a href="#shared-storage" id="toc-shared-storage" class="nav-link" data-scroll-target="#shared-storage">Shared Storage</a></li>
+  <li><a href="#마이데이터-개요" id="toc-마이데이터-개요" class="nav-link" data-scroll-target="#마이데이터-개요">마이데이터 개요</a></li>
+  <li><a href="#고객-은행-정부의-입장" id="toc-고객-은행-정부의-입장" class="nav-link" data-scroll-target="#고객-은행-정부의-입장">고객-은행-정부의 입장</a></li>
+  <li><a href="#마이데이터-업무-구성도" id="toc-마이데이터-업무-구성도" class="nav-link" data-scroll-target="#마이데이터-업무-구성도">마이데이터 업무 구성도</a></li>
   </ul></li>
+  <li><a href="#특강-2-블록체인-1010-1100" id="toc-특강-2-블록체인-1010-1100" class="nav-link" data-scroll-target="#특강-2-블록체인-1010-1100">특강 2: 블록체인 (10:10-11:00)</a></li>
+  <li><a href="#블록체인의-개념" id="toc-블록체인의-개념" class="nav-link" data-scroll-target="#블록체인의-개념">### 블록체인의 개념</a>
+  <ul class="collapse">
+  <li><a href="#블록체인의-종류" id="toc-블록체인의-종류" class="nav-link" data-scroll-target="#블록체인의-종류">블록체인의 종류</a></li>
+  <li><a href="#우리은행의-블록체인-활용-사례" id="toc-우리은행의-블록체인-활용-사례" class="nav-link" data-scroll-target="#우리은행의-블록체인-활용-사례">우리은행의 블록체인 활용 사례</a></li>
+  <li><a href="#블록체인-직무에-필요한-역량" id="toc-블록체인-직무에-필요한-역량" class="nav-link" data-scroll-target="#블록체인-직무에-필요한-역량">블록체인 직무에 필요한 역량</a></li>
+  <li><a href="#번외-면접-관련" id="toc-번외-면접-관련" class="nav-link" data-scroll-target="#번외-면접-관련">번외: 면접 관련</a></li>
+  </ul></li>
+  <li><a href="#특강-3-은행사-1400-1500" id="toc-특강-3-은행사-1400-1500" class="nav-link" data-scroll-target="#특강-3-은행사-1400-1500">특강 3: 은행사 (14:00-15:00)</a></li>
+  <li><a href="#특강-4-new-won-뱅킹" id="toc-특강-4-new-won-뱅킹" class="nav-link" data-scroll-target="#특강-4-new-won-뱅킹">특강 4: New WON 뱅킹</a></li>
+  <li><a href="#특강-5-디지털금융서비스" id="toc-특강-5-디지털금융서비스" class="nav-link" data-scroll-target="#특강-5-디지털금융서비스">특강 5: 디지털금융서비스</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -171,27 +183,133 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><em>미완성 노트</em></p>
-<section id="vmware-마이그레이션" class="level1">
-<h1>VMware 마이그레이션</h1>
-<section id="cold-vs.-hot-migrations" class="level2">
-<h2 class="anchored" data-anchor-id="cold-vs.-hot-migrations">Cold vs.&nbsp;Hot Migrations</h2>
-<section id="cold-migrations" class="level3">
-<h3 class="anchored" data-anchor-id="cold-migrations">Cold Migrations?</h3>
-<p>VM들의 전원을 종료하거나 suspend 후 마이그레이션하는 것. - Intel vs.&nbsp;AMD ==&gt; 명령어 세트가 달라지면 hot이 어려울 수 있음.</p>
+<section id="현장실습" class="level1">
+<h1>2024.1.30. 현장실습</h1>
+<p><img src="98175_202011300940584900.jpg" class="img-fluid"></p>
+<section id="특강-1-마이데이터-0910-1000" class="level2">
+<h2 class="anchored" data-anchor-id="특강-1-마이데이터-0910-1000">특강 1: 마이데이터 (09:10-10:00)</h2>
+<section id="마이데이터-개요" class="level3">
+<h3 class="anchored" data-anchor-id="마이데이터-개요">마이데이터 개요</h3>
 </section>
-<section id="hot-migrations" class="level3">
-<h3 class="anchored" data-anchor-id="hot-migrations">Hot Migrations?</h3>
-<p>VM들의 전원이 켜진 상태에서 disruptions나 downtime 없이 마이그레이션하는 것. - 전용 vMotion 네트워크를 구성하여, 마이그레이션 전에 데이터를 옮김. - 이때 vSwitch에서는 VMkernel port를 이용.</p>
-</section>
-<section id="shared-storage" class="level3">
-<h3 class="anchored" data-anchor-id="shared-storage">Shared Storage</h3>
+<section id="고객-은행-정부의-입장" class="level3">
+<h3 class="anchored" data-anchor-id="고객-은행-정부의-입장">고객-은행-정부의 입장</h3>
 <ul>
-<li>양쪽 호스트가 다 연결되어 있고,</li>
+<li>고객</li>
+<li>은행: ‘락인 (Lock-in) 효과’</li>
+<li>정부</li>
 </ul>
-
-
 </section>
+<section id="마이데이터-업무-구성도" class="level3">
+<h3 class="anchored" data-anchor-id="마이데이터-업무-구성도">마이데이터 업무 구성도</h3>
+<ul>
+<li>마이데이터 서비스
+<ul>
+<li>Java, QCELL, DevOn</li>
+</ul></li>
+<li>데이터 송수신 허브
+<ul>
+<li>Java, Kafka, DevOn</li>
+</ul></li>
+<li>마이데이터 DB</li>
+</ul>
+<p>번외 - 마이데이터 기반의 내 데이터 상거래 서비스? - 자바 개발자가 부족하다: 자바, 파이썬, SQL 등. - 비즈니스에 대한 이해가 필요.</p>
+</section>
+</section>
+<section id="특강-2-블록체인-1010-1100" class="level2">
+<h2 class="anchored" data-anchor-id="특강-2-블록체인-1010-1100">특강 2: 블록체인 (10:10-11:00)</h2>
+</section>
+<section id="블록체인의-개념" class="level2">
+<h2 class="anchored" data-anchor-id="블록체인의-개념">### 블록체인의 개념</h2>
+<section id="블록체인의-종류" class="level3">
+<h3 class="anchored" data-anchor-id="블록체인의-종류">블록체인의 종류</h3>
+<ul>
+<li>개방형 (Public) 블록체인</li>
+<li>허가형 (Private) 블록체인</li>
+<li>컨소시엄 블록체인</li>
+</ul>
+</section>
+<section id="우리은행의-블록체인-활용-사례" class="level3">
+<h3 class="anchored" data-anchor-id="우리은행의-블록체인-활용-사례">우리은행의 블록체인 활용 사례</h3>
+<ul>
+<li>뱅크사인 서비스
+<ul>
+<li>블록체인 기반 은행권 공동 인증서</li>
+<li>옛 공인인증서 대체를 위해 은행연합회 주도로 구축</li>
+</ul></li>
+<li>뱅크아이디 서비스
+<ul>
+<li>위 뱅크사인이 널리 사용되지는 않음</li>
+<li>그래서 새로 DID (Decentralized Identifier) 기술을 도입 및 리뉴얼</li>
+<li>예시: COOV (코로나 백신 앱)</li>
+</ul></li>
+<li>우리은행 블록체인 플랫폼
+<ul>
+<li>하이퍼레저 패브릭을 기반으로, 우리은행만의 시스템</li>
+<li>Java, Go, Node.js 등 일반적인 프로그래밍 언어를 사용</li>
+<li>변호사자격증, 운전면허증, 장병 자격증명, 공무원연금공단 추천서 발급 및 검증 등</li>
+<li>NFT, CBDC (Central Bank DIgital Currency)</li>
+</ul></li>
+<li>토큰 증권 플랫폼
+<ul>
+<li>토큰 증권이란?
+<ul>
+<li></li>
+<li>말 그대로 모든 자산의 상품화.</li>
+</ul></li>
+<li>분산원장 기술 등을 통해 자본시장법상 증권을 디지털화한 것</li>
+<li>법제적으로는 전자증권에 해당</li>
+<li>우리종합금융이 추진 중인 증권사와의 시너지와 관련 있음 ==&gt; 심혈을 기울이는 사업.</li>
+</ul></li>
+</ul>
+</section>
+<section id="블록체인-직무에-필요한-역량" class="level3">
+<h3 class="anchored" data-anchor-id="블록체인-직무에-필요한-역량">블록체인 직무에 필요한 역량</h3>
+<ul>
+<li>개발: dApp 서비스 및 스마트 컨트랙트 개발
+<ul>
+<li>블록체인 기반, 그러나 모든 비즈니스를 다 넣을 수는 없기에, 블록체인 연계해서 서비스 개발을 해야 한다. 업무 로직을 개발하고, 블록체인으로 연계하기.</li>
+</ul></li>
+<li>인프라: OS, DB, 네트워크, Docker 등</li>
+<li>보안: 공개키-개인키 관리, 전자서명</li>
+<li>비즈니스: 해당 직무상 비즈니스</li>
+</ul>
+</section>
+<section id="번외-면접-관련" class="level3">
+<h3 class="anchored" data-anchor-id="번외-면접-관련">번외: 면접 관련</h3>
+<ul>
+<li>면접에서는 블록체인 원리 자체보다는 업에서 어떻게 활용할 것인지 등 설명.</li>
+<li>커뮤니케이션 스킬이 중요</li>
+</ul>
+</section>
+</section>
+<section id="특강-3-은행사-1400-1500" class="level2">
+<h2 class="anchored" data-anchor-id="특강-3-은행사-1400-1500">특강 3: 은행사 (14:00-15:00)</h2>
+</section>
+<section id="특강-4-new-won-뱅킹" class="level2">
+<h2 class="anchored" data-anchor-id="특강-4-new-won-뱅킹">특강 4: New WON 뱅킹</h2>
+</section>
+<section id="특강-5-디지털금융서비스" class="level2">
+<h2 class="anchored" data-anchor-id="특강-5-디지털금융서비스">특강 5: 디지털금융서비스</h2>
+<ol type="1">
+<li>디지털금융서비스 개요
+<ol type="1">
+<li>트렌드
+<ul>
+<li>이종 산업간 협업</li>
+<li>예) 편의점 배달 서비스 인앱화</li>
+</ul></li>
+</ol></li>
+<li>디지털금융업무 시스템의 이해
+<ol type="1">
+<li>워크플로
+<ul>
+<li>채널 (대면/인터넷/스마트 등) ==&gt; 서버 ==&gt; 호스트 (관련 원장)</li>
+</ul></li>
+<li>SI/SM</li>
+</ol></li>
+</ol>
+
+
 </section>
 </section>
 

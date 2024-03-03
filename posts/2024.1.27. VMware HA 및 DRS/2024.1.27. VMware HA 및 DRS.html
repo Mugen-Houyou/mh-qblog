@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Mugen-Houyou">
-<meta name="dcterms.date" content="2024-01-25">
+<meta name="dcterms.date" content="2024-01-27">
 
-<title>Home - VMware 마이그레이션</title>
+<title>Home - VMware HA 및 DRS</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -115,8 +115,8 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">VMware 마이그레이션</h1>
-            <p class="subtitle lead">VMware로의 마이그레이션에 대한 수업 노트.</p>
+      <h1 class="title">VMware HA 및 DRS</h1>
+            <p class="subtitle lead">VMware HA 및 DRS 대한 수업 노트.</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Virtualization</div>
               </div>
@@ -136,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">January 25, 2024</p>
+        <p class="date">January 27, 2024</p>
       </div>
     </div>
     
@@ -152,14 +152,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#vmware-마이그레이션" id="toc-vmware-마이그레이션" class="nav-link active" data-scroll-target="#vmware-마이그레이션">VMware 마이그레이션</a>
+  <li><a href="#ha-및-drs" id="toc-ha-및-drs" class="nav-link active" data-scroll-target="#ha-및-drs">HA 및 DRS</a>
   <ul class="collapse">
-  <li><a href="#cold-vs.-hot-migrations" id="toc-cold-vs.-hot-migrations" class="nav-link" data-scroll-target="#cold-vs.-hot-migrations">Cold vs.&nbsp;Hot Migrations</a>
-  <ul class="collapse">
-  <li><a href="#cold-migrations" id="toc-cold-migrations" class="nav-link" data-scroll-target="#cold-migrations">Cold Migrations?</a></li>
-  <li><a href="#hot-migrations" id="toc-hot-migrations" class="nav-link" data-scroll-target="#hot-migrations">Hot Migrations?</a></li>
-  <li><a href="#shared-storage" id="toc-shared-storage" class="nav-link" data-scroll-target="#shared-storage">Shared Storage</a></li>
-  </ul></li>
+  <li><a href="#vmware-ha-high-availability" id="toc-vmware-ha-high-availability" class="nav-link" data-scroll-target="#vmware-ha-high-availability">VMware HA (High Availability)</a></li>
+  <li><a href="#vmware-drs-distributed-resource-scheduler" id="toc-vmware-drs-distributed-resource-scheduler" class="nav-link" data-scroll-target="#vmware-drs-distributed-resource-scheduler">VMware DRS (Distributed Resource Scheduler)</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -171,27 +167,52 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><em>미완성 노트</em></p>
-<section id="vmware-마이그레이션" class="level1">
-<h1>VMware 마이그레이션</h1>
-<section id="cold-vs.-hot-migrations" class="level2">
-<h2 class="anchored" data-anchor-id="cold-vs.-hot-migrations">Cold vs.&nbsp;Hot Migrations</h2>
-<section id="cold-migrations" class="level3">
-<h3 class="anchored" data-anchor-id="cold-migrations">Cold Migrations?</h3>
-<p>VM들의 전원을 종료하거나 suspend 후 마이그레이션하는 것. - Intel vs.&nbsp;AMD ==&gt; 명령어 세트가 달라지면 hot이 어려울 수 있음.</p>
-</section>
-<section id="hot-migrations" class="level3">
-<h3 class="anchored" data-anchor-id="hot-migrations">Hot Migrations?</h3>
-<p>VM들의 전원이 켜진 상태에서 disruptions나 downtime 없이 마이그레이션하는 것. - 전용 vMotion 네트워크를 구성하여, 마이그레이션 전에 데이터를 옮김. - 이때 vSwitch에서는 VMkernel port를 이용.</p>
-</section>
-<section id="shared-storage" class="level3">
-<h3 class="anchored" data-anchor-id="shared-storage">Shared Storage</h3>
+<section id="ha-및-drs" class="level1">
+<h1>HA 및 DRS</h1>
+<p><img src="HA-and-DRS2.png" class="img-fluid"></p>
+<section id="vmware-ha-high-availability" class="level2">
+<h2 class="anchored" data-anchor-id="vmware-ha-high-availability">VMware HA (High Availability)</h2>
 <ul>
-<li>양쪽 호스트가 다 연결되어 있고,</li>
+<li><strong>VMware HA</strong>란?
+<ul>
+<li>VMware ESX 호스트에서 고가용성을 제공하는 기능.</li>
+<li>클러스터 내 모든 ESX 서버 호스트를 지속적으로 모니터링하고 장애를 감지함.</li>
+</ul></li>
+<li>작동 원리:
+<ul>
+<li>각 호스트에 배치된 에이전트가 클러스터 내 다른 호스트들과 “하트비트”를 유지함.</li>
+<li>하트비트 손실 시, 영향받은 가상 머신들이 다른 호스트로 재시작됨.</li>
+<li>VirtualCenter 관리 서버가 클러스터 내 각 호스트에 에이전트를 배치하여 상태 정보를 유지하고 다른 호스트의 실패 시 대응함.</li>
+</ul></li>
+<li>장애 감지: 하트비트 송신 중단 후 15초 후에 호스트 실패로 간주함.</li>
+<li>네트워크 격리: 호스트가 네트워크에서 격리될 경우 기본적으로 가상 머신을 종료하며, SAN 접근이 가능한 경우 디스크 잠금을 유지함.</li>
+<li>기본 동작: 네트워크 연결이 복구되기 전에는 가상 머신이 다른 호스트로 재시작되지 않습니다.</li>
+<li>유지보수, 로드 밸런싱, 재해 복구 계획 등에 유용.</li>
+</ul>
+</section>
+<section id="vmware-drs-distributed-resource-scheduler" class="level2">
+<h2 class="anchored" data-anchor-id="vmware-drs-distributed-resource-scheduler">VMware DRS (Distributed Resource Scheduler)</h2>
+<ul>
+<li><strong>VMware DRS</strong>란?
+<ul>
+<li>VMware ESXi 호스트 클러스터 내에서 최적의 리소스 사용과 부하 균형을 위한 클러스터링 기능.</li>
+</ul></li>
+<li>기능:
+<ul>
+<li>부하가 많은 ESXi 호스트에서 부하가 적은 호스트로 가상 머신(VM)을 마이그레이션하여 부하 균형.</li>
+<li>가상 머신의 초기 배치, 부하 균형, 클러스터 유지 관리 등을 자동화함.</li>
+</ul></li>
+<li>주요 특징:
+<ul>
+<li>가상 머신의 워크로드를 클러스터 내 vSphere 호스트에 분산.</li>
+<li>리소스 사용 최적화 및 전력 소비 절감 기능.</li>
+<li>유지보수 중에도 서비스 중단 없이 가상 머신 배포 가능.</li>
+</ul></li>
+<li>자동 로드 밸런싱: DRS는 클러스터 내 호스트 간에 가상 머신 워크로드를 분산시키고 자원을 모니터링함.</li>
+<li></li>
 </ul>
 
 
-</section>
 </section>
 </section>
 
