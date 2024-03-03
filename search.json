@@ -217,27 +217,6 @@
     "text": "RHEL 7은 Docker 기반의 컨테이너화를 지원.\nRHEL 8은 Podman 등 기반의 컨테이너화를 지원. ## 스터디에서 RHEL 7 채택 이유\n금융권뿐만 아니라 대규모 시스템에서는 사후지원 종료 후에도 유지하는 경우가 많음.\n시스템의 안정성 및 기존 기술의 숙련. ## 다음 주 화요일까지?\n구글 트렌드, 스택오버플로 자료량, 깃허브 스타 등.\n화요일 ==&gt; 1시간 전체 PPT 발표, 수요일==&gt; 실습.\n화요일 주제: ESXi에 설치하기 위한 가상매모리, UEFI 등, 고려해야 할 요소?\n\n시스템 요구사항: RHEL 7의 요구되는 하드웨어 사양?\n네트워크 설정: VMWare 환경에서 RHEL 7의 네트워크 구성?\n스토리지 관리: 사용할 스토리지 타입 및 구성 방법?\n가상화 특성 고려: RHEL 7을 VMWare ESXi에 설치할 때 가상화 특성 및 호환성?"
   },
   {
-    "objectID": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html",
-    "href": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html",
-    "title": "VMware HA 및 DRS",
-    "section": "",
-    "text": "VMware HA란?\n\nVMware ESX 호스트에서 고가용성을 제공하는 기능.\n클러스터 내 모든 ESX 서버 호스트를 지속적으로 모니터링하고 장애를 감지함.\n\n작동 원리:\n\n각 호스트에 배치된 에이전트가 클러스터 내 다른 호스트들과 “하트비트”를 유지함.\n하트비트 손실 시, 영향받은 가상 머신들이 다른 호스트로 재시작됨.\nVirtualCenter 관리 서버가 클러스터 내 각 호스트에 에이전트를 배치하여 상태 정보를 유지하고 다른 호스트의 실패 시 대응함.\n\n장애 감지: 하트비트 송신 중단 후 15초 후에 호스트 실패로 간주함.\n네트워크 격리: 호스트가 네트워크에서 격리될 경우 기본적으로 가상 머신을 종료하며, SAN 접근이 가능한 경우 디스크 잠금을 유지함.\n기본 동작: 네트워크 연결이 복구되기 전에는 가상 머신이 다른 호스트로 재시작되지 않습니다.\n유지보수, 로드 밸런싱, 재해 복구 계획 등에 유용.\n\n\n\n\n\nVMware DRS란?\n\nVMware ESXi 호스트 클러스터 내에서 최적의 리소스 사용과 부하 균형을 위한 클러스터링 기능.\n\n기능:\n\n부하가 많은 ESXi 호스트에서 부하가 적은 호스트로 가상 머신(VM)을 마이그레이션하여 부하 균형.\n가상 머신의 초기 배치, 부하 균형, 클러스터 유지 관리 등을 자동화함.\n\n주요 특징:\n\n가상 머신의 워크로드를 클러스터 내 vSphere 호스트에 분산.\n리소스 사용 최적화 및 전력 소비 절감 기능.\n유지보수 중에도 서비스 중단 없이 가상 머신 배포 가능.\n\n자동 로드 밸런싱: DRS는 클러스터 내 호스트 간에 가상 머신 워크로드를 분산시키고 자원을 모니터링함."
-  },
-  {
-    "objectID": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html#vmware-ha-high-availability",
-    "href": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html#vmware-ha-high-availability",
-    "title": "VMware HA 및 DRS",
-    "section": "",
-    "text": "VMware HA란?\n\nVMware ESX 호스트에서 고가용성을 제공하는 기능.\n클러스터 내 모든 ESX 서버 호스트를 지속적으로 모니터링하고 장애를 감지함.\n\n작동 원리:\n\n각 호스트에 배치된 에이전트가 클러스터 내 다른 호스트들과 “하트비트”를 유지함.\n하트비트 손실 시, 영향받은 가상 머신들이 다른 호스트로 재시작됨.\nVirtualCenter 관리 서버가 클러스터 내 각 호스트에 에이전트를 배치하여 상태 정보를 유지하고 다른 호스트의 실패 시 대응함.\n\n장애 감지: 하트비트 송신 중단 후 15초 후에 호스트 실패로 간주함.\n네트워크 격리: 호스트가 네트워크에서 격리될 경우 기본적으로 가상 머신을 종료하며, SAN 접근이 가능한 경우 디스크 잠금을 유지함.\n기본 동작: 네트워크 연결이 복구되기 전에는 가상 머신이 다른 호스트로 재시작되지 않습니다.\n유지보수, 로드 밸런싱, 재해 복구 계획 등에 유용."
-  },
-  {
-    "objectID": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html#vmware-drs-distributed-resource-scheduler",
-    "href": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html#vmware-drs-distributed-resource-scheduler",
-    "title": "VMware HA 및 DRS",
-    "section": "",
-    "text": "VMware DRS란?\n\nVMware ESXi 호스트 클러스터 내에서 최적의 리소스 사용과 부하 균형을 위한 클러스터링 기능.\n\n기능:\n\n부하가 많은 ESXi 호스트에서 부하가 적은 호스트로 가상 머신(VM)을 마이그레이션하여 부하 균형.\n가상 머신의 초기 배치, 부하 균형, 클러스터 유지 관리 등을 자동화함.\n\n주요 특징:\n\n가상 머신의 워크로드를 클러스터 내 vSphere 호스트에 분산.\n리소스 사용 최적화 및 전력 소비 절감 기능.\n유지보수 중에도 서비스 중단 없이 가상 머신 배포 가능.\n\n자동 로드 밸런싱: DRS는 클러스터 내 호스트 간에 가상 머신 워크로드를 분산시키고 자원을 모니터링함."
-  },
-  {
     "objectID": "posts/2024.2.20. Jenkins 및 Pipeline으로 GitHub 연동/2024.2.20. Jenkins 및 Pipeline으로 GitHub 연동.html",
     "href": "posts/2024.2.20. Jenkins 및 Pipeline으로 GitHub 연동/2024.2.20. Jenkins 및 Pipeline으로 GitHub 연동.html",
     "title": "Jenkins 및 Pipeline으로 GitHub 연동",
@@ -266,11 +245,25 @@
     "text": "git bash, jenkins item 생성, GH 활용, gradle 주의사항."
   },
   {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
+    "objectID": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html",
+    "href": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html",
+    "title": "VMware HA 및 DRS",
     "section": "",
-    "text": "This is not a post with executable code."
+    "text": "VMware HA란?\n\nVMware ESX 호스트에서 고가용성을 제공하는 기능.\n클러스터 내 모든 ESX 서버 호스트를 지속적으로 모니터링하고 장애를 감지함.\n\n작동 원리:\n\n각 호스트에 배치된 에이전트가 클러스터 내 다른 호스트들과 “하트비트”를 유지함.\n하트비트 손실 시, 영향받은 가상 머신들이 다른 호스트로 재시작됨.\nVirtualCenter 관리 서버가 클러스터 내 각 호스트에 에이전트를 배치하여 상태 정보를 유지하고 다른 호스트의 실패 시 대응함.\n\n장애 감지: 하트비트 송신 중단 후 15초 후에 호스트 실패로 간주함.\n네트워크 격리: 호스트가 네트워크에서 격리될 경우 기본적으로 가상 머신을 종료하며, SAN 접근이 가능한 경우 디스크 잠금을 유지함.\n기본 동작: 네트워크 연결이 복구되기 전에는 가상 머신이 다른 호스트로 재시작되지 않습니다.\n유지보수, 로드 밸런싱, 재해 복구 계획 등에 유용.\n\n\n\n\n\nVMware DRS란?\n\nVMware ESXi 호스트 클러스터 내에서 최적의 리소스 사용과 부하 균형을 위한 클러스터링 기능.\n\n기능:\n\n부하가 많은 ESXi 호스트에서 부하가 적은 호스트로 가상 머신(VM)을 마이그레이션하여 부하 균형.\n가상 머신의 초기 배치, 부하 균형, 클러스터 유지 관리 등을 자동화함.\n\n주요 특징:\n\n가상 머신의 워크로드를 클러스터 내 vSphere 호스트에 분산.\n리소스 사용 최적화 및 전력 소비 절감 기능.\n유지보수 중에도 서비스 중단 없이 가상 머신 배포 가능.\n\n자동 로드 밸런싱: DRS는 클러스터 내 호스트 간에 가상 머신 워크로드를 분산시키고 자원을 모니터링함."
+  },
+  {
+    "objectID": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html#vmware-ha-high-availability",
+    "href": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html#vmware-ha-high-availability",
+    "title": "VMware HA 및 DRS",
+    "section": "",
+    "text": "VMware HA란?\n\nVMware ESX 호스트에서 고가용성을 제공하는 기능.\n클러스터 내 모든 ESX 서버 호스트를 지속적으로 모니터링하고 장애를 감지함.\n\n작동 원리:\n\n각 호스트에 배치된 에이전트가 클러스터 내 다른 호스트들과 “하트비트”를 유지함.\n하트비트 손실 시, 영향받은 가상 머신들이 다른 호스트로 재시작됨.\nVirtualCenter 관리 서버가 클러스터 내 각 호스트에 에이전트를 배치하여 상태 정보를 유지하고 다른 호스트의 실패 시 대응함.\n\n장애 감지: 하트비트 송신 중단 후 15초 후에 호스트 실패로 간주함.\n네트워크 격리: 호스트가 네트워크에서 격리될 경우 기본적으로 가상 머신을 종료하며, SAN 접근이 가능한 경우 디스크 잠금을 유지함.\n기본 동작: 네트워크 연결이 복구되기 전에는 가상 머신이 다른 호스트로 재시작되지 않습니다.\n유지보수, 로드 밸런싱, 재해 복구 계획 등에 유용."
+  },
+  {
+    "objectID": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html#vmware-drs-distributed-resource-scheduler",
+    "href": "posts/2024.1.27. VMware HA 및 DRS/2024.1.27. VMware HA 및 DRS.html#vmware-drs-distributed-resource-scheduler",
+    "title": "VMware HA 및 DRS",
+    "section": "",
+    "text": "VMware DRS란?\n\nVMware ESXi 호스트 클러스터 내에서 최적의 리소스 사용과 부하 균형을 위한 클러스터링 기능.\n\n기능:\n\n부하가 많은 ESXi 호스트에서 부하가 적은 호스트로 가상 머신(VM)을 마이그레이션하여 부하 균형.\n가상 머신의 초기 배치, 부하 균형, 클러스터 유지 관리 등을 자동화함.\n\n주요 특징:\n\n가상 머신의 워크로드를 클러스터 내 vSphere 호스트에 분산.\n리소스 사용 최적화 및 전력 소비 절감 기능.\n유지보수 중에도 서비스 중단 없이 가상 머신 배포 가능.\n\n자동 로드 밸런싱: DRS는 클러스터 내 호스트 간에 가상 머신 워크로드를 분산시키고 자원을 모니터링함."
   },
   {
     "objectID": "posts/2024.1.12. Bash 스크립팅/2024.1.12. Bash 스크립팅.html",
@@ -366,9 +359,9 @@
   {
     "objectID": "posts/welcome/index.html",
     "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "title": "안녕하세요. 무한포옹 《無限抱擁》입니다.",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
+    "text": "Quarto 블로그 플랫폼을 기반으로 제작한, 무한포옹의 새로운 블로그입니다. 환영합니다!"
   },
   {
     "objectID": "posts/2024.1.25. VMware 마이그레이션/2024.1.25. VMware 마이그레이션.html",
@@ -417,6 +410,6 @@
     "href": "index.html",
     "title": "무한포옹 《無限抱擁》",
     "section": "",
-    "text": "Quarto 블로그 예시 몇 가지\n\n\n\n\n\n\ncode\n\n\netc\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nJenkins 및 Pipeline으로 GitHub 연동\n\n\nJenkins 개념 및 실습.\n\n\n\nCI_CD\n\n\nJenkins\n\n\n\n\n\n\n\n\n\nFeb 20, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.2.19. 취업 및 포트폴리오 특강\n\n\n우리FISA 특강 - 취업 및 포트폴리오 특강.\n\n\n\n현장\n\n\n특강\n\n\n\n\n\n\n\n\n\nJan 30, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.30. 현장실습\n\n\n우리FISA 현장실습 대한 노트.\n\n\n\n현장\n\n\n특강\n\n\n\n\n\n\n\n\n\nJan 30, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware HA 및 DRS\n\n\nVMware HA 및 DRS 대한 수업 노트.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 27, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware 마이그레이션\n\n\nVMware로의 마이그레이션에 대한 수업 노트.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 25, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware 개요 및 HOL\n\n\nVMware에 대해서 알아보고, 이를 실습하기 위한 HOL에 접속해보자.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 22, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.19. 다이나믹 라우팅：OSPF (실습)\n\n\n2024.1.19. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 19, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.18. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.17. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 17, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. VLAN 및 Static Routing 미션\n\n\n2024.1.16. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. 네트워크 이중화\n\n\n네트워크를 이중화하여 장애 등에 대비하자.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. Cisco 스위치 및 라우터 공장초기화\n\n\n스위치나 라우터의 공장초기화가 필요할 때도 있다.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.15. Layer 2 & Layer 3\n\n\nOSI 7계층 중 layer 2 및 layer 3에 대하여.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 15, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.12. 셸 스크립팅\n\n\nLinux를 배울 때 필수적인 셸 스크립팅.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 12, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8\n\n\n서버를 구성한다고 가정할 때, RHEL 7과 8을 비교해보자.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 10, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nPost With Code\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\nJan 18, 2023\n\n\nHarlow Malloc\n\n\n\n\n\n\n\n\n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 15, 2023\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Quarto 블로그 예시 몇 가지\n\n\n\n\n\n\ncode\n\n\netc\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nJenkins 및 Pipeline으로 GitHub 연동\n\n\nJenkins 개념 및 실습.\n\n\n\nCI_CD\n\n\nJenkins\n\n\n\n\n\n\n\n\n\nFeb 20, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.2.19. 취업 및 포트폴리오 특강\n\n\n우리FISA 특강 - 취업 및 포트폴리오 특강.\n\n\n\n현장\n\n\n특강\n\n\n\n\n\n\n\n\n\nJan 30, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.30. 현장실습\n\n\n우리FISA 현장실습 대한 노트.\n\n\n\n현장\n\n\n특강\n\n\n\n\n\n\n\n\n\nJan 30, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware HA 및 DRS\n\n\nVMware HA 및 DRS 대한 수업 노트.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 27, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware 마이그레이션\n\n\nVMware로의 마이그레이션에 대한 수업 노트.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 25, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware 개요 및 HOL\n\n\nVMware에 대해서 알아보고, 이를 실습하기 위한 HOL에 접속해보자.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 22, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.19. 다이나믹 라우팅：OSPF (실습)\n\n\n2024.1.19. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 19, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.18. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.17. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 17, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. VLAN 및 Static Routing 미션\n\n\n2024.1.16. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. 네트워크 이중화\n\n\n네트워크를 이중화하여 장애 등에 대비하자.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. Cisco 스위치 및 라우터 공장초기화\n\n\n스위치나 라우터의 공장초기화가 필요할 때도 있다.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.15. Layer 2 & Layer 3\n\n\nOSI 7계층 중 layer 2 및 layer 3에 대하여.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 15, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.12. 셸 스크립팅\n\n\nLinux를 배울 때 필수적인 셸 스크립팅.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 12, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8\n\n\n서버를 구성한다고 가정할 때, RHEL 7과 8을 비교해보자.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 10, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n안녕하세요. 무한포옹 《無限抱擁》입니다.\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 15, 2023\n\n\nMugen-Houyou\n\n\n\n\n\n\nNo matching items"
   }
 ]
