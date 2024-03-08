@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Mugen-Houyou">
-<meta name="dcterms.date" content="2024-01-16">
 
-<title>Home - 2024.1.16. 네트워크 이중화</title>
+<title>Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -112,114 +110,95 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">2024.1.16. 네트워크 이중화</h1>
-            <p class="subtitle lead">네트워크를 이중화하여 장애 등에 대비하자.</p>
-                                <div class="quarto-categories">
-                <div class="quarto-category">Networks</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Mugen-Houyou </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">January 16, 2024</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#폐구조" id="toc-폐구조" class="nav-link active" data-scroll-target="#폐구조">폐구조</a></li>
-  <li><a href="#stp-spanning-tree-protocol" id="toc-stp-spanning-tree-protocol" class="nav-link" data-scroll-target="#stp-spanning-tree-protocol">STP (Spanning Tree Protocol)</a></li>
-  <li><a href="#etherchannel" id="toc-etherchannel" class="nav-link" data-scroll-target="#etherchannel">EtherChannel</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
 
 
 
 
-
-<p><em>노트 작성 일자: 2024년 1월 16일 (수) 09:06</em></p>
-<section id="폐구조" class="level2">
-<h2 class="anchored" data-anchor-id="폐구조">폐구조</h2>
-<p><img src="Pasted image 20240116093250.png" class="img-fluid"> <!-- ![](Pasted image 20240116093250.png){width="50%" fig-align="left"} --></p>
-</section>
-<section id="stp-spanning-tree-protocol" class="level2">
-<h2 class="anchored" data-anchor-id="stp-spanning-tree-protocol">STP (Spanning Tree Protocol)</h2>
-<p><img src="Pasted image 20240116093608.png" class="img-fluid"></p>
+<section id="aws-alb로-로드밸런싱" class="level1">
+<h1>📅 2024.3.8. AWS ALB로 로드밸런싱</h1>
 <ul>
-<li>STP란?</li>
-<li>Suboptimal path 문제
+<li><strong>🏷️ Tags</strong>: #03-2024 #Cloud #Cloud/AWS</li>
+</ul>
+<section id="개요" class="level2">
+<h2 class="anchored" data-anchor-id="개요">📚 개요</h2>
 <ul>
-<li>원인: broadcast domain이 1개</li>
-<li>해결책: 라우터를 하나 둬서 네트워크를 분리하기.</li>
-</ul></li>
+<li>로드밸런싱이란?</li>
+<li>예시 ![[architecture.svg]]</li>
 </ul>
 </section>
-<section id="etherchannel" class="level2">
-<h2 class="anchored" data-anchor-id="etherchannel">EtherChannel</h2>
+<section id="step-by-step-튜토리얼" class="level2">
+<h2 class="anchored" data-anchor-id="step-by-step-튜토리얼">🛠 Step-by-Step 튜토리얼</h2>
+<section id="준비사항" class="level3">
+<h3 class="anchored" data-anchor-id="준비사항">준비사항</h3>
 <ul>
-<li>EtherChannel이란?</li>
-<li>이점:
+<li>리전 확인 ![[Pasted image 20240308161004.png|400]] ### 네트워크 구성 #### VPC 생성 및 서브넷 구성</li>
+<li>좌측상단의 Create VPC 클릭 ![[Pasted image 20240308161141.png]]</li>
+<li>VPC and more 선택 후, AZ 1개, public subnet 1개, private subnets 0개,</li>
+<li>단, public subnet에 대한 CIDR block는 아래와 같이 구성 (10.0.10.0/24) ![[Pasted image 20240308161506.png|350]]</li>
+<li>이후 AP-NE-2c 리전에 10.0.20.0/24 subnet를 추가 생성 ![[Pasted image 20240308161944.png]]</li>
+<li>생성된 두 개의 subnet에 대하여 라우팅 테이블 편집</li>
+<li>Subnet을 클릭 후 edit route table association 클릭 ![[Pasted image 20240308162137.png|250]]</li>
+<li>이후 아래와 같이 Main route table이 아닌 라우팅 테이블을 선택 후 저장 ![[Pasted image 20240308162243.png|500]]</li>
+</ul>
+<section id="보안-그룹-생성" class="level4">
+<h4 class="anchored" data-anchor-id="보안-그룹-생성">보안 그룹 생성</h4>
 <ul>
-<li>대역폭이 링크만큼 늘어남.</li>
-<li>트래픽의 로드 밸런싱.</li>
-<li>링크 중 하나가 죽으면 트래픽이 나머지 살아있는 쪽으로 다 넘어감.</li>
-</ul></li>
-<li>주의점:
+<li>이 lab에서는 EC2 웹서버용 보안 그룹과 ALB용 보안 그룹, <strong>총 2개를 생성해야 함</strong></li>
+<li>그러나 이 항목에서는 EC2 웹서버용 보안 그룹만 생성함</li>
+<li>webserver-sg에는 아래와 같이 inbound/outbound rules 지정 후 저장 ![[Pasted image 20240308162621.png]] ### EC2 인스턴스 생성 #### 첫 번째 인스턴스</li>
+<li>리전을 AP-NE-2a로 지정, t2.micro, 위에 생성한 VPC 및 webserver-sg 사용</li>
+<li>Auto-assign public IP를 Enable로 설정!</li>
+<li>단, Advanced details 항목의 맨 아래에 아래와 같이 웹서버로 구동되기 위한 초기 스크립트를 구성 ![[Pasted image 20240308163351.png|400]] #### 두 번째 인스턴스</li>
+<li>두 번째 인스턴스는 첫 번째 인스턴스를 이미지화한 AMI로부터 생성</li>
+<li>아래와 같이 Launch instance from AMI 클릭 ![[Pasted image 20240308163442.png]]</li>
+<li>리전을 AP-NE-2c로 지정, t3.micro, 위에 생성한 VPC 및 webserver-sg 사용</li>
+<li>Auto-assign public IP를 Enable로 설정! #### 인스턴스 2개 웹서버 확인</li>
+<li>2개 인스턴스 모두 http://<ip 주소="">/로 접속하여 웹서버 정상 작동 확인 ![[Pasted image 20240308164041.png]]</ip></li>
+</ul>
+</section>
+</section>
+<section id="로드-밸런서-생성" class="level3">
+<h3 class="anchored" data-anchor-id="로드-밸런서-생성">로드 밸런서 생성</h3>
+<section id="alb-생성" class="level4">
+<h4 class="anchored" data-anchor-id="alb-생성">ALB 생성</h4>
 <ul>
-<li>Gigabit Ethernet과 Fast Ethernet가 같이 묶일 수 없음.</li>
-<li>VLAN 구성이 아예 동일해야 함. 예시: 1,5,10이랑 1,10인 두 개의 포트는 묶일 수 없음.</li>
-<li>장비마다 스펙 참고해야 함 ==&gt; 어떤 장비는 최대 6개 선만 지원.</li>
-</ul></li>
-<li>Server-side에서는 teamming.</li>
-<li>EtherChannel의 프로토콜들:
+<li>아래와 같이 좌측 첫 번째 항목을 선택하여 ALB 생성 ![[Pasted image 20240308164219.png]] #### 보안 그룹 생성</li>
+<li>위 EC2 항목에서 언급한 대로 보안 그룹이 2개가 필요한데, 이 항목에서는 ALB에 대한 보안 그룹을 생성함</li>
+<li>다만, 이거 이후에도 한 번 더 보안 그룹을 수정해야 함</li>
+<li>아래와 같은 inbound/outbound rules를 기반으로 생성함 ![[Pasted image 20240308164553.png]] #### 타깃 그룹 생성</li>
+<li>Target group는 아래와 같이 구성 ![[Pasted image 20240308164747.png]] #### ALB 생성 스펙 요약 ![[Pasted image 20240308164916.png]] #### 보안 그룹 수정</li>
+<li>EC2 웹서버에 대한 보안 그룹을 수정해야 함</li>
+<li>아래와 같이 inbound rules를 수정함, 단, 규칙을 수정하는 것이 아니라 삭제 후 생성하는 식으로 해야 함</li>
+<li>EC2 웹서버의 보안 그룹 (webserver-sg)을 수정하는데, 아래와 같이, HTTP 및 HTTPS에 대하여, webalb-sg를 선택한 뒤 저장 ![[Pasted image 20240308165310.png]] ### 로드밸런서 작동 확인 #### 웹서버로 접속하여 확인</li>
+<li>다시 로드밸런서 메뉴로 돌아와, 아래와 같이 DNS name 항목을 복사 ![[Pasted image 20240308165550.png]]</li>
+<li>웹브라우저 주소창에 복붙하여 정상 작동 확인 ![[Pasted image 20240308165627.png|600]]</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="자원-반환" class="level2">
+<h2 class="anchored" data-anchor-id="자원-반환">자원 반환</h2>
+<section id="ec2-자원-반환-인스턴스-삭제" class="level3">
+<h3 class="anchored" data-anchor-id="ec2-자원-반환-인스턴스-삭제">EC2 자원 반환 (인스턴스 삭제)</h3>
+<p>![[Pasted image 20240308171230.png]] ### 이후 반환 순서 - AMI 삭제 - ALB 삭제 - Target group 삭제 - Security groups 삭제 - VPC 삭제</p>
+</section>
+</section>
+<section id="질문-및-토론" class="level2">
+<h2 class="anchored" data-anchor-id="질문-및-토론">🤔 질문 및 토론</h2>
 <ul>
-<li><p>LACP (Link Aggregation Control Protocol)</p>
-<div class="quarto-figure quarto-figure-left">
-<figure class="figure">
-<p><img src="Pasted image 20240116094529.png" class="img-fluid quarto-figure quarto-figure-left figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-<ul>
-<li>표준 프로토콜</li>
-<li>참고: 양쪽 스위치에 둘 다 적용해야 함.</li>
-<li>적용 전후 비교 (<code>sh spanning-tree</code>): <img src="Pasted image 20240116094910.png" class="img-fluid"></li>
-</ul></li>
-<li><p>PAgP (Port Aggregation Protocol)</p>
-<ul>
-<li>시스코 proprietary 프로토콜</li>
-</ul></li>
-</ul></li>
+<li>ALB의 한계는 무엇인가?</li>
+<li>다른 로드 밸런서들은 어떤가?</li>
+<li>재난 복구 관점에서, AWS 데이터센터가 갑자기 세상에서 증발하더라도, 웹 서비스가 멀쩡하게 동작하게끔 하려면?</li>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -304,7 +283,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/Mugen-Houyou\.github\.io\/blog-prj-qu\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
