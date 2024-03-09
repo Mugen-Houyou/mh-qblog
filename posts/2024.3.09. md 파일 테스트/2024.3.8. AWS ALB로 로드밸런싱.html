@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Mugen-Houyou">
-<meta name="dcterms.date" content="2024-03-08">
 
-<title>Home - 2024.3.08. AWS ALB로 로드밸런싱</title>
+<title>Home</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,12 +35,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
@@ -109,76 +105,17 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-body">
-      <h1 class="title">2024.3.08. AWS ALB로 로드밸런싱</h1>
-            <p class="subtitle lead">2024.3.08. 수업 후 미션.</p>
-                                <div class="quarto-categories">
-                <div class="quarto-category">Cloud</div>
-                <div class="quarto-category">Cloud/AWS</div>
-              </div>
-                  </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta">
-
-      <div>
-      <div class="quarto-title-meta-heading">Author</div>
-      <div class="quarto-title-meta-contents">
-               <p>Mugen-Houyou </p>
-            </div>
-    </div>
-      
-      <div>
-      <div class="quarto-title-meta-heading">Published</div>
-      <div class="quarto-title-meta-contents">
-        <p class="date">March 8, 2024</p>
-      </div>
-    </div>
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#aws-alb로-로드밸런싱" id="toc-aws-alb로-로드밸런싱" class="nav-link active" data-scroll-target="#aws-alb로-로드밸런싱">📅 2024.3.8. AWS ALB로 로드밸런싱</a>
-  <ul class="collapse">
-  <li><a href="#개요" id="toc-개요" class="nav-link" data-scroll-target="#개요">📚 개요</a></li>
-  <li><a href="#step-by-step-튜토리얼" id="toc-step-by-step-튜토리얼" class="nav-link" data-scroll-target="#step-by-step-튜토리얼">🛠 Step-by-Step 튜토리얼</a>
-  <ul class="collapse">
-  <li><a href="#준비사항" id="toc-준비사항" class="nav-link" data-scroll-target="#준비사항">준비사항</a></li>
-  <li><a href="#네트워크-구성" id="toc-네트워크-구성" class="nav-link" data-scroll-target="#네트워크-구성">네트워크 구성</a></li>
-  <li><a href="#ec2-인스턴스-생성" id="toc-ec2-인스턴스-생성" class="nav-link" data-scroll-target="#ec2-인스턴스-생성">EC2 인스턴스 생성</a></li>
-  <li><a href="#로드-밸런서-생성" id="toc-로드-밸런서-생성" class="nav-link" data-scroll-target="#로드-밸런서-생성">로드 밸런서 생성</a></li>
-  <li><a href="#로드밸런서-작동-확인" id="toc-로드밸런서-작동-확인" class="nav-link" data-scroll-target="#로드밸런서-작동-확인">로드밸런서 작동 확인</a></li>
-  </ul></li>
-  <li><a href="#자원-반환" id="toc-자원-반환" class="nav-link" data-scroll-target="#자원-반환">♻️ 자원 반환</a>
-  <ul class="collapse">
-  <li><a href="#ec2-자원-반환-인스턴스-삭제" id="toc-ec2-자원-반환-인스턴스-삭제" class="nav-link" data-scroll-target="#ec2-자원-반환-인스턴스-삭제">EC2 자원 반환 (인스턴스 삭제)</a></li>
-  </ul></li>
-  <li><a href="#질문-및-토론" id="toc-질문-및-토론" class="nav-link" data-scroll-target="#질문-및-토론">🤔 질문 및 토론</a></li>
-  </ul></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content">
-
 
 
 
@@ -191,9 +128,8 @@ ul.task-list li input[type="checkbox"] {
 <section id="개요" class="level2">
 <h2 class="anchored" data-anchor-id="개요">📚 개요</h2>
 <ul>
-<li><p>로드밸런싱이란?</p></li>
-<li><p>예시</p>
-<p><img src="architecture.svg" class="img-fluid"></p></li>
+<li>로드밸런싱이란?</li>
+<li>예시 ![[architecture.svg]]</li>
 </ul>
 </section>
 <section id="step-by-step-튜토리얼" class="level2">
@@ -201,8 +137,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="준비사항" class="level3">
 <h3 class="anchored" data-anchor-id="준비사항">준비사항</h3>
 <ul>
-<li><p>리전 확인</p>
-<p><img src="Pasted image 20240308161004.png" class="img-fluid"></p></li>
+<li>리전 확인 ![[Pasted image 20240308161004.png|400]]</li>
 </ul>
 </section>
 <section id="네트워크-구성" class="level3">
@@ -210,30 +145,21 @@ ul.task-list li input[type="checkbox"] {
 <section id="vpc-생성-및-서브넷-구성" class="level4">
 <h4 class="anchored" data-anchor-id="vpc-생성-및-서브넷-구성">VPC 생성 및 서브넷 구성</h4>
 <ul>
-<li><p>좌측상단의 Create VPC 클릭</p>
-<p><img src="Pasted image 20240308161141.png" class="img-fluid"></p></li>
-<li><p>VPC and more 선택 후, AZ 1개, public subnet 1개, private subnets 0개,</p></li>
-<li><p>단, public subnet에 대한 CIDR block는 아래와 같이 구성 (10.0.10.0/24)</p>
-<p><img src="Pasted image 20240308161506.png" class="img-fluid" width="350"></p></li>
-<li><p>이후 AP-NE-2c 리전에 10.0.20.0/24 subnet를 추가 생성</p>
-<p><img src="images/paste-1.png" class="img-fluid"></p></li>
-</ul>
-<p><img src="Pasted image 20240308161944.png" class="img-fluid"></p>
-<ul>
-<li><p>생성된 두 개의 subnet에 대하여 라우팅 테이블 편집</p></li>
-<li><p>Subnet을 클릭 후 edit route table association 클릭</p>
-<p><img src="Pasted image 20240308162137.png" class="img-fluid" width="250"></p></li>
-<li><p>이후 아래와 같이 Main route table이 아닌 라우팅 테이블을 선택 후 저장</p>
-<p><img src="Pasted image 20240308162243.png" class="img-fluid" width="500"></p></li>
+<li>좌측상단의 Create VPC 클릭 ![[Pasted image 20240308161141.png]]</li>
+<li>VPC and more 선택 후, AZ 1개, public subnet 1개, private subnets 0개,</li>
+<li>단, public subnet에 대한 CIDR block는 아래와 같이 구성 (10.0.10.0/24) ![[Pasted image 20240308161506.png|350]]</li>
+<li>이후 AP-NE-2c 리전에 10.0.20.0/24 subnet를 추가 생성 ![[Pasted image 20240308161944.png]]</li>
+<li>생성된 두 개의 subnet에 대하여 라우팅 테이블 편집</li>
+<li>Subnet을 클릭 후 edit route table association 클릭 ![[Pasted image 20240308162137.png|250]]</li>
+<li>이후 아래와 같이 Main route table이 아닌 라우팅 테이블을 선택 후 저장 ![[Pasted image 20240308162243.png|500]]</li>
 </ul>
 </section>
 <section id="보안-그룹-생성" class="level4">
 <h4 class="anchored" data-anchor-id="보안-그룹-생성">보안 그룹 생성</h4>
 <ul>
-<li><p>이 lab에서는 EC2 웹서버용 보안 그룹과 ALB용 보안 그룹, <strong>총 2개를 생성해야 함</strong></p></li>
-<li><p>그러나 이 항목에서는 EC2 웹서버용 보안 그룹만 생성함</p></li>
-<li><p>webserver-sg에는 아래와 같이 inbound/outbound rules 지정 후 저장</p>
-<p><img src="Pasted image 20240308162621.png" class="img-fluid"></p></li>
+<li>이 lab에서는 EC2 웹서버용 보안 그룹과 ALB용 보안 그룹, <strong>총 2개를 생성해야 함</strong></li>
+<li>그러나 이 항목에서는 EC2 웹서버용 보안 그룹만 생성함</li>
+<li>webserver-sg에는 아래와 같이 inbound/outbound rules 지정 후 저장 ![[Pasted image 20240308162621.png]]</li>
 </ul>
 </section>
 </section>
@@ -242,27 +168,20 @@ ul.task-list li input[type="checkbox"] {
 <section id="첫-번째-인스턴스" class="level4">
 <h4 class="anchored" data-anchor-id="첫-번째-인스턴스">첫 번째 인스턴스</h4>
 <ul>
-<li><p>리전을 AP-NE-2a로 지정, t2.micro, 위에 생성한 VPC 및 webserver-sg 사용</p></li>
-<li><p>Auto-assign public IP를 Enable로 설정!</p></li>
-<li><p>단, Advanced details 항목의 맨 아래에 아래와 같이 웹서버로 구동되기 위한 초기 스크립트를 구성</p>
-<p><img src="Pasted image 20240308163351.png" class="img-fluid" width="400"></p></li>
+<li>리전을 AP-NE-2a로 지정, t2.micro, 위에 생성한 VPC 및 webserver-sg 사용</li>
+<li>Auto-assign public IP를 Enable로 설정!</li>
+<li>단, Advanced details 항목의 맨 아래에 아래와 같이 웹서버로 구동되기 위한 초기 스크립트를 구성 ![[Pasted image 20240308163351.png|400]]</li>
 </ul>
 </section>
 <section id="두-번째-인스턴스" class="level4">
 <h4 class="anchored" data-anchor-id="두-번째-인스턴스">두 번째 인스턴스</h4>
 <ul>
-<li><p>두 번째 인스턴스는 첫 번째 인스턴스를 이미지화한 AMI로부터 생성</p></li>
-<li><p>아래와 같이 Launch instance from AMI 클릭</p>
-<p><img src="Pasted image 20240308163442.png" class="img-fluid"></p></li>
-<li><p>리전을 AP-NE-2c로 지정, t3.micro, 위에 생성한 VPC 및 webserver-sg 사용</p></li>
-<li><p>Auto-assign public IP를 Enable로 설정!</p></li>
-</ul>
-</section>
-<section id="인스턴스-2개-웹서버-확인" class="level4">
-<h4 class="anchored" data-anchor-id="인스턴스-2개-웹서버-확인">인스턴스 2개 웹서버 확인</h4>
-<ul>
-<li><p>2개 인스턴스 모두 http://<ip 주소="">/로 접속하여 웹서버 정상 작동 확인</ip></p>
-<p><img src="Pasted image 20240308164041.png" class="img-fluid"></p></li>
+<li>두 번째 인스턴스는 첫 번째 인스턴스를 이미지화한 AMI로부터 생성</li>
+<li>아래와 같이 Launch instance from AMI 클릭 ![[Pasted image 20240308163442.png]]</li>
+<li>리전을 AP-NE-2c로 지정, t3.micro, 위에 생성한 VPC 및 webserver-sg 사용</li>
+<li>Auto-assign public IP를 Enable로 설정!</li>
+<li><h4 id="인스턴스-2개-웹서버-확인" class="anchored">인스턴스 2개 웹서버 확인</h4></li>
+<li>2개 인스턴스 모두 http://<ip 주소="">/로 접속하여 웹서버 정상 작동 확인 ![[Pasted image 20240308164041.png]]</ip></li>
 </ul>
 </section>
 </section>
@@ -271,37 +190,33 @@ ul.task-list li input[type="checkbox"] {
 <section id="alb-생성" class="level4">
 <h4 class="anchored" data-anchor-id="alb-생성">ALB 생성</h4>
 <ul>
-<li><p>아래와 같이 좌측 첫 번째 항목을 선택하여 ALB 생성</p>
-<p><img src="Pasted image 20240308164219.png" class="img-fluid"></p></li>
+<li>아래와 같이 좌측 첫 번째 항목을 선택하여 ALB 생성 ![[Pasted image 20240308164219.png]]</li>
 </ul>
 </section>
 <section id="보안-그룹-생성-1" class="level4">
 <h4 class="anchored" data-anchor-id="보안-그룹-생성-1">보안 그룹 생성</h4>
 <ul>
-<li><p>위 EC2 항목에서 언급한 대로 보안 그룹이 2개가 필요한데, 이 항목에서는 ALB에 대한 보안 그룹을 생성함</p></li>
-<li><p>다만, 이거 이후에도 한 번 더 보안 그룹을 수정해야 함</p></li>
-<li><p>아래와 같은 inbound/outbound rules를 기반으로 생성함</p>
-<p><img src="Pasted image 20240308164553.png" class="img-fluid"></p></li>
+<li>위 EC2 항목에서 언급한 대로 보안 그룹이 2개가 필요한데, 이 항목에서는 ALB에 대한 보안 그룹을 생성함</li>
+<li>다만, 이거 이후에도 한 번 더 보안 그룹을 수정해야 함</li>
+<li>아래와 같은 inbound/outbound rules를 기반으로 생성함 ![[Pasted image 20240308164553.png]]</li>
 </ul>
 </section>
 <section id="타깃-그룹-생성" class="level4">
 <h4 class="anchored" data-anchor-id="타깃-그룹-생성">타깃 그룹 생성</h4>
 <ul>
-<li><p>Target group는 아래와 같이 구성</p>
-<p><img src="Pasted image 20240308164747.png" class="img-fluid"></p></li>
+<li>Target group는 아래와 같이 구성 ![[Pasted image 20240308164747.png]]</li>
 </ul>
 </section>
 <section id="alb-생성-스펙-요약" class="level4">
 <h4 class="anchored" data-anchor-id="alb-생성-스펙-요약">ALB 생성 스펙 요약</h4>
-<p><img src="Pasted image 20240308164916.png" class="img-fluid"></p>
+<p>![[Pasted image 20240308164916.png]]</p>
 </section>
 <section id="보안-그룹-수정" class="level4">
 <h4 class="anchored" data-anchor-id="보안-그룹-수정">보안 그룹 수정</h4>
 <ul>
-<li><p>EC2 웹서버에 대한 보안 그룹을 수정해야 함</p></li>
-<li><p>아래와 같이 inbound rules를 수정함, 단, 규칙을 수정하는 것이 아니라 삭제 후 생성하는 식으로 해야 함</p></li>
-<li><p>EC2 웹서버의 보안 그룹 (webserver-sg)을 수정하는데, 아래와 같이, HTTP 및 HTTPS에 대하여, webalb-sg를 선택한 뒤 저장</p>
-<p><img src="Pasted image 20240308165310.png" class="img-fluid"></p></li>
+<li>EC2 웹서버에 대한 보안 그룹을 수정해야 함</li>
+<li>아래와 같이 inbound rules를 수정함, 단, 규칙을 수정하는 것이 아니라 삭제 후 생성하는 식으로 해야 함</li>
+<li>EC2 웹서버의 보안 그룹 (webserver-sg)을 수정하는데, 아래와 같이, HTTP 및 HTTPS에 대하여, webalb-sg를 선택한 뒤 저장 ![[Pasted image 20240308165310.png]]</li>
 </ul>
 </section>
 </section>
@@ -310,19 +225,27 @@ ul.task-list li input[type="checkbox"] {
 <section id="웹서버로-접속하여-확인" class="level4">
 <h4 class="anchored" data-anchor-id="웹서버로-접속하여-확인">웹서버로 접속하여 확인</h4>
 <ul>
-<li><p>다시 로드밸런서 메뉴로 돌아와, 아래와 같이 DNS name 항목을 복사</p>
-<p><img src="Pasted image 20240308165550.png" class="img-fluid"></p></li>
-<li><p>웹브라우저 주소창에 복붙하여 정상 작동 확인</p>
-<p><img src="Pasted image 20240308165627.png" class="img-fluid" width="600"></p></li>
+<li>다시 로드밸런서 메뉴로 돌아와, 아래와 같이 DNS name 항목을 복사 ![[Pasted image 20240308165550.png]]</li>
+<li>웹브라우저 주소창에 복붙하여 정상 작동 확인 ![[Pasted image 20240308165627.png|600]]</li>
 </ul>
 </section>
 </section>
 </section>
 <section id="자원-반환" class="level2">
-<h2 class="anchored" data-anchor-id="자원-반환">♻️ 자원 반환</h2>
+<h2 class="anchored" data-anchor-id="자원-반환">자원 반환</h2>
 <section id="ec2-자원-반환-인스턴스-삭제" class="level3">
 <h3 class="anchored" data-anchor-id="ec2-자원-반환-인스턴스-삭제">EC2 자원 반환 (인스턴스 삭제)</h3>
-<p><img src="Pasted image 20240308171230.png" class="img-fluid"> ` ### 이후 반환 순서 - AMI 삭제 - ALB 삭제 - Target group 삭제 - Security groups 삭제 - VPC 삭제</p>
+<p>![[Pasted image 20240308171230.png]]</p>
+</section>
+<section id="이후-반환-순서" class="level3">
+<h3 class="anchored" data-anchor-id="이후-반환-순서">이후 반환 순서</h3>
+<ul>
+<li>AMI 삭제</li>
+<li>ALB 삭제</li>
+<li>Target group 삭제</li>
+<li>Security groups 삭제</li>
+<li>VPC 삭제</li>
+</ul>
 </section>
 </section>
 <section id="질문-및-토론" class="level2">
@@ -358,150 +281,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
-  const disableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'prefetch';
-    }
-  }
-  const enableStylesheet = (stylesheets) => {
-    for (let i=0; i < stylesheets.length; i++) {
-      const stylesheet = stylesheets[i];
-      stylesheet.rel = 'stylesheet';
-    }
-  }
-  const manageTransitions = (selector, allowTransitions) => {
-    const els = window.document.querySelectorAll(selector);
-    for (let i=0; i < els.length; i++) {
-      const el = els[i];
-      if (allowTransitions) {
-        el.classList.remove('notransition');
-      } else {
-        el.classList.add('notransition');
-      }
-    }
-  }
-  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-    let newTheme = '';
-    if(darkModeDefault) {
-      newTheme = isAlternate ? baseTheme : alternateTheme;
-    } else {
-      newTheme = isAlternate ? alternateTheme : baseTheme;
-    }
-    const changeGiscusTheme = () => {
-      // From: https://github.com/giscus/giscus/issues/336
-      const sendMessage = (message) => {
-        const iframe = document.querySelector('iframe.giscus-frame');
-        if (!iframe) return;
-        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-      }
-      sendMessage({
-        setConfig: {
-          theme: newTheme
-        }
-      });
-    }
-    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-    if (isGiscussLoaded) {
-      changeGiscusTheme();
-    }
-  }
-  const toggleColorMode = (alternate) => {
-    // Switch the stylesheets
-    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-    manageTransitions('#quarto-margin-sidebar .nav-link', false);
-    if (alternate) {
-      enableStylesheet(alternateStylesheets);
-      for (const sheetNode of alternateStylesheets) {
-        if (sheetNode.id === "quarto-bootstrap") {
-          toggleBodyColorMode(sheetNode);
-        }
-      }
-    } else {
-      disableStylesheet(alternateStylesheets);
-      toggleBodyColorPrimary();
-    }
-    manageTransitions('#quarto-margin-sidebar .nav-link', true);
-    // Switch the toggles
-    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-    for (let i=0; i < toggles.length; i++) {
-      const toggle = toggles[i];
-      if (toggle) {
-        if (alternate) {
-          toggle.classList.add("alternate");     
-        } else {
-          toggle.classList.remove("alternate");
-        }
-      }
-    }
-    // Hack to workaround the fact that safari doesn't
-    // properly recolor the scrollbar when toggling (#1455)
-    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-      manageTransitions("body", false);
-      window.scrollTo(0, 1);
-      setTimeout(() => {
-        window.scrollTo(0, 0);
-        manageTransitions("body", true);
-      }, 40);  
-    }
-  }
-  const isFileUrl = () => { 
-    return window.location.protocol === 'file:';
-  }
-  const hasAlternateSentinel = () => {  
-    let styleSentinel = getColorSchemeSentinel();
-    if (styleSentinel !== null) {
-      return styleSentinel === "alternate";
-    } else {
-      return false;
-    }
-  }
-  const setStyleSentinel = (alternate) => {
-    const value = alternate ? "alternate" : "default";
-    if (!isFileUrl()) {
-      window.localStorage.setItem("quarto-color-scheme", value);
-    } else {
-      localAlternateSentinel = value;
-    }
-  }
-  const getColorSchemeSentinel = () => {
-    if (!isFileUrl()) {
-      const storageValue = window.localStorage.getItem("quarto-color-scheme");
-      return storageValue != null ? storageValue : localAlternateSentinel;
-    } else {
-      return localAlternateSentinel;
-    }
-  }
-  const darkModeDefault = false;
-  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-  // Dark / light mode switch
-  window.quartoToggleColorScheme = () => {
-    // Read the current dark / light value 
-    let toAlternate = !hasAlternateSentinel();
-    toggleColorMode(toAlternate);
-    setStyleSentinel(toAlternate);
-    toggleGiscusIfUsed(toAlternate, darkModeDefault);
-  };
-  // Ensure there is a toggle, if there isn't float one in the top right
-  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-    const a = window.document.createElement('a');
-    a.classList.add('top-right');
-    a.classList.add('quarto-color-scheme-toggle');
-    a.href = "";
-    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-    const i = window.document.createElement("i");
-    i.classList.add('bi');
-    a.appendChild(i);
-    window.document.body.appendChild(a);
-  }
-  // Switch to dark mode if need be
-  if (hasAlternateSentinel()) {
-    toggleColorMode(true);
-  } else {
-    toggleColorMode(false);
-  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -563,7 +342,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/Mugen-Houyou\.github\.io\/blog-prj-qu\/");
+      var filterRegex = new RegExp('/' + window.location.host + '/');
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
