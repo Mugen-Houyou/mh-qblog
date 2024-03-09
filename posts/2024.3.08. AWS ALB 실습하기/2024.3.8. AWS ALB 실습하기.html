@@ -9,7 +9,7 @@
 <meta name="author" content="Mugen-Houyou">
 <meta name="dcterms.date" content="2024-03-08">
 
-<title>Home - 2024.3.08. AWS ALB로 로드밸런싱</title>
+<title>Home - AWS ALB로 로드밸런싱</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -118,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">2024.3.08. AWS ALB로 로드밸런싱</h1>
+      <h1 class="title">AWS ALB로 로드밸런싱</h1>
             <p class="subtitle lead">2024.3.08. 수업 후 미션.</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Cloud</div>
@@ -170,6 +170,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#자원-반환" id="toc-자원-반환" class="nav-link" data-scroll-target="#자원-반환">♻️ 자원 반환</a>
   <ul class="collapse">
   <li><a href="#ec2-자원-반환-인스턴스-삭제" id="toc-ec2-자원-반환-인스턴스-삭제" class="nav-link" data-scroll-target="#ec2-자원-반환-인스턴스-삭제">EC2 자원 반환 (인스턴스 삭제)</a></li>
+  <li><a href="#이후-반환-순서" id="toc-이후-반환-순서" class="nav-link" data-scroll-target="#이후-반환-순서">이후 반환 순서:</a></li>
   </ul></li>
   <li><a href="#질문-및-토론" id="toc-질문-및-토론" class="nav-link" data-scroll-target="#질문-및-토론">🤔 질문 및 토론</a></li>
   </ul></li>
@@ -191,8 +192,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="개요" class="level2">
 <h2 class="anchored" data-anchor-id="개요">📚 개요</h2>
 <ul>
-<li><p>로드밸런싱이란?</p></li>
-<li><p>예시</p>
+<li><p>로드밸런싱이란?</p>
+<ul>
+<li><p>여러 서버에 네트워크 트래픽이나 요청을 분산하여 처리하는 기술.</p></li>
+<li><p>기존의 단일 서버에서 발생할 수 있는 과부하를 방지하고, 애플리케이션의 고가용성 (HA) 및 재해 복구 (DR)를 달성.</p></li>
+<li><p>이 포스트에서 다룰 AWS의 Application Load Balancer (ALB)는 OSI 모델의 7계층에서 작동하여, ‘health check’ 기능을 통해 각 대상의 현재 상태를 모니터링하고, 문제가 있는 서버로부터 트래픽을 자동으로 분리. 이러한 솔루션을 통해 HTTP 및 HTTPS 트래픽을 유연하게 전달 가능.</p></li>
+</ul></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>예시 <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/600420b7-5c4c-498f-9b80-bc7798963ba3/ko-KR/ec2/50-elb/100-create-elb">출처🔗</a></p>
 <p><img src="architecture.svg" class="img-fluid"></p></li>
 </ul>
 </section>
@@ -322,7 +331,17 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="자원-반환">♻️ 자원 반환</h2>
 <section id="ec2-자원-반환-인스턴스-삭제" class="level3">
 <h3 class="anchored" data-anchor-id="ec2-자원-반환-인스턴스-삭제">EC2 자원 반환 (인스턴스 삭제)</h3>
-<p><img src="Pasted image 20240308171230.png" class="img-fluid"> ` ### 이후 반환 순서 - AMI 삭제 - ALB 삭제 - Target group 삭제 - Security groups 삭제 - VPC 삭제</p>
+<p><img src="Pasted image 20240308171230.png" class="img-fluid"></p>
+</section>
+<section id="이후-반환-순서" class="level3">
+<h3 class="anchored" data-anchor-id="이후-반환-순서">이후 반환 순서:</h3>
+<ul>
+<li>AMI 삭제</li>
+<li>ALB 삭제</li>
+<li>Target group 삭제</li>
+<li>Security groups 삭제</li>
+<li>VPC 삭제</li>
+</ul>
 </section>
 </section>
 <section id="질문-및-토론" class="level2">

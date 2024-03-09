@@ -9,35 +9,35 @@
   {
     "objectID": "posts/2024.3.08. AWS ALB 실습하기/2024.3.8. AWS ALB 실습하기.html",
     "href": "posts/2024.3.08. AWS ALB 실습하기/2024.3.8. AWS ALB 실습하기.html",
-    "title": "2024.3.08. AWS ALB로 로드밸런싱",
+    "title": "AWS ALB로 로드밸런싱",
     "section": "",
-    "text": "🏷️ Tags: #03-2024 #Cloud #Cloud/AWS\n\n\n\n\n로드밸런싱이란?\n예시\n\n\n\n\n\n\n\n\n리전 확인\n\n\n\n\n\n\n\n\n좌측상단의 Create VPC 클릭\n\nVPC and more 선택 후, AZ 1개, public subnet 1개, private subnets 0개,\n단, public subnet에 대한 CIDR block는 아래와 같이 구성 (10.0.10.0/24)\n\n이후 AP-NE-2c 리전에 10.0.20.0/24 subnet를 추가 생성\n\n\n\n\n생성된 두 개의 subnet에 대하여 라우팅 테이블 편집\nSubnet을 클릭 후 edit route table association 클릭\n\n이후 아래와 같이 Main route table이 아닌 라우팅 테이블을 선택 후 저장\n\n\n\n\n\n\n이 lab에서는 EC2 웹서버용 보안 그룹과 ALB용 보안 그룹, 총 2개를 생성해야 함\n그러나 이 항목에서는 EC2 웹서버용 보안 그룹만 생성함\nwebserver-sg에는 아래와 같이 inbound/outbound rules 지정 후 저장\n\n\n\n\n\n\n\n\n\n리전을 AP-NE-2a로 지정, t2.micro, 위에 생성한 VPC 및 webserver-sg 사용\nAuto-assign public IP를 Enable로 설정!\n단, Advanced details 항목의 맨 아래에 아래와 같이 웹서버로 구동되기 위한 초기 스크립트를 구성\n\n\n\n\n\n\n두 번째 인스턴스는 첫 번째 인스턴스를 이미지화한 AMI로부터 생성\n아래와 같이 Launch instance from AMI 클릭\n\n리전을 AP-NE-2c로 지정, t3.micro, 위에 생성한 VPC 및 webserver-sg 사용\nAuto-assign public IP를 Enable로 설정!\n\n\n\n\n\n2개 인스턴스 모두 http:///로 접속하여 웹서버 정상 작동 확인\n\n\n\n\n\n\n\n\n\n아래와 같이 좌측 첫 번째 항목을 선택하여 ALB 생성\n\n\n\n\n\n\n위 EC2 항목에서 언급한 대로 보안 그룹이 2개가 필요한데, 이 항목에서는 ALB에 대한 보안 그룹을 생성함\n다만, 이거 이후에도 한 번 더 보안 그룹을 수정해야 함\n아래와 같은 inbound/outbound rules를 기반으로 생성함\n\n\n\n\n\n\nTarget group는 아래와 같이 구성\n\n\n\n\n\n\n\n\n\n\nEC2 웹서버에 대한 보안 그룹을 수정해야 함\n아래와 같이 inbound rules를 수정함, 단, 규칙을 수정하는 것이 아니라 삭제 후 생성하는 식으로 해야 함\nEC2 웹서버의 보안 그룹 (webserver-sg)을 수정하는데, 아래와 같이, HTTP 및 HTTPS에 대하여, webalb-sg를 선택한 뒤 저장\n\n\n\n\n\n\n\n\n\n다시 로드밸런서 메뉴로 돌아와, 아래와 같이 DNS name 항목을 복사\n\n웹브라우저 주소창에 복붙하여 정상 작동 확인\n\n\n\n\n\n\n\n\n\n ` ### 이후 반환 순서 - AMI 삭제 - ALB 삭제 - Target group 삭제 - Security groups 삭제 - VPC 삭제\n\n\n\n\n\nALB의 한계는 무엇인가?\n다른 로드 밸런서들은 어떤가?\n재난 복구 관점에서, AWS 데이터센터가 갑자기 세상에서 증발하더라도, 웹 서비스가 멀쩡하게 동작하게끔 하려면?"
+    "text": "🏷️ Tags: #03-2024 #Cloud #Cloud/AWS\n\n\n\n\n로드밸런싱이란?\n\n여러 서버에 네트워크 트래픽이나 요청을 분산하여 처리하는 기술.\n기존의 단일 서버에서 발생할 수 있는 과부하를 방지하고, 애플리케이션의 고가용성 (HA) 및 재해 복구 (DR)를 달성.\n이 포스트에서 다룰 AWS의 Application Load Balancer (ALB)는 OSI 모델의 7계층에서 작동하여, ‘health check’ 기능을 통해 각 대상의 현재 상태를 모니터링하고, 문제가 있는 서버로부터 트래픽을 자동으로 분리. 이러한 솔루션을 통해 HTTP 및 HTTPS 트래픽을 유연하게 전달 가능.\n\n\n\n\n예시 출처🔗\n\n\n\n\n\n\n\n\n리전 확인\n\n\n\n\n\n\n\n\n좌측상단의 Create VPC 클릭\n\nVPC and more 선택 후, AZ 1개, public subnet 1개, private subnets 0개,\n단, public subnet에 대한 CIDR block는 아래와 같이 구성 (10.0.10.0/24)\n\n이후 AP-NE-2c 리전에 10.0.20.0/24 subnet를 추가 생성\n\n\n\n\n생성된 두 개의 subnet에 대하여 라우팅 테이블 편집\nSubnet을 클릭 후 edit route table association 클릭\n\n이후 아래와 같이 Main route table이 아닌 라우팅 테이블을 선택 후 저장\n\n\n\n\n\n\n이 lab에서는 EC2 웹서버용 보안 그룹과 ALB용 보안 그룹, 총 2개를 생성해야 함\n그러나 이 항목에서는 EC2 웹서버용 보안 그룹만 생성함\nwebserver-sg에는 아래와 같이 inbound/outbound rules 지정 후 저장\n\n\n\n\n\n\n\n\n\n리전을 AP-NE-2a로 지정, t2.micro, 위에 생성한 VPC 및 webserver-sg 사용\nAuto-assign public IP를 Enable로 설정!\n단, Advanced details 항목의 맨 아래에 아래와 같이 웹서버로 구동되기 위한 초기 스크립트를 구성\n\n\n\n\n\n\n두 번째 인스턴스는 첫 번째 인스턴스를 이미지화한 AMI로부터 생성\n아래와 같이 Launch instance from AMI 클릭\n\n리전을 AP-NE-2c로 지정, t3.micro, 위에 생성한 VPC 및 webserver-sg 사용\nAuto-assign public IP를 Enable로 설정!\n\n\n\n\n\n2개 인스턴스 모두 http:///로 접속하여 웹서버 정상 작동 확인\n\n\n\n\n\n\n\n\n\n아래와 같이 좌측 첫 번째 항목을 선택하여 ALB 생성\n\n\n\n\n\n\n위 EC2 항목에서 언급한 대로 보안 그룹이 2개가 필요한데, 이 항목에서는 ALB에 대한 보안 그룹을 생성함\n다만, 이거 이후에도 한 번 더 보안 그룹을 수정해야 함\n아래와 같은 inbound/outbound rules를 기반으로 생성함\n\n\n\n\n\n\nTarget group는 아래와 같이 구성\n\n\n\n\n\n\n\n\n\n\nEC2 웹서버에 대한 보안 그룹을 수정해야 함\n아래와 같이 inbound rules를 수정함, 단, 규칙을 수정하는 것이 아니라 삭제 후 생성하는 식으로 해야 함\nEC2 웹서버의 보안 그룹 (webserver-sg)을 수정하는데, 아래와 같이, HTTP 및 HTTPS에 대하여, webalb-sg를 선택한 뒤 저장\n\n\n\n\n\n\n\n\n\n다시 로드밸런서 메뉴로 돌아와, 아래와 같이 DNS name 항목을 복사\n\n웹브라우저 주소창에 복붙하여 정상 작동 확인\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAMI 삭제\nALB 삭제\nTarget group 삭제\nSecurity groups 삭제\nVPC 삭제\n\n\n\n\n\n\nALB의 한계는 무엇인가?\n다른 로드 밸런서들은 어떤가?\n재난 복구 관점에서, AWS 데이터센터가 갑자기 세상에서 증발하더라도, 웹 서비스가 멀쩡하게 동작하게끔 하려면?"
   },
   {
     "objectID": "posts/2024.3.08. AWS ALB 실습하기/2024.3.8. AWS ALB 실습하기.html#개요",
     "href": "posts/2024.3.08. AWS ALB 실습하기/2024.3.8. AWS ALB 실습하기.html#개요",
-    "title": "2024.3.08. AWS ALB로 로드밸런싱",
+    "title": "AWS ALB로 로드밸런싱",
     "section": "",
-    "text": "로드밸런싱이란?\n예시"
+    "text": "로드밸런싱이란?\n\n여러 서버에 네트워크 트래픽이나 요청을 분산하여 처리하는 기술.\n기존의 단일 서버에서 발생할 수 있는 과부하를 방지하고, 애플리케이션의 고가용성 (HA) 및 재해 복구 (DR)를 달성.\n이 포스트에서 다룰 AWS의 Application Load Balancer (ALB)는 OSI 모델의 7계층에서 작동하여, ‘health check’ 기능을 통해 각 대상의 현재 상태를 모니터링하고, 문제가 있는 서버로부터 트래픽을 자동으로 분리. 이러한 솔루션을 통해 HTTP 및 HTTPS 트래픽을 유연하게 전달 가능.\n\n\n\n\n예시 출처🔗"
   },
   {
     "objectID": "posts/2024.3.08. AWS ALB 실습하기/2024.3.8. AWS ALB 실습하기.html#step-by-step-튜토리얼",
     "href": "posts/2024.3.08. AWS ALB 실습하기/2024.3.8. AWS ALB 실습하기.html#step-by-step-튜토리얼",
-    "title": "2024.3.08. AWS ALB로 로드밸런싱",
+    "title": "AWS ALB로 로드밸런싱",
     "section": "",
     "text": "리전 확인\n\n\n\n\n\n\n\n\n좌측상단의 Create VPC 클릭\n\nVPC and more 선택 후, AZ 1개, public subnet 1개, private subnets 0개,\n단, public subnet에 대한 CIDR block는 아래와 같이 구성 (10.0.10.0/24)\n\n이후 AP-NE-2c 리전에 10.0.20.0/24 subnet를 추가 생성\n\n\n\n\n생성된 두 개의 subnet에 대하여 라우팅 테이블 편집\nSubnet을 클릭 후 edit route table association 클릭\n\n이후 아래와 같이 Main route table이 아닌 라우팅 테이블을 선택 후 저장\n\n\n\n\n\n\n이 lab에서는 EC2 웹서버용 보안 그룹과 ALB용 보안 그룹, 총 2개를 생성해야 함\n그러나 이 항목에서는 EC2 웹서버용 보안 그룹만 생성함\nwebserver-sg에는 아래와 같이 inbound/outbound rules 지정 후 저장\n\n\n\n\n\n\n\n\n\n리전을 AP-NE-2a로 지정, t2.micro, 위에 생성한 VPC 및 webserver-sg 사용\nAuto-assign public IP를 Enable로 설정!\n단, Advanced details 항목의 맨 아래에 아래와 같이 웹서버로 구동되기 위한 초기 스크립트를 구성\n\n\n\n\n\n\n두 번째 인스턴스는 첫 번째 인스턴스를 이미지화한 AMI로부터 생성\n아래와 같이 Launch instance from AMI 클릭\n\n리전을 AP-NE-2c로 지정, t3.micro, 위에 생성한 VPC 및 webserver-sg 사용\nAuto-assign public IP를 Enable로 설정!\n\n\n\n\n\n2개 인스턴스 모두 http:///로 접속하여 웹서버 정상 작동 확인\n\n\n\n\n\n\n\n\n\n아래와 같이 좌측 첫 번째 항목을 선택하여 ALB 생성\n\n\n\n\n\n\n위 EC2 항목에서 언급한 대로 보안 그룹이 2개가 필요한데, 이 항목에서는 ALB에 대한 보안 그룹을 생성함\n다만, 이거 이후에도 한 번 더 보안 그룹을 수정해야 함\n아래와 같은 inbound/outbound rules를 기반으로 생성함\n\n\n\n\n\n\nTarget group는 아래와 같이 구성\n\n\n\n\n\n\n\n\n\n\nEC2 웹서버에 대한 보안 그룹을 수정해야 함\n아래와 같이 inbound rules를 수정함, 단, 규칙을 수정하는 것이 아니라 삭제 후 생성하는 식으로 해야 함\nEC2 웹서버의 보안 그룹 (webserver-sg)을 수정하는데, 아래와 같이, HTTP 및 HTTPS에 대하여, webalb-sg를 선택한 뒤 저장\n\n\n\n\n\n\n\n\n\n다시 로드밸런서 메뉴로 돌아와, 아래와 같이 DNS name 항목을 복사\n\n웹브라우저 주소창에 복붙하여 정상 작동 확인"
   },
   {
     "objectID": "posts/2024.3.08. AWS ALB 실습하기/2024.3.8. AWS ALB 실습하기.html#자원-반환",
     "href": "posts/2024.3.08. AWS ALB 실습하기/2024.3.8. AWS ALB 실습하기.html#자원-반환",
-    "title": "2024.3.08. AWS ALB로 로드밸런싱",
+    "title": "AWS ALB로 로드밸런싱",
     "section": "",
-    "text": "` ### 이후 반환 순서 - AMI 삭제 - ALB 삭제 - Target group 삭제 - Security groups 삭제 - VPC 삭제"
+    "text": "AMI 삭제\nALB 삭제\nTarget group 삭제\nSecurity groups 삭제\nVPC 삭제"
   },
   {
     "objectID": "posts/2024.3.08. AWS ALB 실습하기/2024.3.8. AWS ALB 실습하기.html#질문-및-토론",
     "href": "posts/2024.3.08. AWS ALB 실습하기/2024.3.8. AWS ALB 실습하기.html#질문-및-토론",
-    "title": "2024.3.08. AWS ALB로 로드밸런싱",
+    "title": "AWS ALB로 로드밸런싱",
     "section": "",
     "text": "ALB의 한계는 무엇인가?\n다른 로드 밸런서들은 어떤가?\n재난 복구 관점에서, AWS 데이터센터가 갑자기 세상에서 증발하더라도, 웹 서비스가 멀쩡하게 동작하게끔 하려면?"
   },
@@ -228,21 +228,14 @@
     "href": "index.html",
     "title": "무한포옹 《無限抱擁》",
     "section": "",
-    "text": "2024.3.08. AWS ALB로 로드밸런싱\n\n\n2024.3.08. 수업 후 미션.\n\n\n\nCloud\n\n\nCloud/AWS\n\n\n\n\n\n\n\n\n\nMar 8, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto 블로그 예시 몇 가지\n\n\n\n\n\n\ncode\n\n\netc\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nJenkins 및 Pipeline으로 GitHub 연동\n\n\nJenkins 개념 및 실습.\n\n\n\nCI_CD\n\n\nJenkins\n\n\n\n\n\n\n\n\n\nFeb 20, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.30. 현장실습\n\n\n우리FISA 현장실습 대한 노트.\n\n\n\n현장\n\n\n특강\n\n\n\n\n\n\n\n\n\nJan 30, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.2.19. 취업 및 포트폴리오 특강\n\n\n우리FISA 특강 - 취업 및 포트폴리오 특강.\n\n\n\n현장\n\n\n특강\n\n\n\n\n\n\n\n\n\nJan 30, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware HA 및 DRS\n\n\nVMware HA 및 DRS 대한 수업 노트.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 27, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware 마이그레이션\n\n\nVMware로의 마이그레이션에 대한 수업 노트.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 25, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware 개요 및 HOL\n\n\nVMware에 대해서 알아보고, 이를 실습하기 위한 HOL에 접속해보자.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 22, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.19. 다이나믹 라우팅：OSPF (실습)\n\n\n2024.1.19. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 19, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.18. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.17. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 17, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. Cisco 스위치 및 라우터 공장초기화\n\n\n스위치나 라우터의 공장초기화가 필요할 때도 있다.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. VLAN 및 Static Routing 미션\n\n\n2024.1.16. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. 네트워크 이중화\n\n\n네트워크를 이중화하여 장애 등에 대비하자.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.15. Layer 2 & Layer 3\n\n\nOSI 7계층 중 layer 2 및 layer 3에 대하여.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 15, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.12. 셸 스크립팅\n\n\nLinux를 배울 때 필수적인 셸 스크립팅.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 12, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8\n\n\n서버를 구성한다고 가정할 때, RHEL 7과 8을 비교해보자.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 10, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n안녕하세요. 무한포옹 《無限抱擁》입니다.\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 15, 2023\n\n\nMugen-Houyou\n\n\n\n\n\n\nNo matching items"
+    "text": "AWS ALB로 로드밸런싱\n\n\n2024.3.08. 수업 후 미션.\n\n\n\nCloud\n\n\nCloud/AWS\n\n\n\n\n\n\n\n\n\nMar 8, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nQuarto 블로그 예시 몇 가지\n\n\n\n\n\n\ncode\n\n\netc\n\n\n\n\n\n\n\n\n\nFeb 28, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nJenkins 및 Pipeline으로 GitHub 연동\n\n\nJenkins 개념 및 실습.\n\n\n\nCI_CD\n\n\nJenkins\n\n\n\n\n\n\n\n\n\nFeb 20, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.30. 현장실습\n\n\n우리FISA 현장실습 대한 노트.\n\n\n\n현장\n\n\n특강\n\n\n\n\n\n\n\n\n\nJan 30, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.2.19. 취업 및 포트폴리오 특강\n\n\n우리FISA 특강 - 취업 및 포트폴리오 특강.\n\n\n\n현장\n\n\n특강\n\n\n\n\n\n\n\n\n\nJan 30, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware HA 및 DRS\n\n\nVMware HA 및 DRS 대한 수업 노트.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 27, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware 마이그레이션\n\n\nVMware로의 마이그레이션에 대한 수업 노트.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 25, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\nVMware 개요 및 HOL\n\n\nVMware에 대해서 알아보고, 이를 실습하기 위한 HOL에 접속해보자.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 22, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.19. 다이나믹 라우팅：OSPF (실습)\n\n\n2024.1.19. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 19, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.18. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 18, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.17. VirtualBox의 VM에서 내부망으로 연결\n\n\n2024.1.17. 수업 후 미션.\n\n\n\nVirtualization\n\n\n\n\n\n\n\n\n\nJan 17, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. Cisco 스위치 및 라우터 공장초기화\n\n\n스위치나 라우터의 공장초기화가 필요할 때도 있다.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. VLAN 및 Static Routing 미션\n\n\n2024.1.16. 수업 후 미션.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.16. 네트워크 이중화\n\n\n네트워크를 이중화하여 장애 등에 대비하자.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 16, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.15. Layer 2 & Layer 3\n\n\nOSI 7계층 중 layer 2 및 layer 3에 대하여.\n\n\n\nNetworks\n\n\n\n\n\n\n\n\n\nJan 15, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.12. 셸 스크립팅\n\n\nLinux를 배울 때 필수적인 셸 스크립팅.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 12, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8\n\n\n서버를 구성한다고 가정할 때, RHEL 7과 8을 비교해보자.\n\n\n\nLinux\n\n\n\n\n\n\n\n\n\nJan 10, 2024\n\n\nMugen-Houyou\n\n\n\n\n\n\n\n\n\n\n\n\n안녕하세요. 무한포옹 《無限抱擁》입니다.\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\nJan 15, 2023\n\n\nMugen-Houyou\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Hi!"
-  },
-  {
-    "objectID": "about.html#about-me",
-    "href": "about.html#about-me",
-    "title": "About",
-    "section": "",
-    "text": "Hi!"
+    "text": "안녕하세요! 무한포옹 《無限抱擁》입니다."
   },
   {
     "objectID": "posts/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8/2024.1.10. OS 선택하기 - RHEL 7 Vs. RHEL 8.html",
