@@ -9,7 +9,7 @@
 <meta name="author" content="Mugen-Houyou">
 <meta name="dcterms.date" content="2024-03-08">
 
-<title>Home - 2024.3.08. AWS ALB로 로드밸런싱</title>
+<title>Home - AWS ALB로 로드밸런싱</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -37,10 +37,12 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -99,14 +101,10 @@ ul.task-list li input[type="checkbox"] {
 </i> 
 <span class="menu-text"></span></a>
   </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="about:blank"> <i class="bi bi-twitter" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
 </ul>
           </div> <!-- /navcollapse -->
           <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -115,7 +113,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">2024.3.08. AWS ALB로 로드밸런싱</h1>
+      <h1 class="title">AWS ALB로 로드밸런싱</h1>
             <p class="subtitle lead">2024.3.08. 수업 후 미션.</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">Cloud</div>
@@ -167,6 +165,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#자원-반환" id="toc-자원-반환" class="nav-link" data-scroll-target="#자원-반환">♻️ 자원 반환</a>
   <ul class="collapse">
   <li><a href="#ec2-자원-반환-인스턴스-삭제" id="toc-ec2-자원-반환-인스턴스-삭제" class="nav-link" data-scroll-target="#ec2-자원-반환-인스턴스-삭제">EC2 자원 반환 (인스턴스 삭제)</a></li>
+  <li><a href="#이후-반환-순서" id="toc-이후-반환-순서" class="nav-link" data-scroll-target="#이후-반환-순서">이후 반환 순서:</a></li>
   </ul></li>
   <li><a href="#질문-및-토론" id="toc-질문-및-토론" class="nav-link" data-scroll-target="#질문-및-토론">🤔 질문 및 토론</a></li>
   </ul></li>
@@ -188,8 +187,16 @@ ul.task-list li input[type="checkbox"] {
 <section id="개요" class="level2">
 <h2 class="anchored" data-anchor-id="개요">📚 개요</h2>
 <ul>
-<li><p>로드밸런싱이란?</p></li>
-<li><p>예시</p>
+<li><p>로드밸런싱이란?</p>
+<ul>
+<li><p>여러 서버에 네트워크 트래픽이나 요청을 분산하여 처리하는 기술.</p></li>
+<li><p>기존의 단일 서버에서 발생할 수 있는 과부하를 방지하고, 애플리케이션의 고가용성 (HA) 및 재해 복구 (DR)를 달성.</p></li>
+<li><p>이 포스트에서 다룰 AWS의 Application Load Balancer (ALB)는 OSI 모델의 7계층에서 작동하여, ‘health check’ 기능을 통해 각 대상의 현재 상태를 모니터링하고, 문제가 있는 서버로부터 트래픽을 자동으로 분리. 이러한 솔루션을 통해 HTTP 및 HTTPS 트래픽을 유연하게 전달 가능.</p></li>
+</ul></li>
+</ul>
+<!-- -->
+<ul>
+<li><p>예시 <a href="https://catalog.us-east-1.prod.workshops.aws/workshops/600420b7-5c4c-498f-9b80-bc7798963ba3/ko-KR/ec2/50-elb/100-create-elb">출처🔗</a></p>
 <p><img src="architecture.svg" class="img-fluid"></p></li>
 </ul>
 </section>
@@ -319,7 +326,17 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="자원-반환">♻️ 자원 반환</h2>
 <section id="ec2-자원-반환-인스턴스-삭제" class="level3">
 <h3 class="anchored" data-anchor-id="ec2-자원-반환-인스턴스-삭제">EC2 자원 반환 (인스턴스 삭제)</h3>
-<p><img src="Pasted image 20240308171230.png" class="img-fluid"> ` ### 이후 반환 순서 - AMI 삭제 - ALB 삭제 - Target group 삭제 - Security groups 삭제 - VPC 삭제</p>
+<p><img src="Pasted image 20240308171230.png" class="img-fluid"></p>
+</section>
+<section id="이후-반환-순서" class="level3">
+<h3 class="anchored" data-anchor-id="이후-반환-순서">이후 반환 순서:</h3>
+<ul>
+<li>AMI 삭제</li>
+<li>ALB 삭제</li>
+<li>Target group 삭제</li>
+<li>Security groups 삭제</li>
+<li>VPC 삭제</li>
+</ul>
 </section>
 </section>
 <section id="질문-및-토론" class="level2">
@@ -355,6 +372,150 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -416,7 +577,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/Mugen-Houyou\.github\.io\/blog-prj-qu\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

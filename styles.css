@@ -1,4 +1,14 @@
 .list.quarto-listing-default div:last-of-type {
-    max-height: 200px;
-    overflow-y: hidden;
-  }
+  max-height: 200px;
+  overflow-y:hidden;
+}
+
+/* body {
+  background-attachment: fixed;
+} */
+
+div.quarto-title.column-page-left > p.subtitle.lead {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-weight: 200;
+}

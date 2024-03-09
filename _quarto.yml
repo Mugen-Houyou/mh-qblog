@@ -9,10 +9,10 @@ website:
       - about.qmd
       - icon: github
         href: https://github.com/Mugen-Houyou
-      - icon: twitter
-        href: about:blank
 format:
   html:
-    theme: cosmo
+    theme: 
+      light: minty
+      dark: darkly
     css: styles.css
 
