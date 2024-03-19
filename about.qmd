@@ -4,19 +4,16 @@ image: profile.jpg
 about:
   template: jolla
   links:
-    - icon: twitter
-      text: Twitter
-      href: https://twitter.com
+    - icon: instagram
+      text: Instagram
+      href: https://instagram.com/2011gakim
     - icon: linkedin
       text: LinkedIn
-      href: https://linkedin.com
+      href: https://www.linkedin.com/in/mihnsurk-kim-3a56a2234/
     - icon: github
       text: Github
       href: https://github.com/Mugen-Houyou
 
 ---
 
-# About this blog
-
-## About me
-Hi!
+안녕하세요! 무한포옹 《無限抱擁》입니다.

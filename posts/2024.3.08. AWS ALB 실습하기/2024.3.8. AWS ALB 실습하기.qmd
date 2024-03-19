@@ -1,0 +1,178 @@
+---
+title: "AWS ALB로 로드밸런싱"
+subtitle: "2024.3.08. 수업 후 미션."
+author: "Mugen-Houyou"
+date: "2024-03-08"
+categories: ["Cloud", "Cloud/AWS"]
+image: "i5PS0.png"
+toc: true
+draft: false
+---
+
+# 📅 2024.3.8. AWS ALB로 로드밸런싱
+
+-   **🏷️ Tags**: #03-2024 #Cloud #Cloud/AWS
+
+## 📚 개요
+
+-   로드밸런싱이란?
+
+    -   여러 서버에 네트워크 트래픽이나 요청을 분산하여 처리하는 기술.
+
+    -   기존의 단일 서버에서 발생할 수 있는 과부하를 방지하고, 애플리케이션의 고가용성 (HA) 및 재해 복구 (DR)를 달성.
+
+    -   이 포스트에서 다룰 AWS의 Application Load Balancer (ALB)는 OSI 모델의 7계층에서 작동하여, 'health check' 기능을 통해 각 대상의 현재 상태를 모니터링하고, 문제가 있는 서버로부터 트래픽을 자동으로 분리. 이러한 솔루션을 통해 HTTP 및 HTTPS 트래픽을 유연하게 전달 가능.
+
+<!-- -->
+
+-   예시 [출처🔗](https://catalog.us-east-1.prod.workshops.aws/workshops/600420b7-5c4c-498f-9b80-bc7798963ba3/ko-KR/ec2/50-elb/100-create-elb)
+
+    ![](architecture.svg)
+
+## 🛠 Step-by-Step 튜토리얼
+
+### 준비사항
+
+-   리전 확인
+
+    ![](Pasted%20image%2020240308161004.png)
+
+### 네트워크 구성
+
+#### VPC 생성 및 서브넷 구성
+
+-   좌측상단의 Create VPC 클릭
+
+    ![](Pasted%20image%2020240308161141.png)
+
+-   VPC and more 선택 후, AZ 1개, public subnet 1개, private subnets 0개,
+
+-   단, public subnet에 대한 CIDR block는 아래와 같이 구성 (10.0.10.0/24)
+
+    ![](Pasted%20image%2020240308161506.png){width="350px"}
+
+-   이후 AP-NE-2c 리전에 10.0.20.0/24 subnet를 추가 생성
+
+    ![](images/paste-1.png)
+
+![](Pasted%20image%2020240308161944.png)
+
+-   생성된 두 개의 subnet에 대하여 라우팅 테이블 편집
+
+-   Subnet을 클릭 후 edit route table association 클릭
+
+    ![](Pasted%20image%2020240308162137.png){width="250px"}
+
+-   이후 아래와 같이 Main route table이 아닌 라우팅 테이블을 선택 후 저장
+
+    ![](Pasted%20image%2020240308162243.png){width="500px"}
+
+#### 보안 그룹 생성
+
+-   이 lab에서는 EC2 웹서버용 보안 그룹과 ALB용 보안 그룹, **총 2개를 생성해야 함**
+
+-   그러나 이 항목에서는 EC2 웹서버용 보안 그룹만 생성함
+
+-   webserver-sg에는 아래와 같이 inbound/outbound rules 지정 후 저장
+
+    ![](Pasted%20image%2020240308162621.png)
+
+### EC2 인스턴스 생성
+
+#### 첫 번째 인스턴스
+
+-   리전을 AP-NE-2a로 지정, t2.micro, 위에 생성한 VPC 및 webserver-sg 사용
+
+-   Auto-assign public IP를 Enable로 설정!
+
+-   단, Advanced details 항목의 맨 아래에 아래와 같이 웹서버로 구동되기 위한 초기 스크립트를 구성
+
+    ![](Pasted%20image%2020240308163351.png){width="400px"}
+
+#### 두 번째 인스턴스
+
+-   두 번째 인스턴스는 첫 번째 인스턴스를 이미지화한 AMI로부터 생성
+
+-   아래와 같이 Launch instance from AMI 클릭
+
+    ![](Pasted%20image%2020240308163442.png)
+
+-   리전을 AP-NE-2c로 지정, t3.micro, 위에 생성한 VPC 및 webserver-sg 사용
+
+-   Auto-assign public IP를 Enable로 설정!
+
+#### 인스턴스 2개 웹서버 확인
+
+-   2개 인스턴스 모두 http://<IP 주소>/로 접속하여 웹서버 정상 작동 확인
+
+    ![](Pasted%20image%2020240308164041.png)
+
+### 로드 밸런서 생성
+
+#### ALB 생성
+
+-   아래와 같이 좌측 첫 번째 항목을 선택하여 ALB 생성
+
+    ![](Pasted%20image%2020240308164219.png)
+
+#### 보안 그룹 생성
+
+-   위 EC2 항목에서 언급한 대로 보안 그룹이 2개가 필요한데, 이 항목에서는 ALB에 대한 보안 그룹을 생성함
+
+-   다만, 이거 이후에도 한 번 더 보안 그룹을 수정해야 함
+
+-   아래와 같은 inbound/outbound rules를 기반으로 생성함
+
+    ![](Pasted%20image%2020240308164553.png)
+
+#### 타깃 그룹 생성
+
+-   Target group는 아래와 같이 구성
+
+    ![](Pasted%20image%2020240308164747.png)
+
+#### ALB 생성 스펙 요약
+
+![](Pasted%20image%2020240308164916.png)
+
+#### 보안 그룹 수정
+
+-   EC2 웹서버에 대한 보안 그룹을 수정해야 함
+
+-   아래와 같이 inbound rules를 수정함, 단, 규칙을 수정하는 것이 아니라 삭제 후 생성하는 식으로 해야 함
+
+-   EC2 웹서버의 보안 그룹 (webserver-sg)을 수정하는데, 아래와 같이, HTTP 및 HTTPS에 대하여, webalb-sg를 선택한 뒤 저장
+
+    ![](Pasted%20image%2020240308165310.png)
+
+### 로드밸런서 작동 확인
+
+#### 웹서버로 접속하여 확인
+
+-   다시 로드밸런서 메뉴로 돌아와, 아래와 같이 DNS name 항목을 복사
+
+    ![](Pasted%20image%2020240308165550.png)
+
+-   웹브라우저 주소창에 복붙하여 정상 작동 확인
+
+    ![](Pasted%20image%2020240308165627.png){width="600px"}
+
+## ♻️ 자원 반환
+
+### EC2 자원 반환 (인스턴스 삭제)
+
+![](Pasted%20image%2020240308171230.png)
+
+### 이후 반환 순서:
+
+-   AMI 삭제
+-   ALB 삭제
+-   Target group 삭제
+-   Security groups 삭제
+-   VPC 삭제
+
+## 🤔 질문 및 토론
+
+-   ALB의 한계는 무엇인가?
+-   다른 로드 밸런서들은 어떤가?
+-   재난 복구 관점에서, AWS 데이터센터가 갑자기 세상에서 증발하더라도, 웹 서비스가 멀쩡하게 동작하게끔 하려면?
