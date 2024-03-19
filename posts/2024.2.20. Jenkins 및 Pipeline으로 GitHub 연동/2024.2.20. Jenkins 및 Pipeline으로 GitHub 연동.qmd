@@ -15,6 +15,9 @@ tags:
 # Jenkins 및 Pipeline으로 GitHub 연동
 - **🏷️Tags** :   #02-2024 #CI_CD #CI_CD/Jenkins 
 
+![Jenkins 로고.](logo-title-opengraph.png)
+
+
 ## 금일 과제
 1. GitHub에 fisa240220_2 레포지터리 생성
 2. Spring로 간단하게 step07_citest 프로젝트 생성
