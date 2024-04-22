@@ -12,7 +12,7 @@ website:
 format:
   html:
     theme: 
-      light: minty
+      light: [flatly, theme-light.scss]
       dark: darkly
     css: styles.css
 
