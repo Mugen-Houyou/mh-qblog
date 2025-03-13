@@ -176,3 +176,6 @@ draft: false
 -   ALB의 한계는 무엇인가?
 -   다른 로드 밸런서들은 어떤가?
 -   재난 복구 관점에서, AWS 데이터센터가 갑자기 세상에서 증발하더라도, 웹 서비스가 멀쩡하게 동작하게끔 하려면?
+    -   OpenStack 등 프라이빗 클라우드로의 이중화 고려
+
+![](images/paste-2.png){fig-align="center" width="320"}
