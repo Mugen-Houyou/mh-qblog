@@ -1,1 +1,1 @@
-Sitemap: https://Mugen-Houyou@github.com/Mugen-Houyou/blog-prj-qu.git/sitemap.xml
+Sitemap: https://Mugen-Houyou.github.io/mh-qblog/sitemap.xml
